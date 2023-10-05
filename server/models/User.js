@@ -1,16 +1,9 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
+const carSchema = require('./Car');
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
+  username: {
     type: String,
     required: true,
     trim: true
@@ -25,7 +18,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  orders: [Order.schema]
+  savedCars: [carSchema],
+  
+},{
+  toJSON: {
+    virtuals: true,
+  },
 });
 
 // set up pre-save middleware to create password
@@ -42,6 +40,10 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('complaintCount').get(function () {
+  return this.carSchema.complaints.length;
+});
 
 const User = mongoose.model('User', userSchema);
 
