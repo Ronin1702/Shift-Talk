@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 const styles = {
     jumbotron: {
         backgroundColor: "white",
-        marginTop: 150,
-        marginBottom: 100
+        marginTop: 50,
+        marginBottom: "70vh"
     },
     form: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        paddingBottom: 20,
         marginBottom: 20
     },
     input: {

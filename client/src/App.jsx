@@ -37,12 +37,13 @@ function App() {
     <ApolloProvider client={client}>
         <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
           <Nav />
-          <Outlet />
-          <Footer />
+          {/* <Outlet /> */}
+         
           <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/results" element={<Results />} />
           </Routes>
+           <Footer />
         </div>
     </ApolloProvider>
   );
