@@ -8,11 +8,11 @@ const complaintsSchema = new Schema({
     minlength: 6,
     trim: true,
   },
-  // author: {
-  //   type: String,
-  //   required: true,
-  //   trim: true,
-  // },
+  author: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -20,6 +20,12 @@ const complaintsSchema = new Schema({
   },
   car: { type: Schema.Types.ObjectId, ref: 'Car', required: true },
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Comment',
+    },
+  ],
 });
 
 const Complaint = model('Complaint', complaintsSchema);

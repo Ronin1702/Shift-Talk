@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose');
-// const bcrypt = require('bcrypt');
-// const Car = require('./Car');
 
 const userSchema = new Schema(
   {
@@ -20,8 +18,8 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    // complaints: [{ type: Schema.Types.ObjectId, ref: 'Complaint' }],
-    // comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+    complaints: [ {type : Schema.Types.ObjectId, ref: 'Complaint'}],
+    cars: [ {type : Schema.Types.ObjectId, ref: 'Car'}],
   }
   // {
   //   toJSON: {

@@ -5,6 +5,7 @@ const typeDefs = `
     username: String
     email: String
     password: String
+    complaints: [Complaint]
   }
 
   type Car {
@@ -12,11 +13,13 @@ const typeDefs = `
     make: String
     model: String
     year: Int
+    complaints: [Complaint]
   }
 
   type Complaint {
     _id: ID
     text: String
+    author: String
     createdAt: String
     car: Car
     user: User
@@ -30,17 +33,18 @@ const typeDefs = `
     createdAt: String
     complaint: Complaint
     user: User
+    car: Car
   }
 
   # Define which queries the front end is allowed to make and what data is returned
 
   type Query {
     user(_id: ID): User
-    car(_id:ID): Car
-    complaint: Complaint
-    comment: Comment
-    complaints: [Complaint]
-    comments: [Comment]
+    car(_id: ID): Car
+    complaint(_id: ID): Complaint
+    comment(_id: ID): Comment
+    complaints(carId: ID): [Complaint]
+    comments(complaintId: ID): [Comment]
   }
 
   type Mutation {

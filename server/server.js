@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 // Import the ApolloServer class and expressMiddleware helper function
 const { ApolloServer } = require('@apollo/server');
