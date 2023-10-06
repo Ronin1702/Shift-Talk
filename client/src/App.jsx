@@ -1,4 +1,4 @@
-import { Outlet, HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -38,9 +38,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <StoreProvider>
-        <Nav />
-        <Outlet />
-        <Footer />
+        <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
+          <Nav />
+          <Outlet />
+          <Footer />
+          <Route path="/" element={<Home />} />
+          <Route path="/results" element={<Results />} />
+        </div>
       </StoreProvider>
     </ApolloProvider>
   );
