@@ -40,9 +40,19 @@ function Nav() {
     };
 
     const handleDownloadClick = () => {
-        // TODO: Implement code to download the file here.
-
-      };
+      // Create a new anchor element
+      const link = document.createElement('a');
+      // Set the href attribute to the URL of the file to download
+      link.href = 'https://example.com/path/to/file.pdf';
+      // Set the download attribute to the desired filename
+      link.download = 'filename.pdf';
+      // Add the anchor element to the DOM
+      document.body.appendChild(link);
+      // Click the anchor element to start the download
+      link.click();
+      // Remove the anchor element from the DOM
+      document.body.removeChild(link);
+    };
 
     return (
        

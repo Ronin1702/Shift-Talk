@@ -2,7 +2,7 @@ import React from 'react';
 import IV from '../assets/images/IV.png';
 import CQlove from '../assets/images/CQlove.png';
 import ronin from '../assets/images/ronin.png';
-import ceres from '../assets/images/markley.png';
+import ceres from '../assets/images/ceres.png';
 import github from '../assets/images/github.png';
 
 const styles = {
