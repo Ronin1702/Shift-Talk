@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-import Home from './components/pages/Home.jsx';
+import Home from './pages/Home.jsx';
 const router = createBrowserRouter([
   {
     path: '/',

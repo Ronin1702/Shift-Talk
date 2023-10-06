@@ -8,9 +8,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Nav from './components/Nav';
-import Home from './components/pages/Home';
+import Home from './pages/Home';
 import Footer from './components/Footer';
-import Results from './components/pages/Results';
+import Results from './pages/Results';
 import background from './assets/images/goldback.png';
 
 const httpLink = createHttpLink({
