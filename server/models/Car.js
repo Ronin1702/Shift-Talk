@@ -1,17 +1,23 @@
 const { Schema, model } = require('mongoose');
-const  complaintSchema = require('./Complaint');
 
 const carsSchema = new Schema({
-  car: {
+  make: {
     type: String,
-    make: String,
-    model: String,
-    year: Number,
-    required: 'You Must Enter a car make model and year',
+    required: true,
+    trim: true,
   },
-  complaints: [complaintSchema],
+  model: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  year: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
 });
 
-const Car = model('car', carsSchema);
+const Car = model('Car', carsSchema);
 
 module.exports = Car;
