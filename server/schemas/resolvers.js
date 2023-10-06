@@ -35,7 +35,7 @@ const resolvers = {
     complaints: async (car) => {
       return await Complaint.find({ car: car._id });
     },
-},
+  },
   User: {
     //in our case a user cannot create a car, they can make a complaint about a car, or add a comment to a complaint, and only under that complaint they can see which car they were complaining about.
     complaints: async (user) => {
