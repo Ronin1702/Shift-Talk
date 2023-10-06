@@ -11,7 +11,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Results from './pages/Results';
-import background from './assets/background.jpg';
+import background from './assets/images/goldback';
 
 import { StoreProvider } from './utils/GlobalState';
 
