@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "651f66a44ffb6b19e3b0855e"
+  },
+  "text": "too slow",
+  "car": {
+    "$oid": "651f5617b36de0f5e406f5af"
+  },
+  "user": {
+    "$oid": "651f5552b36de0f5e406f5ac"
+  },
+  "createdAt": {
+    "$date": "2023-10-06T01:45:08.754Z"
+  },
+  "__v": 0,
+  "author": "team1",
+  "comments": [
+    {
+      "$oid": "651f980bc0821408214b03b9"
+    },
+    {
+      "$oid": "651f9884c0821408214b03bf"
+    },
+    {
+      "$oid": "651faae7d9ae3ed155d3156e"
+    },
+    {
+      "$oid": "651fab24d9ae3ed155d31574"
+    },
+    {
+      "$oid": "651fab81d9ae3ed155d3157c"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "651f8c322e8b26010fe9fb4b"
+  },
+  "text": "too low",
+  "author": "team1",
+  "car": {
+    "$oid": "651f5617b36de0f5e406f5af"
+  },
+  "user": {
+    "$oid": "651f5552b36de0f5e406f5ac"
+  },
+  "createdAt": {
+    "$date": "2023-10-06T04:25:22.264Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651f8ff225b63e7010b7a9b9"
+  },
+  "text": "too fast too furious",
+  "author": "team1",
+  "car": {
+    "$oid": "651f5617b36de0f5e406f5af"
+  },
+  "user": {
+    "$oid": "651f5552b36de0f5e406f5ac"
+  },
+  "createdAt": {
+    "$date": "2023-10-06T04:41:22.377Z"
+  },
+  "__v": 0
+}]

@@ -1,5 +1,6 @@
 const { User, Car, Complaint, Comment } = require('../models');
 const { GraphQLError } = require('graphql');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
@@ -29,6 +30,18 @@ const resolvers = {
     },
     comment: async (parent, args) => {
       return await Comment.findById(args._id);
+    },
+    me: async (parent, args, context, info) => {
+      console.log('Context from me query:', context.user);
+      // console.log('Parent Path from me query:', parent);
+      // console.log('Args Path from me query:', args);
+      // console.log('Info Path from me query:', info);
+      // if no user object, throw authentication error
+      if (context.user) {
+        // initialize variables
+        return User.findOne({ _id: context.user._id }).populate(`complaints`);
+      }
+      throw new GraphQLError('Failed to Execute me Query from Resolvers.js');
     },
   },
   Car: {
@@ -70,11 +83,28 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
-      return await User.create({ username, email, password });
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     },
     login: async (parent, { username, password }) => {
-      return await User.findOne({ username });
+      const user = await User.findOne({ username });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
     },
+
     addComplaint: async (parent, args, context) => {
       // Remember to change the hardcoded id to context.user._id when we have authentication
       const userIdentified = await User.findById('651f5552b36de0f5e406f5ac');
