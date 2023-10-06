@@ -27,7 +27,7 @@ const Footer = () => (
             <h5> Designed, Coded, and Cultivated 🌱 by TEAM ONE</h5>
             
             <a
-                href="https://github.com/Team-ONE-OSU"
+                href="https://github.com/orgs/Team-ONE-OSU/repositories"
                 rel="noreferrer"
                 target="_blank">
                 
