@@ -1,0 +1,102 @@
+[{
+    "_id": {
+      "$oid": "651f70e4c84e411c70434fe3"
+    },
+    "text": "This is test comment",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T02:28:52.644Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "651f980bc0821408214b03b9"
+    },
+    "text": "When the last test comment was added, Complaint.js schema didn't include comments filed, so that when querying a single complaint by id, I see a null returned. So here I added the comments ObjectId to the complaintsSchema, let see if it works!",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T05:15:55.185Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "651f9884c0821408214b03bf"
+    },
+    "text": "This is the 3rd test comment, and it looks like it worked, the commentId was added to the complaints collection on mongodb!",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T05:17:56.434Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "651faae7d9ae3ed155d3156e"
+    },
+    "text": "This is the 4th test comment, now trying Im trying to fetch one single comment but also show the car that this comment is related to just like the complaint, without having to add the carId to the comment's collection",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T06:36:23.472Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "651fab24d9ae3ed155d31574"
+    },
+    "text": "This is the 5th test just to see if I can add a car to the comment",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T06:37:24.946Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "651fab81d9ae3ed155d3157c"
+    },
+    "text": "This is the 6th test comment: so you dont need to add car filed to comments, when adding a single comment, if you want the car field to return it works too",
+    "author": "team1",
+    "complaint": {
+      "$oid": "651f66a44ffb6b19e3b0855e"
+    },
+    "user": {
+      "$oid": "651f5552b36de0f5e406f5ac"
+    },
+    "createdAt": {
+      "$date": "2023-10-06T06:38:57.829Z"
+    },
+    "__v": 0
+  }]
