@@ -39,7 +39,7 @@ const Home = () => {
         // convert year to a number and trim any whitespace
         const numericYear = parseInt(year.trim(), 10);
 
-        // just pure letters for make but we can have number and letter for model
+        // check if the make, model, and year are valid
         const validMake = /^[a-zA-Z]+$/.test(trimmedMake);
         if (!validMake) {
             setErrorMessage('You can only have letters in Make field');
@@ -91,11 +91,17 @@ const Home = () => {
                     <button type="submit" onClick={handleSubmit}>Search</button>
                 </form>
                 <div className="error-message">
-                    {/* show errorMessage */}
-                    {errorMessage && <p>{errorMessage}</p>}
+                    {/* show errorMessage if has*/}
+                    {errorMessage && (
+                        <p>
+                            {errorMessage}
+                            <br />
+                            Please try again.
+                        </p>
+                    )}
                 </div>
                 <div className="complaints-container">
-                    {/* Map over complaints and render a ComplaintCard for each one */}
+                    {/* check if we have data or not, if have then map over */}
                     {data && data.car && data.car.complaints.map((complaint) => (
                         <div key={complaint._id}>
                             <p>Text: {complaint.text}</p>
