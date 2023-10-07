@@ -88,7 +88,8 @@ const Home = () => {
                     <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} style={styles.input} />
                     <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)} style={styles.input} />
                     <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)} style={styles.input} />
-                    <button type="submit" onClick={handleSubmit}>Search</button>
+                    {/* when the search is loading, it's fetching data, so we disable this button at this time*/}
+                    <button type="submit" disabled={loading}>Search</button>
                 </form>
                 <div className="error-message">
                     {/* show errorMessage if has*/}
