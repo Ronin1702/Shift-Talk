@@ -26,19 +26,19 @@ const Home = () => {
     const [year, setYear] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
 
+    // Any whitespace in the make or model should be removed and the string should be converted to lowercase
+    // so that we can manage the data more easily
+    const trimmedMake = make.replace(/\s/g, '').toLowerCase();
+    const trimmedModel = model.replace(/\s/g, '').toLowerCase();
+    // convert year to a number and trim any whitespace
+    const numericYear = parseInt(year.trim(), 10);
+
     const { loading, error, data } = useQuery(GET_CAR, {
-        variables: { make, model, year },
+        variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
     });
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Any whitespace in the make or model should be removed and the string should be converted to lowercase
-        // so that we can manage the data more easily
-        const trimmedMake = make.replace(/\s/g, '').toLowerCase();
-        const trimmedModel = model.replace(/\s/g, '').toLowerCase();
-        // convert year to a number and trim any whitespace
-        const numericYear = parseInt(year.trim(), 10);
-
         // check if the make, model, and year are valid
         const validMake = /^[a-z]+$/.test(trimmedMake);
         if (!validMake) {
@@ -62,9 +62,10 @@ const Home = () => {
             // make sure we clear any error messages before making the request
             setErrorMessage(null);
 
-            const { data } = await GET_CAR({
-                variables: { make: trimmedMake, model: trimmedModel, year: numericYear }
-            });
+            // const { data } = await GET_CAR({
+            //     variables: { make: trimmedMake, model: trimmedModel, year: numericYear }
+            // });
+
             console.log(data);
 
             const car = data.car;
@@ -105,7 +106,7 @@ const Home = () => {
                     {/* check if we have data or not, if have then map over */}
                     {data && data.car && data.car.complaints.map((complaint) => (
                         <div key={complaint._id}>
-                            <p>Text: {complaint.text}</p>
+                            <p>Complaint: {complaint.text}</p>
                             <p>Author: {complaint.author}</p>
                         </div>
                     ))}
