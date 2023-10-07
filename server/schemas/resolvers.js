@@ -5,12 +5,27 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {
+    // car: async (parent, args) => {
+    //   console.log('args:', args);
+    //   const carIdentified = await Car.findById(args._id);
+    //   const complaints = await Complaint.find({ car: carIdentified._id });
+    //   return { ...carIdentified._doc, complaints };
+    // },
+
     car: async (parent, args) => {
+      const { make, model, year } = args;
       console.log('args:', args);
-      const carIdentified = await Car.findById(args._id);
+      // find car by make, model, and year
+      const carIdentified = await Car.findOne({ make, model, year });
+      // check if car exists
+      if (!carIdentified) {
+        throw new GraphQLError('Cannot find car by given information');
+      }
       const complaints = await Complaint.find({ car: carIdentified._id });
       return { ...carIdentified._doc, complaints };
     },
+
+
     user: async (parent, args) => {
       const userIdentified = await User.findById(args._id);
       // Get and return all documents from the classes collection

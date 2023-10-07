@@ -8,9 +8,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Nav from './components/Nav';
-import Home from './pages/Home';
+import Header from './components/Header';
 import Footer from './components/Footer';
-import Results from './pages/Results';
 import background from './assets/images/goldback.png';
 
 const httpLink = createHttpLink({
@@ -35,15 +34,12 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-        <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
-          <Nav />
-          <Outlet />
-          <Footer />
-          <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/results" element={<Results />} />
-          </Routes>
-        </div>
+      <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
+        <Header />
+        <Nav />
+        <Outlet />
+        <Footer />
+      </div>
     </ApolloProvider>
   );
 }

@@ -18,6 +18,8 @@ const carsSchema = new Schema({
   },
 });
 
+carsSchema.index({ make: 1, model: 1, year: 1 }, { unique: true });
+
 const Car = model('Car', carsSchema);
 
 module.exports = Car;
