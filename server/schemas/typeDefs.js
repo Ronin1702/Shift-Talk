@@ -45,7 +45,7 @@ const typeDefs = `
 
   type Query {
     user(_id: ID): User
-    car(_id: ID): Car
+    car(make: String!, model: String!, year: Int!): Car
     complaint(_id: ID): Complaint
     comment(_id: ID): Comment
     complaints(carId: ID): [Complaint]
