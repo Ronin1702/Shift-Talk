@@ -40,13 +40,13 @@ const Home = () => {
         const numericYear = parseInt(year.trim(), 10);
 
         // check if the make, model, and year are valid
-        const validMake = /^[a-zA-Z]+$/.test(trimmedMake);
+        const validMake = /^[a-z]+$/.test(trimmedMake);
         if (!validMake) {
             setErrorMessage('You can only have letters in Make field');
             return;
         }
 
-        const validModel = /^[a-zA-Z0-9]+$/.test(trimmedModel);
+        const validModel = /^[a-z0-9]+$/.test(trimmedModel);
         if (!validModel) {
             setErrorMessage('You can only have letters and numbers in Model field');
             return;
