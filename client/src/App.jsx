@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import { Routes, Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,9 +8,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Nav from './components/Nav';
-import Home from './pages/Home';
 import Footer from './components/Footer';
-import Results from './pages/Results';
+// import Results from './pages/Results';
 import background from './assets/images/goldback.png';
 
 const httpLink = createHttpLink({
@@ -40,8 +39,8 @@ function App() {
           <Outlet />
           <Footer />
           <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/results" element={<Results />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          {/* <Route path="/results" element={<Results />} /> */}
           </Routes>
         </div>
     </ApolloProvider>

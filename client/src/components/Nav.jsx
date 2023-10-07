@@ -22,7 +22,7 @@ function Nav() {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     const [showModal, setShowModal] = useState(false);
     // This state variable will track whether the modal is in login mode or signup mode.
-    const [loginMode, setLoginMode] = useState(true); 
+    const [loginMode, setLoginMode, signupMode, setSignedUp] = useState(true); 
 
 
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
