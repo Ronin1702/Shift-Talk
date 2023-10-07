@@ -1,0 +1,22 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  form {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .jumbotron {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  input {
+    margin-right: 10px;
+  }
