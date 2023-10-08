@@ -7,7 +7,8 @@ import github from '../assets/images/github.png';
 
 const styles = {
     footer: {
-        backgroundColor:"#302F31",
+        color: "#22668D",
+        backgroundColor:"#FFCC70",
         flexShrink:"none"
     },
     icon: {
@@ -20,7 +21,7 @@ const styles = {
 const Footer = () => (
     <footer
         id="sticky-footer"
-        className="py-4 bg-light text-black-50"
+        className="py-4"
         style={styles.footer}>
         
         <div className="container text-center justify-content-center">

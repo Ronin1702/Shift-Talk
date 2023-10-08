@@ -35,9 +35,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
         <Background>
-        <Header />
-        <Nav />
-        <Outlet />
+          <Header/>
+          <Outlet />
         </Background>
         <Footer />
     </ApolloProvider>

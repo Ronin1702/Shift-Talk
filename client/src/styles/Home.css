@@ -1,6 +1,7 @@
 .container {
     max-width: 100%;
     margin: 0 auto;
+    border-radius: 10px;
   }
   
   form {
@@ -13,10 +14,34 @@
   }
 
   .jumbotron {
+    background-color: #8ECDDD;
     margin-top: 50px;
     margin-bottom: 100px;
+    border-radius: 10px;
   }
 
   input {
     margin-right: 10px;
+    border-radius: 5px;
+  }
+
+  .complaints-container {
+    background-color: #8ECDDD;
+    border-radius: 10px;
+  }
+
+  .singleComplaint {
+    max-width: 400px;
+    color: #FFFADD;
+    background-color: #22668D;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    border-radius: 5px;
+  }
+
+  h1 {
+    font-size: 25px;
   }

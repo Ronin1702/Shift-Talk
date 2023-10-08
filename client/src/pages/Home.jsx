@@ -5,7 +5,6 @@ import Comments from '../components/Comments';
 
 const styles = {
     jumbotron: {
-        backgroundColor: "white",
         marginTop: 150,
         marginBottom: 100
     },
@@ -103,8 +102,8 @@ const Home = () => {
     return (
         <div className="container-sm container-md container-lg container-xl">
             <div className="jumbotron shadow" style={styles.jumbotron}>
-                <h1 className="display-4 text-center">
-                    Home
+                <h1 className="text-center">
+                    Enter the Make, Model, and Year of your car to see what people are saying!
                 </h1>
                 <form onSubmit={handleSubmit} style={styles.form}>
                     <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} style={styles.input} />
@@ -126,15 +125,14 @@ const Home = () => {
                 <div className="complaints-container">
                     {/* check if we have data or not, if have then map over */}
                     {refetchedData && refetchedData.car && refetchedData.car.complaints.map((complaint) => (
-                        <div key={complaint._id}>
-                            <p>Complaint: {complaint.text}</p>
-                            <p>Author: {complaint.author}</p>
+                        <div className='singleComplaint' key={complaint._id}>
+                            <p>{complaint.author} wrote: {complaint.text}</p>
                             {expandedComplaintId === complaint._id && (
                                 <div>
                                     <Comments complaintId={complaint._id} />
                                 </div>
                             )}
-                            <button onClick={() => handleToggleComments(complaint._id)}>View Comments</button>
+                            <button onClick={() => handleToggleComments(complaint._id)}> Reply </button>
                         </div>
                     ))}
                 </div>
