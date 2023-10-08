@@ -84,8 +84,8 @@ const Home = () => {
     };
 
     return (
-        <div className="container-sm container-md container-lg container-xl">
-            <div className="jumbotron shadow">
+        <div className="container-sm container-md container-lg container-xl shadow">
+            <div className='homeForm'>
                 <h1 className="text-center">
                     Enter the Make, Model, and Year of Vehicle!
                 </h1>

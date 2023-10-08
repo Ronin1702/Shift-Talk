@@ -37,8 +37,8 @@ function App() {
         <Background>
           <Header/>
           <Outlet />
-        </Background>
         <Footer />
+        </Background>
     </ApolloProvider>
   );
 }
