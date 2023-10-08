@@ -84,20 +84,17 @@ const Home = () => {
     };
 
     return (
-        <div className="container-sm container-md container-lg container-xl shadow">
-            <div className='homeForm'>
+        <div className="container-sm container-md container-lg container-xl">
+
+                <form onSubmit={handleSubmit} className='form'>
                 <h1 className="text-center">
                     Enter the Make, Model, and Year of Vehicle!
                 </h1>
-                <InputGroup className="mb-3">
-                <form onSubmit={handleSubmit} className='form'>
                     <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} className="input" />
                     <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)}  />
                     <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)}  />
                     {/* when the search is loading, it's fetching data, so we disable this button at this time*/}
                     <button type="submit" disabled={loading}>Search</button>
-                </form>
-                </InputGroup>
                 <div className="error-message">
                     {/* show errorMessage if has*/}
                     {errorMessage && (
@@ -122,8 +119,8 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
+            </form>
             </div>
-        </div>
     );
 };
 
