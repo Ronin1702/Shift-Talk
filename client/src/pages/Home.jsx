@@ -25,6 +25,7 @@ const Home = () => {
     const [model, setModel] = useState("");
     const [year, setYear] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
+    const [refetchedData, setRefetchedData] = useState(null);
 
     // Any whitespace in the make or model should be removed and the string should be converted to lowercase
     // so that we can manage the data more easily
@@ -33,8 +34,9 @@ const Home = () => {
     // convert year to a number and trim any whitespace
     const numericYear = parseInt(year.trim(), 10);
 
-    const { loading, error, data } = useQuery(GET_CAR, {
+    const { loading, error, data, refetch } = useQuery(GET_CAR, {
         variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
+        skip: true,
     });
 
     const handleSubmit = async (event) => {
@@ -65,15 +67,23 @@ const Home = () => {
             // const { data } = await GET_CAR({
             //     variables: { make: trimmedMake, model: trimmedModel, year: numericYear }
             // });
+            const { data: refetchedData } = await refetch({ make: trimmedMake, model: trimmedModel, year: numericYear });
+            console.log(refetchedData);
 
-            console.log(data);
+            setRefetchedData(refetchedData);
+            if (refetchedData && refetchedData.car) {
+                const car = refetchedData.car;
+                console.log(car);
 
-            const car = data.car;
-            console.log(car);
-
-            const complaints = car.complaints;
-            console.log(complaints);
-
+                if (car.complaints) {
+                    const complaints = car.complaints;
+                    console.log(complaints);
+                } else {
+                    console.log("No complaints found for this car.");
+                }
+            } else {
+                console.log("No data found for this car.");
+            }
         } catch (err) {
             console.error(err);
         }
@@ -104,7 +114,7 @@ const Home = () => {
                 </div>
                 <div className="complaints-container">
                     {/* check if we have data or not, if have then map over */}
-                    {data && data.car && data.car.complaints.map((complaint) => (
+                    {refetchedData && refetchedData.car && refetchedData.car.complaints.map((complaint) => (
                         <div key={complaint._id}>
                             <p>Complaint: {complaint.text}</p>
                             <p>Author: {complaint.author}</p>
