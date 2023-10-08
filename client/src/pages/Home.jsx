@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
+import Comments from '../components/Comments';
 
 const styles = {
     jumbotron: {
@@ -26,6 +27,7 @@ const Home = () => {
     const [year, setYear] = useState("");
     const [errorMessage, setErrorMessage] = useState(null);
     const [refetchedData, setRefetchedData] = useState(null);
+    const [expandedComplaintId, setExpandedComplaintId] = useState(null);
 
     // Any whitespace in the make or model should be removed and the string should be converted to lowercase
     // so that we can manage the data more easily
@@ -38,6 +40,14 @@ const Home = () => {
         variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
         skip: true,
     });
+
+    const handleToggleComments = (complaintId) => {
+        if (expandedComplaintId === complaintId) {
+            setExpandedComplaintId(null);
+        } else {
+            setExpandedComplaintId(complaintId);
+        }
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -117,6 +127,12 @@ const Home = () => {
                         <div key={complaint._id}>
                             <p>Complaint: {complaint.text}</p>
                             <p>Author: {complaint.author}</p>
+                            {expandedComplaintId === complaint._id && (
+                                <div>
+                                    <Comments complaintId={complaint._id} />
+                                </div>
+                            )}
+                            <button onClick={() => handleToggleComments(complaint._id)}>View Comments</button>
                         </div>
                     ))}
                 </div>
