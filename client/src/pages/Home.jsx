@@ -63,10 +63,9 @@ const Home = () => {
         try {
             // make sure we clear any error messages before making the request
             setErrorMessage(null);
+            // make sure we clear any data before making the request
+            setRefetchedData(null);
 
-            // const { data } = await GET_CAR({
-            //     variables: { make: trimmedMake, model: trimmedModel, year: numericYear }
-            // });
             const { data: refetchedData } = await refetch({ make: trimmedMake, model: trimmedModel, year: numericYear });
             console.log(refetchedData);
 
