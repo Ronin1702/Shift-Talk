@@ -2,23 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import Comments from '../components/Comments';
-
-const styles = {
-    jumbotron: {
-        marginTop: 150,
-        marginBottom: 100
-    },
-    form: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 20
-    },
-    input: {
-        marginRight: 10
-    }
-};
+import { InputGroup } from 'react-bootstrap';
 import '../styles/Home.css';
 
 
@@ -101,17 +85,19 @@ const Home = () => {
 
     return (
         <div className="container-sm container-md container-lg container-xl">
-            <div className="jumbotron shadow" style={styles.jumbotron}>
+            <div className="jumbotron shadow">
                 <h1 className="text-center">
-                    Enter the Make, Model, and Year of your car to see what people are saying!
+                    Enter the Make, Model, and Year of Vehicle!
                 </h1>
-                <form onSubmit={handleSubmit} style={styles.form}>
-                    <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} style={styles.input} />
-                    <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)} style={styles.input} />
-                    <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)} style={styles.input} />
+                <InputGroup className="mb-3">
+                <form onSubmit={handleSubmit} className='form'>
+                    <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} className="input" />
+                    <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)}  />
+                    <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)}  />
                     {/* when the search is loading, it's fetching data, so we disable this button at this time*/}
                     <button type="submit" disabled={loading}>Search</button>
                 </form>
+                </InputGroup>
                 <div className="error-message">
                     {/* show errorMessage if has*/}
                     {errorMessage && (
@@ -125,7 +111,7 @@ const Home = () => {
                 <div className="complaints-container">
                     {/* check if we have data or not, if have then map over */}
                     {refetchedData && refetchedData.car && refetchedData.car.complaints.map((complaint) => (
-                        <div className='singleComplaint' key={complaint._id}>
+                        <div className='singleComplaint shadow' key={complaint._id}>
                             <p>{complaint.author} wrote: {complaint.text}</p>
                             {expandedComplaintId === complaint._id && (
                                 <div>

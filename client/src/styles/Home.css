@@ -1,6 +1,4 @@
 .container {
-    max-width: 100%;
-    margin: 0 auto;
     border-radius: 10px;
   }
   
@@ -14,7 +12,7 @@
   }
 
   .jumbotron {
-    background-color: #8ECDDD;
+    background-color: #252A34;
     margin-top: 50px;
     margin-bottom: 100px;
     border-radius: 10px;
@@ -26,16 +24,20 @@
   }
 
   .complaints-container {
-    background-color: #8ECDDD;
+    display: inline-block;
+    justify-content: center;
+    background-color: #252A34;
     border-radius: 10px;
+    margin: 0 auto;
   }
 
   .singleComplaint {
     max-width: 400px;
-    color: #FFFADD;
-    background-color: #22668D;
+    color: #252A34;
+    background-color: #EAEAEA;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
+    padding: 5px;
   }
 
   button {
@@ -43,5 +45,6 @@
   }
 
   h1 {
+    color: #EAEAEA;
     font-size: 25px;
   }

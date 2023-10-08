@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const styles = {
-  nav: {
-      position: "sticky",
-      zIndex: 1,
-      backgroundColor: "#302F31"
+  button: {
+    backgroundColor: '#EAEAEA',
+    color: '#EAEAEA',
   },
-  logo: {
-      width: 50,
-      height: 50
-  },
+
   links: {
-      marginRight: 10
+      marginRight: 10,
+  },
+
+  text: {
+    color: '#EAEAEA',
   }
 };
 
@@ -27,6 +27,7 @@ const Nav = ({ currentPage }) => {
     <nav>
       <button
         className="custom-toggler navbar-toggler"
+        style={styles.button}
         type="button"
         data-bs-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -46,6 +47,7 @@ const Nav = ({ currentPage }) => {
             to="/"
             className={activeLink === '/' ? 'active' : ''}
             onClick={() => handleLinkClick('/')}
+            style={styles.text}
           >
             Home
           </Link>
@@ -55,6 +57,7 @@ const Nav = ({ currentPage }) => {
             to="/login"
             className={activeLink === '/login' ? 'active' : ''}
             onClick={() => handleLinkClick('/login')}
+            style={styles.text}
           >
             Login
           </Link>
@@ -64,8 +67,9 @@ const Nav = ({ currentPage }) => {
             to="/signup"
             className={activeLink === '/signup' ? 'active' : ''}
             onClick={() => handleLinkClick('/signup')}
+            style={styles.text}
           >
-            Signup
+          Signup
           </Link>
         </li>
       </ul>

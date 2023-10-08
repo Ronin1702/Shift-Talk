@@ -7,8 +7,8 @@ import github from '../assets/images/github.png';
 
 const styles = {
     footer: {
-        color: "#22668D",
-        backgroundColor:"#FFCC70",
+        color: "#EAEAEA",
+        backgroundColor:"#252A34",
         flexShrink:"none"
     },
     icon: {

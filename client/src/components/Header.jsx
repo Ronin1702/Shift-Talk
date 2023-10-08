@@ -3,12 +3,12 @@ import Nav from './Nav';
 
 const styles = {
     title: {
-        color:'#22668D'
+        color:'#EAEAEA'
     },
     nav: {
         position: "sticky",
         zIndex: 1,
-        backgroundColor: "#FFCC70",
+        backgroundColor: "#252A34",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
