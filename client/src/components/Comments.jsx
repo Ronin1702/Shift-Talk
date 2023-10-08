@@ -14,6 +14,10 @@ const Comments = ({ complaintId }) => {
         return <p>Error: {error.message}</p>;
     }
 
+    if (data.comments.length === 0) {
+        return <p>No comment under this complaint</p>;
+    }
+
     return (
         <div>
             {data.comments.map((comment) => (
