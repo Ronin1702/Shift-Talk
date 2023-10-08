@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import '../styles/Login.css';
-import backgroundImage from '../assets/images/silverback.png';
 
 function Login(props) {
   const [formState, setFormState] = useState({ username: '', password: '' });
@@ -34,13 +33,12 @@ function Login(props) {
   return (
     <div className="container my-1">
 
-      <form onSubmit={handleFormSubmit} style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <Link to="/signup">← Go to Signup</Link>
+      <form onSubmit={handleFormSubmit}>
         <h2>Login</h2>
         <div className="flex-row space-between my-2">
           <label htmlFor="username">Username:</label>
           <input
-            placeholder="yourusername"
+            placeholder="your username"
             name="username"
             id="username"
             onChange={handleChange}
@@ -61,9 +59,10 @@ function Login(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
+        <div className="flex-row flex-end mb-3">
           <button type="submit">Submit</button>
         </div>
+        <Link to="/signup" className='link'>← Go to Signup</Link>
       </form>
     </div>
   );

@@ -28,7 +28,7 @@ function Header() {
             <a
                 className='navbar-brand'>
 
-                <h5 className="d-inline align-middle" style={styles.title}> Shift Talk </h5>
+                <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
             </a>
             <Nav style={styles.navbuttons}/>
         </div>

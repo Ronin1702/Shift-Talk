@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 import '../styles/Signup.css';
-import backgroundImage from '../assets/images/silverback.png';
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '', username: '' });
@@ -34,8 +33,7 @@ function Signup(props) {
   return (
     <div className="container my-1">
 
-      <form onSubmit={handleFormSubmit} style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <Link to="/login">← Go to Login</Link>
+      <form onSubmit={handleFormSubmit} >
       <h2>Signup</h2>
         <div className="flex-row space-between my-2">
           <label htmlFor="username">Username:</label>
@@ -66,9 +64,10 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row flex-end">
+        <div className="flex-row flex-end mb-3">
           <button type="submit">Submit</button>
         </div>
+        <Link to="/login" className='link'>← Go to Login</Link>
       </form>
     </div>
   );
