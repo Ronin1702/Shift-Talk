@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 import Nav from './components/Nav';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import background from './assets/images/goldback.png';
+import Background from './components/Background';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -34,12 +34,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
-        <Header />
-        <Nav />
-        <Outlet />
+        <Background>
+          <Header/>
+          <Outlet />
         <Footer />
-      </div>
+        </Background>
     </ApolloProvider>
   );
 }

@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import Nav from './Nav';
 
 const styles = {
+    title: {
+        color:'#EAEAEA'
+    },
     nav: {
         position: "sticky",
         zIndex: 1,
-        backgroundColor: "#302F31"
+        backgroundColor: "#252A34",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingRight: "20px"
     },
-    logo: {
-        width: 50,
-        height: 50
-    },
-    links: {
-        marginRight: 10
+    navbuttons: {
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center"
     }
 };
 
@@ -24,13 +28,9 @@ function Header() {
             <a
                 className='navbar-brand'>
 
-                <img
-                    src={logo}
-                    alt="logo"
-                    loading="lazy"
-                    style={styles.logo} />
-                <h5 className="d-inline align-middle"> Shift Talk </h5>
+                <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
             </a>
+            <Nav style={styles.navbuttons}/>
         </div>
     );
 }

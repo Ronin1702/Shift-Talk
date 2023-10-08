@@ -2,24 +2,9 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import Comments from '../components/Comments';
+import { InputGroup } from 'react-bootstrap';
+import '../styles/Home.css';
 
-const styles = {
-    jumbotron: {
-        backgroundColor: "white",
-        marginTop: 150,
-        marginBottom: 100
-    },
-    form: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 20
-    },
-    input: {
-        marginRight: 10
-    }
-};
 
 const Home = () => {
     const [make, setMake] = useState("");
@@ -58,17 +43,17 @@ const Home = () => {
             return;
         }
 
-        const validModel = /^[a-z0-9]+$/.test(trimmedModel);
-        if (!validModel) {
-            setErrorMessage('You can only have letters and numbers in Model field');
-            return;
-        }
+    const validModel = /^[a-z0-9]+$/.test(trimmedModel);
+    if (!validModel) {
+      setErrorMessage('You can only have letters and numbers in Model field');
+      return;
+    }
 
-        const validYear = /^[0-9]+$/.test(numericYear);
-        if (!validYear) {
-            setErrorMessage('You can only have numbers in Year field');
-            return;
-        }
+    const validYear = /^[0-9]+$/.test(numericYear);
+    if (!validYear) {
+      setErrorMessage('You can only have numbers in Year field');
+      return;
+    }
 
         try {
             // make sure we clear any error messages before making the request
@@ -100,17 +85,16 @@ const Home = () => {
 
     return (
         <div className="container-sm container-md container-lg container-xl">
-            <div className="jumbotron shadow" style={styles.jumbotron}>
-                <h1 className="display-4 text-center">
-                    Home
+
+                <form onSubmit={handleSubmit} className='form'>
+                <h1 className="text-center">
+                    Enter the Make, Model, and Year of Vehicle!
                 </h1>
-                <form onSubmit={handleSubmit} style={styles.form}>
-                    <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} style={styles.input} />
-                    <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)} style={styles.input} />
-                    <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)} style={styles.input} />
+                    <input type="text" placeholder="Make" value={make} onChange={(event) => setMake(event.target.value)} className="input" />
+                    <input type="text" placeholder="Model" value={model} onChange={(event) => setModel(event.target.value)}  />
+                    <input type="text" placeholder="Year" value={year} onChange={(event) => setYear(event.target.value)}  />
                     {/* when the search is loading, it's fetching data, so we disable this button at this time*/}
                     <button type="submit" disabled={loading}>Search</button>
-                </form>
                 <div className="error-message">
                     {/* show errorMessage if has*/}
                     {errorMessage && (
@@ -124,20 +108,19 @@ const Home = () => {
                 <div className="complaints-container">
                     {/* check if we have data or not, if have then map over */}
                     {refetchedData && refetchedData.car && refetchedData.car.complaints.map((complaint) => (
-                        <div key={complaint._id}>
-                            <p>Complaint: {complaint.text}</p>
-                            <p>Author: {complaint.author}</p>
+                        <div className='singleComplaint shadow' key={complaint._id}>
+                            <p>{complaint.author} wrote: {complaint.text}</p>
                             {expandedComplaintId === complaint._id && (
                                 <div>
                                     <Comments complaintId={complaint._id} />
                                 </div>
                             )}
-                            <button onClick={() => handleToggleComments(complaint._id)}>View Comments</button>
+                            <button onClick={() => handleToggleComments(complaint._id)}> Reply </button>
                         </div>
                     ))}
                 </div>
+            </form>
             </div>
-        </div>
     );
 };
 
