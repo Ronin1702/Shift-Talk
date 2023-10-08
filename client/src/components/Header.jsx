@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Nav from './Nav';
 
 const styles = {
     title: {
-        fontSize: 40,
-        textAlign: "center",
-        color: "#22668D",
+        color:'#22668D'
     },
-
     nav: {
         position: "sticky",
         zIndex: 1,
-        backgroundColor: "#FFCC70"
+        backgroundColor: "#FFCC70",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingRight: "20px"
     },
-
-    links: {
-        float: right,
-    },
+    navbuttons: {
+        display: "flex",
+        justifyContent: "flex-end",
+        alignItems: "center"
+    }
 };
 
 function Header() {
     return (
 
-        <div className='navbar fixed-top navbar-expand-lg' style={styles.nav}>
+        <div className='navbar fixed-top navbar-expand-lg navbar-light' style={styles.nav}>
             <a
                 className='navbar-brand'>
 
                 <h5 className="d-inline align-middle" style={styles.title}> Shift Talk </h5>
-
-                <Nav style={styles.links} />
             </a>
+            <Nav style={styles.navbuttons}/>
         </div>
     );
 }
