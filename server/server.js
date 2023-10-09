@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 // Import the ApolloServer class and expressMiddleware helper function
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
@@ -21,6 +22,9 @@ const startApolloServer = async () => {
   
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
+
+    // Serve up static assets
+    app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware

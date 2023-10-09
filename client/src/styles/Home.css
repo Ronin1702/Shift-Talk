@@ -1,0 +1,58 @@
+.container {
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+  }
+
+  input {
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+
+  .complaints-container {
+    display: inline-block;
+    justify-content: center;
+    background-color: #252A34;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .singleComplaint {
+    max-width: 400px;
+    color: #252A34;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
+  }
+
+  button {
+    border-radius: 5px;
+  }
+
+  h1 {
+    color: #EAEAEA;
+    margin: 10px;
+  }
+
+  .error-message {
+    color: #FF2E63;
+    margin: 20px;
+  }
+
+  .results-container {
+    /* Your centering styles here, e.g.: */
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    /* Add any other styles you need */
+}

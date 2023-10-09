@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,12 +11,13 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
-import Nav from './components/Nav';
-import Home from './pages/Home';
+// import Nav from './components/Nav';
+import Header from './components/Header';
 import Footer from './components/Footer';
-import Results from './pages/Results';
-import background from './assets/images/goldback.png';
+import Background from './components/Background';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -35,16 +41,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-        <div style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundAttachment: "fixed", backgroundRepeat: "no-repeat" }}>
-          <Nav />
-          {/* <Outlet /> */}
-         
-          <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/results" element={<Results />} />
-          </Routes>
-           <Footer />
-        </div>
+      <Provider store={store}>
+        <Background>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Background>
+      </Provider>
     </ApolloProvider>
   );
 }
