@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
+import Cart from './Cart';
 
 const styles = {
     title: {
@@ -31,6 +32,7 @@ function Header() {
                 <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
             </a>
             <Nav style={styles.navbuttons}/>
+            <Cart />
         </div>
     );
 }

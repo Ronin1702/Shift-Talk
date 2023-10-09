@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,8 +11,10 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Background from './components/Background';
@@ -34,11 +41,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Provider store={store}>
         <Background>
-          <Header/>
+          <Header />
           <Outlet />
-        <Footer />
+          <Footer />
         </Background>
+      </Provider>
     </ApolloProvider>
   );
 }
