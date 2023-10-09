@@ -3,8 +3,8 @@
     "_id": {
       "$oid": "651f5617b36de0f5e406f5af"
     },
-    "make": "Mercedes-Benz",
-    "model": "AMG GT63S EDITION1",
+    "make": "testmake",
+    "model": "testmodel",
     "year": 2019,
     "__v": 0
   },
@@ -12,9 +12,28 @@
     "_id": {
       "$oid": "651f727dc84e411c70434fe7"
     },
-    "make": "Toyota",
-    "model": "Corolla",
+    "make": "toyota",
+    "model": "corolla",
     "year": 2004,
     "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "652382b54cb0ed77c900e08d"
+    },
+    "make": "acura",
+    "model": "rdx",
+    "year": 2012,
+    "__v": 0
+  },
+  {
+    "make": "mini",
+    "model": "cooper",
+    "year": 2000
+  },
+  {
+    "make": "mini",
+    "model": "cooper",
+    "year": 2001
   }
 ]

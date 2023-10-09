@@ -8,25 +8,15 @@ const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Complaint', 'complaints');
-    await cleanDB('User', 'users');
-    await cleanDB('Comment', 'comments');
+    // await cleanDB('Complaint', 'complaints');
+    // await cleanDB('User', 'users');
+    // await cleanDB('Comment', 'comments');
     await cleanDB('Car', 'cars');
 
-    await User.create(userSeeds);
     await Car.create(carSeeds);
-    await Comment.create(commentSeeds);
 
-    for (let i = 0; i < complaintSeeds.length; i++) {
-      const { _id, author } = await Complaint.create(complaintSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: author },
-        {
-          $addToSet: {
-            complaints: _id,
-          },
-        }
-      );
+    for (let i = 0; i < carSeeds.length; i++) {
+      const { make, model, year } = await Car.create(carSeeds[i]);
     }
   } catch (err) {
     console.error(err);
