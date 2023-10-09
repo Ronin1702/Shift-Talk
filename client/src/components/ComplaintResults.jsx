@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import Comments from '../components/Comments';
 import AddComplaint from '../components/addComplaint';
+import AddComment from '../components/addComment';
+import '../styles/Home.css';
 
 const ComplaintResults = ({ carData }) => {
   console.log('carData: ', carData);
@@ -56,8 +58,9 @@ const ComplaintResults = ({ carData }) => {
               </div>
             )}
             <button onClick={() => handleToggleComments(complaint._id)}>
-              Reply
+              View Comments
             </button>
+            <AddComment complaintId={complaint._id} />
           </div>
         ))}
     </div>
