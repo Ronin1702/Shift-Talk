@@ -151,7 +151,8 @@ const resolvers = {
     },
 
     addComment: async (parent, args, context) => {
-      const userIdentified = await User.findById('651f5552b36de0f5e406f5ac');
+      const userIdentified = await User.findById(context.user._id);
+      console.log('Context from addComment mutation:', context.user);
       const complaintIdentified = await Complaint.findById(args.complaintId);
       const username = userIdentified.username;
 
