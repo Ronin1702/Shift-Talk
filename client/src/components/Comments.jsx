@@ -6,7 +6,7 @@ const Comments = ({ complaintId }) => {
     const { loading, error, data } = useQuery(GET_COMMENTS, {
         variables: { complaintId },
     });
-
+    console.log("GET_COMMENTS:", data);
     if (loading) {
         return <p>Loading comments...</p>;
     }
