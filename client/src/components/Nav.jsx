@@ -65,6 +65,16 @@ const Nav = ({ currentPage }) => {
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
+              <li className="nav-item" style={styles.links}>
+                <Link
+                  to="/me"
+                  className={activeLink === '/me' ? 'active' : ''}
+                  onClick={() => handleLinkClick('/me')}
+                  style={styles.text}
+                >
+                  My complaints
+                </Link>
+              </li>
             </>
           ) : (
             <>

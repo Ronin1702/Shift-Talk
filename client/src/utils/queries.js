@@ -89,6 +89,12 @@ export const GET_ME = gql`
       complaints {
         _id
         text
+        car {
+          _id
+          make
+          model
+          year
+        }
       }
     }
   }
