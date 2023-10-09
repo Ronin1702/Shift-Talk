@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../utils/reducers/cartSlice';
 import { idbPromise } from "../../utils/helpers";
 
-function ProductItem(item) {
+function DonationItem(item) {
   // const [state, dispatch] = useStoreContext();
   const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ function ProductItem(item) {
     } else {
       // dispatch({
       //   type: ADD_TO_CART,
-      //   product: { ...item, purchaseQuantity: 1 }
+      //   donation: { ...item, purchaseQuantity: 1 }
       // });
       dispatch(actions.addToCart({ ...item, purchaseQuantity: 1 }));
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
@@ -46,7 +46,7 @@ function ProductItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
+      <Link to={`/donations/${_id}`}>
         <img
           alt={name}
           src={`/images/${image}`}
@@ -62,4 +62,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default DonationItem;

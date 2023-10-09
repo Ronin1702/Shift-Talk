@@ -1,77 +1,77 @@
 import { useEffect } from 'react';
-import ProductItem from '../DonationItem';
+import DonationItem from '../DonationItem';
 // import { useStoreContext } from '../../utils/GlobalState';
-// import { UPDATE_PRODUCTS } from '../../utils/actions';
+// import { UPDATE_DONATIONS } from '../../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../../utils/reducers/productsSlice';
+import { actions } from '../../utils/reducers/donationsSlice';
 import { useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../../utils/queries';
+import { QUERY_DONATIONS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-function ProductList() {
+function DonationList() {
   // const [state, dispatch] = useStoreContext();
-  const products = useSelector((state) => state.products);
+  const donations = useSelector((state) => state.donations);
   const dispatch = useDispatch();
 
   // const { currentCategory } = state;
   const currentCategory = useSelector((state) => state.category.currentCategory);
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_DONATIONS);
 
   useEffect(() => {
     if (data) {
       // dispatch({
-      //   type: UPDATE_PRODUCTS,
-      //   products: data.products,
+      //   type: UPDATE_DONATIONS,
+      //   donations: data.donations,
       // });
-      dispatch(actions.updateProducts(data.products));
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      dispatch(actions.updateDonations(data.donations));
+      data.donations.forEach((donation) => {
+        idbPromise('donations', 'put', donation);
       });
     } else if (!loading) {
-      idbPromise('products', 'get').then((products) => {
+      idbPromise('donations', 'get').then((donations) => {
         // dispatch({
-        //   type: UPDATE_PRODUCTS,
-        //   products: products,
+        //   type: UPDATE_DONATIONS,
+        //   donations: donations,
         // });
-        dispatch(actions.updateProducts(products));
+        dispatch(actions.updateDonations(donations));
       });
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  function filterDonations() {
     if (!currentCategory) {
-      return products;
+      return donations;
     }
 
-    return products.filter(
-      (product) => product.category._id === currentCategory
+    return donations.filter(
+      (donation) => donation.category._id === currentCategory
     );
   }
 
   return (
     <div className="my-2">
-      <h2>Our Products:</h2>
-      {products.length ? (
+      <h2>Our Donations:</h2>
+      {donations.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+          {filterDonations().map((donation) => (
+            <DonationItem
+              key={donation._id}
+              _id={donation._id}
+              image={donation.image}
+              name={donation.name}
+              price={donation.price}
+              quantity={donation.quantity}
             />
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>You haven't added any donations yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }
 
-export default ProductList;
+export default DonationList;

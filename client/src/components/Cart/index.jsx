@@ -58,7 +58,7 @@ const Cart = () => {
 
     cartItems.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
+        donationIds.push(item._id);
       }
     });
 
@@ -106,7 +106,7 @@ const Cart = () => {
           <span role='img' aria-label='sad emojis'>
             😟😓🥲😥😢🥺🥹
           </span>
-          You haven't Select any Donation Yet!
+          You haven't Selected any Donation Yet!
         </h3>
       )}
     </div>
