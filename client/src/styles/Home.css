@@ -48,3 +48,11 @@
     color: #FF2E63;
     margin: 20px;
   }
+
+  .results-container {
+    /* Your centering styles here, e.g.: */
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    /* Add any other styles you need */
+}

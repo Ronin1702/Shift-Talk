@@ -11,6 +11,7 @@ export const GET_CAR = gql`
         _id
         text
         author
+        createdAt
       }
     }
   }
@@ -36,6 +37,7 @@ export const GET_COMPLAINTS = gql`
       _id
       text
       author
+      createAt
     }
   }
 `;
@@ -50,6 +52,7 @@ export const GET_COMPLAINT = gql`
         _id
         text
         author
+        createdAt
       }
     }
   }
@@ -61,6 +64,7 @@ export const GET_COMMENTS = gql`
       _id
       text
       author
+      createdAt
     }
   }
 `;
@@ -71,6 +75,7 @@ export const GET_COMMENT = gql`
       _id
       text
       author
+      createdAt
     }
   }
 `;
