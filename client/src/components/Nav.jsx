@@ -49,22 +49,19 @@ const Nav = ({ currentPage }) => {
         id="navbarSupportedContent">
 
         <ul className="navbar-nav">
-          <li className="nav-item" style={styles.links}>
-            <Link
-              to="/"
-              className={activeLink === '/' ? 'active' : ''}
-              onClick={() => handleLinkClick('/')}
-              style={styles.text}
-            >
-              Home
-            </Link>
-          </li>
           {Auth.loggedIn() ? (
             <>
               <span>Hey there, {Auth.getProfile().data.username}!</span>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
+              <li className="nav-item" style={styles.links}>
+                <Link
+                  to="/"
+                  className={activeLink === '/' ? 'active' : ''}
+                  onClick={() => handleLinkClick('/')}
+                  style={styles.text}
+                >
+                  Home
+                </Link>
+              </li>
               <li className="nav-item" style={styles.links}>
                 <Link
                   to="/me"
@@ -72,12 +69,26 @@ const Nav = ({ currentPage }) => {
                   onClick={() => handleLinkClick('/me')}
                   style={styles.text}
                 >
-                  My complaints
+                  My Page
                 </Link>
               </li>
+              
+              <button style={styles.links} onClick={logout}>
+                Logout
+              </button>
             </>
           ) : (
             <>
+              <li className="nav-item" style={styles.links}>
+                <Link
+                  to="/"
+                  className={activeLink === '/' ? 'active' : ''}
+                  onClick={() => handleLinkClick('/')}
+                  style={styles.text}
+                >
+                  Home
+                </Link>
+              </li>
               <li className="nav-item" style={styles.links}>
                 <Link
                   to="/login"

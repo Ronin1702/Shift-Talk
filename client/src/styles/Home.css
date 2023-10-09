@@ -1,6 +1,8 @@
 .container {
     border-radius: 10px;
     margin-bottom: 20px;
+    max-width: 100%;
+    margin: 0 auto;
   }
   
   form {
@@ -11,6 +13,9 @@
     margin-top: 30px;
     margin-bottom: 50px;
     border-radius: 10px;
+    color: #EAEAEA;
+    background-color: #252A34;
+    padding: 5px;
   }
 
   input {
@@ -37,6 +42,7 @@
 
   button {
     border-radius: 5px;
+    background-color: #FF2E63;
   }
 
   h1 {
