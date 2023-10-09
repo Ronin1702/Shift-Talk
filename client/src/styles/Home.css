@@ -42,12 +42,17 @@
 
   button {
     border-radius: 5px;
-    background-color: #FF2E63;
+    background-color: #08D9D6;
   }
 
   h1 {
     color: #EAEAEA;
     margin: 10px;
+  }
+
+  .error {
+    color: #FF2E63;
+    margin: 20px;
   }
 
   .error-message {
