@@ -16,7 +16,7 @@ const MyComments = () => {
         },
     });
 
-    const user = data?.me || {};
+    const user = data?.me.comments || {};
     console.log("returned my info", user);
     console.log("check what I have", data);
 
@@ -28,10 +28,10 @@ const MyComments = () => {
         <div>
             <h1>Hello, {user.username}</h1>
             <div>
-                <p>My comments:</p>
+                <p>My Comments:</p>
                 <ul>
-                    {user.complaints.comments?.map((comment) => (
-                        <li key={comment._id}>
+                    {user.comments?.map((comment) => (
+                        <li key={comment._id} className='card' style={{width: "80vw", padding: "20px", marginBottom:"30px"}}>
                             <p>{comment.text}</p>
                             <p>{comment.author}</p>
                             <p>{comment.createdAt}</p>

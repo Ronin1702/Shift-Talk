@@ -43,7 +43,7 @@ const resolvers = {
       );
     },
     comment: async (parent, args) => {
-      return await Comment.findById(args._id);
+      return await Comment.findById(args._id).populate('comment');
     },
     me: async (parent, args, context, info) => {
       console.log('Context from me query:', context.user);
@@ -185,3 +185,6 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+
+

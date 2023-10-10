@@ -5,6 +5,7 @@ const typeDefs = `
     username: String
     email: String
     password: String
+    comments: [Comment]
     complaints: [Complaint]
   }
 

@@ -61,7 +61,7 @@ const Me = () => {
                         <p>My Complaints:</p>
                         <ul>
                             {user.complaints.map((complaint) => (
-                                <li key={complaint._id}>
+                                <li key={complaint._id} className='card' style={{width: "80vw", padding: "20px", marginBottom:"30px"}}>
                                     <p>{complaint.car.make},{complaint.car.model},{complaint.car.year}</p>
                                     <p>{complaint.text}</p>
                                     <p>{complaint.createdAt}</p>
