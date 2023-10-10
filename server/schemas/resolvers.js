@@ -188,6 +188,8 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, {
           $pull: { complaints: complaintId }
         });
+
+        await Comment.deleteMany({ complaint: complaintId });
     
         return deletedComplaint;
       }
