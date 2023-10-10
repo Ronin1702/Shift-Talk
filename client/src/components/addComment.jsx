@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Row } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../utils/mutations';
 import AuthService from '../utils/auth';
@@ -41,14 +42,14 @@ const AddComment = ({complaintId}) => {
   };
 
   return (
-    <div>
+    <Row xs="2">
       <button
         type='button'
-        className='btn btn-primary'
         onClick={() => setShowForm(!showForm)}
       >
-        Add Comment
+        Reply
       </button>
+    
 
       {showForm && (
         <form onSubmit={handleFormSubmit}>
@@ -61,8 +62,8 @@ const AddComment = ({complaintId}) => {
         </form>
       )}
 
-      {error && <p>{error}</p>}
-    </div>
+      {error && <p className='error'>{error}</p>}
+      </Row>
   );
 };
 
