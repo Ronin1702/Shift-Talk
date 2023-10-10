@@ -32,7 +32,7 @@ const resolvers = {
     },
 
     complaints: async (parent, args) => {
-      return await Complaint.find({ car: args.carId });
+      return await Complaint.find({ car: args.carId }).populate('comments');
     },
     complaint: async (parent, args) => {
       return await Complaint.findById(args._id).populate('comments');

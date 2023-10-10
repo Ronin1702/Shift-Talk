@@ -95,6 +95,12 @@ export const GET_ME = gql`
           model
           year
         }
+        comments {
+          _id
+          text
+          author
+          createdAt
+        }
       }
     }
   }

@@ -15,7 +15,7 @@ import Me from './pages/Me.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '*',
+    path: '/',
     element: <App />,
     errorElement: <Error />,
     children: [
