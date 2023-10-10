@@ -47,7 +47,7 @@ const AddComment = ({complaintId}) => {
         className='btn btn-primary'
         onClick={() => setShowForm(!showForm)}
       >
-        Add Comment
+        Reply
       </button>
 
       {showForm && (

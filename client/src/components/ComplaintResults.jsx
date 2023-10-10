@@ -57,10 +57,12 @@ const ComplaintResults = ({ carData }) => {
                 <Comments complaintId={complaint._id} />
               </div>
             )}
+            <div className='flex-row justify-content-center my-2'>
             <button onClick={() => handleToggleComments(complaint._id)}>
-              View Comments
-            </button>
+              View Replies
+            </button> 
             <AddComment complaintId={complaint._id} />
+            </div>
           </div>
         ))}
     </div>
