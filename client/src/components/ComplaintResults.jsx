@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Row, Container, Col } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import Comments from '../components/Comments';
@@ -42,7 +43,7 @@ const ComplaintResults = ({ carData }) => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className='complaints-container'>
+    <Container>
       <AddComplaint refetchCarData={() => {}} />
       {carInfo &&
         carInfo.complaints.map((complaint) => (
@@ -56,15 +57,15 @@ const ComplaintResults = ({ carData }) => {
                 <Comments complaintId={complaint._id} />
               </div>
             )}
-            <div className='flex-row justify-content-center'>
-            <button className='dateText' onClick={() => handleToggleComments(complaint._id)}>
-              View Replies
-            </button> 
-            <AddComment complaintId={complaint._id} />
-            </div>
+            <Row xs="2" className='justify-content-center'>
+              <button  onClick={() => handleToggleComments(complaint._id)}>
+                View Replies
+              </button>
+              <AddComment complaintId={complaint._id} />
+            </Row>
           </div>
         ))}
-    </div>
+    </Container>
   );
 };
 
