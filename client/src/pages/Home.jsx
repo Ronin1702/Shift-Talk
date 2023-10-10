@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, InputGroup, Form, FormGroup,} from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
-import '../styles/Home.css';
 import { GET_CAR } from '../utils/queries';
 import ComplaintResults from '../components/ComplaintResults';
 import '../styles/Home.css'
