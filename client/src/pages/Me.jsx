@@ -29,7 +29,7 @@ const Me = () => {
     <div>
       <h1>Hello, {user.username}</h1>
       <div>
-        <UpdateProfile userId={user._id} />
+        <UpdateProfile userData={user} />
         <p>My complaint:</p>
         <ul>
           {user.complaints.map((complaint) => (

@@ -200,12 +200,19 @@ const resolvers = {
 
     updateMe: async (parent, args, context) => {
       if (context.user) {
-        // If password is provided, hash it before updating
+        // Check if the current password is correct before updating the password
+        if (args.currentPassword) {
+          const user = await User.findById(context.user._id);
+          const correctPw = await user.isCorrectPassword(args.currentPassword);
+
+          if (!correctPw) {
+            throw new GraphQLError('Incorrect current password.');
+          }
+        }
         if (args.password) {
           const saltRounds = 10;
           args.password = await bcrypt.hash(args.password, saltRounds);
         }
-
         const updatedUser = await User.findByIdAndUpdate(
           context.user._id,
           args,

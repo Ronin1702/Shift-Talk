@@ -5,12 +5,15 @@ import AuthService from '../utils/auth';
 import { Button, Form, FormGroup } from 'react-bootstrap';
 import { GET_ME } from '../utils/queries';
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ userData }) => {
   //userId check OK
-
+  console.log('userData', userData);
+  const [errorMessage, setErrorMessage] = useState('');
   const [formState, setFormState] = useState({
-    username: '',
+    username: userData.username,
     password: '',
+    currentPassword: '',
+    confirmPassword: '',
   });
 
   const [showForm, setShowForm] = useState(false);
@@ -26,14 +29,39 @@ const UpdateProfile = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    // Check if password and confirmPassword match
+    if (formState.password !== formState.confirmPassword) {
+      setErrorMessage('Passwords do not match');
+      return;
+    }
 
+    let variablesToUpdate = {};
+
+    if (formState.username !== userData.username) {
+      variablesToUpdate.username = formState.username;
+    }
+
+    if (formState.password) {
+      variablesToUpdate.password = formState.password;
+    }
+    console.log('variablesToUpdate', variablesToUpdate);
     try {
       await updateMe({
-        variables: { ...formState },
+        variables: {
+          ...variablesToUpdate,
+          currentPassword: formState.currentPassword,
+        },
       });
       setShowForm(false);
+      setErrorMessage('');
+      setFormState({
+        username: formState.username,
+        password: '',
+        currentPassword: '',
+      });
     } catch (err) {
       console.error(err);
+      setErrorMessage(err.message || 'Failed to update profile');
     }
   };
 
@@ -67,6 +95,19 @@ const UpdateProfile = () => {
           </FormGroup>
           <br />
           <FormGroup>
+            <Form.Label htmlFor='currentPassword'>
+              Current Password ㊙️:
+            </Form.Label>
+            <Form.Control
+              type='password'
+              name='currentPassword'
+              id='currentPassword'
+              value={formState.currentPassword}
+              onChange={handleChange}
+            />
+          </FormGroup>
+          <br />
+          <FormGroup>
             <Form.Label htmlFor='password'>Enter New Password ㊙️:</Form.Label>
             <Form.Control
               type='password'
@@ -77,7 +118,27 @@ const UpdateProfile = () => {
             />
           </FormGroup>
           <br />
+          {/* New Confirm Password Field */}
+          <FormGroup>
+            <Form.Label htmlFor='confirmPassword'>
+              Confirm New Password ㊙️:
+            </Form.Label>
+            <Form.Control
+              type='password'
+              name='confirmPassword'
+              id='confirmPassword'
+              value={formState.confirmPassword}
+              onChange={handleChange}
+            />
+          </FormGroup>
+          <br />
           <Button type='submit'> Confirm 🈸 </Button>
+          <hr />
+          <p className='d-flex justify-content-center'>Current Password NOT NEEDED for USERNAME</p>
+          {errorMessage && (
+            <div style={{ color: 'red' }}>{errorMessage}</div>
+          )}{' '}
+          {/* Display error message if present */}
         </Form>
       )}
     </div>
