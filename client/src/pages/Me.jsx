@@ -27,18 +27,28 @@ const Me = () => {
 
   return (
     <div>
-      <h1>Hello, {user.username}</h1>
+      <h1 className='text-secondary text-center'>
+        Hello <span className='text-warning'>{user.username}</span>
+      </h1>
       <div>
         <UpdateProfile userData={user} />
-        <p>My complaint:</p>
-        <ul>
+        <p className='text-center'>My complaint:</p>
+        <ul className='text-center list-group'>
           {user.complaints.map((complaint) => (
             <li key={complaint._id}>
-              <p>
-                {complaint.car.make},{complaint.car.model},{complaint.car.year}
+              <div></div>
+              <p className='text-secondary'>
+                Make: <span className='text-warning'>{complaint.car.make}</span>{' '}
+                Model:{' '}
+                <span className='text-warning'>{complaint.car.model}</span>{' '}
+                Year: <span className='text-warning'>{complaint.car.year}</span>
               </p>
-              <p>{complaint.text}</p>
-              <p>{complaint.createdAt}</p>
+              <div className='d-flex justify-content-center'>
+                {' '}
+                <p className='list-group-item bg-info card'>{complaint.text}</p>
+                <p>{complaint.createdAt}</p>
+              </div>
+
               <RemoveComplaintButton complaintId={complaint._id} />
             </li>
           ))}

@@ -2,15 +2,19 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_COMPLAINT } from '../utils/mutations';
 import AuthService from '../utils/auth';
 import { Button } from 'react-bootstrap';
-import { GET_ME } from '../utils/queries'; 
+import { GET_ME } from '../utils/queries';
+import React from 'react';
+import ConfirmModal from './ConfirmModal';
 
 const RemoveComplaintButton = ({ complaintId }) => {
+  const [modalShow, setModalShow] = React.useState(false);
   console.log('complaintId:', complaintId);
-  const [RemoveComplaint] = useMutation(REMOVE_COMPLAINT,{
+
+  const [RemoveComplaint] = useMutation(REMOVE_COMPLAINT, {
     fetchPolicy: 'no-cache',
     refetchQueries: [{ query: GET_ME }],
   });
-  const handleDeleteComplaint = async ( complaintId ) => {
+  const handleDeleteComplaint = async (complaintId) => {
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;
     if (!token) {
       console.error('No token found');
@@ -26,7 +30,7 @@ const RemoveComplaintButton = ({ complaintId }) => {
           },
         },
       });
-      // RemoveComplaintId(complaintId);
+      setModalShow(false);
     } catch (err) {
       console.error(err);
     }
@@ -35,11 +39,18 @@ const RemoveComplaintButton = ({ complaintId }) => {
   return (
     <div>
       <Button
-        className='btn-block btn-danger'
-        onClick={() => handleDeleteComplaint(complaintId)}
+        variant='primary'
+        className='btn-block btn-danger bg-gradient'
+        onClick={() => setModalShow(true)}
       >
-        Delete this Complaint and All its Replies!
+         🗑️
       </Button>
+
+      <ConfirmModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        onConfirm={() => handleDeleteComplaint(complaintId)}
+      />
     </div>
   );
 };
