@@ -2,11 +2,13 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_COMPLAINT } from '../utils/mutations';
 import AuthService from '../utils/auth';
 import { Button } from 'react-bootstrap';
+import { GET_ME } from '../utils/queries'; 
 
 const RemoveComplaintButton = ({ complaintId }) => {
   console.log('complaintId:', complaintId);
   const [RemoveComplaint] = useMutation(REMOVE_COMPLAINT,{
-    fetchPolicy: 'no-cache'
+    fetchPolicy: 'no-cache',
+    refetchQueries: [{ query: GET_ME }],
   });
   const handleDeleteComplaint = async ( complaintId ) => {
     const token = AuthService.loggedIn() ? AuthService.getToken() : null;
