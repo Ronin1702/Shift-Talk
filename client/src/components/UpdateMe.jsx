@@ -76,7 +76,7 @@ const UpdateProfile = ({ userData }) => {
   return (
     <div>
       <div className='d-flex justify-content-center align-items-center'>
-        <Button onClick={() => setShowForm(!showForm)}>
+        <Button className='bg-warning bg-gradient' onClick={() => setShowForm(!showForm)}>
           {' '}
           Update 🏁🏁🏁 Profile{' '}
         </Button>
@@ -132,7 +132,7 @@ const UpdateProfile = ({ userData }) => {
             />
           </FormGroup>
           <br />
-          <Button type='submit'> Confirm 🈸 </Button>
+          <Button className='bg-warning bg-gradient' type='submit'> 🏁 Confirm 🈸 </Button>
           <hr />
           <p className='d-flex justify-content-center'>Current Password NOT NEEDED for USERNAME</p>
           {errorMessage && (
