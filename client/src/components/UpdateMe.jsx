@@ -13,6 +13,8 @@ const UpdateProfile = () => {
     password: '',
   });
 
+  const [showForm, setShowForm] = useState(false);
+
   const token = AuthService.loggedIn() ? AuthService.getToken() : null;
   if (!token) {
     return <div>The token did not log right in UpdateMe page</div>;
@@ -29,6 +31,7 @@ const UpdateProfile = () => {
       await updateMe({
         variables: { ...formState },
       });
+      setShowForm(false);
     } catch (err) {
       console.error(err);
     }
@@ -44,30 +47,39 @@ const UpdateProfile = () => {
 
   return (
     <div>
-      <h4>Update Profile</h4>
-      <Form onSubmit={handleFormSubmit}>
-        <FormGroup>
-          <Form.Label htmlFor='username'>Username:</Form.Label>
-          <Form.Control
-            type='text'
-            name='username'
-            id='username'
-            value={formState.username}
-            onChange={handleChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Form.Label htmlFor='password'>Password:</Form.Label>
-          <Form.Control
-            type='password'
-            name='password'
-            id='password'
-            value={formState.password}
-            onChange={handleChange}
-          />
-        </FormGroup>
-        <Button type='submit'>Update</Button>
-      </Form>
+      <div className='d-flex justify-content-center align-items-center'>
+        <Button onClick={() => setShowForm(!showForm)}>
+          {' '}
+          Update 🏁🏁🏁 Profile{' '}
+        </Button>
+      </div>
+      {showForm && (
+        <Form onSubmit={handleFormSubmit}>
+          <FormGroup>
+            <Form.Label htmlFor='username'>Enter New Username 🆔:</Form.Label>
+            <Form.Control
+              type='text'
+              name='username'
+              id='username'
+              value={formState.username}
+              onChange={handleChange}
+            />
+          </FormGroup>
+          <br />
+          <FormGroup>
+            <Form.Label htmlFor='password'>Enter New Password ㊙️:</Form.Label>
+            <Form.Control
+              type='password'
+              name='password'
+              id='password'
+              value={formState.password}
+              onChange={handleChange}
+            />
+          </FormGroup>
+          <br />
+          <Button type='submit'> Confirm 🈸 </Button>
+        </Form>
+      )}
     </div>
   );
 };
