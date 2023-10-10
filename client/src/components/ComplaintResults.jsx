@@ -47,18 +47,17 @@ const ComplaintResults = ({ carData }) => {
       {carInfo &&
         carInfo.complaints.map((complaint) => (
           <div className='singleComplaint shadow' key={complaint._id}>
-            <p>
-              {complaint.author} wrote: {complaint.text}
-            </p>
-            <p>Date: {complaint.createdAt}</p>
+            <p className='author'>{complaint.author}</p>
+            <p className='commText'>{complaint.text} </p>
+            <p className='dateText'>on {complaint.createdAt}</p>
             {console.log('complaint: ', complaint.createdAt)}
             {expandedComplaintId === complaint._id && (
               <div>
                 <Comments complaintId={complaint._id} />
               </div>
             )}
-            <div className='flex-row justify-content-center my-2'>
-            <button onClick={() => handleToggleComments(complaint._id)}>
+            <div className='flex-row justify-content-center'>
+            <button className='dateText' onClick={() => handleToggleComments(complaint._id)}>
               View Replies
             </button> 
             <AddComment complaintId={complaint._id} />

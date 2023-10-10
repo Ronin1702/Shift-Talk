@@ -1,3 +1,27 @@
+.author {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+}
+
+.commText {
+  font-size: 16px;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+  margin-left: 25px;
+}
+
+.dateText {
+  font-size: 14px;
+  display: flex;
+  justify-content: end;
+  margin: 5px;
+  margin-left: 25px;
+}
+
 .container {
     border-radius: 10px;
     margin-bottom: 20px;
@@ -8,7 +32,6 @@
   form {
     justify-content: center;
     align-items: center;
-    max-width: 500px;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -31,8 +54,14 @@
     margin: 0 auto;
   }
 
+  .comments-container {
+    background-color: #252A34;
+    color:#EAEAEA;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
   .singleComplaint {
-    max-width: 400px;
     color: #252A34;
     background-color: #EAEAEA;
     border-radius: 10px;

@@ -44,7 +44,7 @@ const AddComment = ({complaintId}) => {
     <div>
       <button
         type='button'
-        className='btn btn-primary'
+        className='dateText'
         onClick={() => setShowForm(!showForm)}
       >
         Reply
