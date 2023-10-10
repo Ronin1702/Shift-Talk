@@ -3,12 +3,12 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
-import { REMOVE_COMPLAINT } from '../utils/mutations';
+import UpdateProfile from '../components/UpdateMe';
 
 const Me = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   if (!token) {
-    return <div>The token did not log right?</div>;
+    return <div>The token did not log right in Me page</div>;
   }
   const { data, error, loading } = useQuery(GET_ME, {
     context: {
@@ -29,6 +29,7 @@ const Me = () => {
     <div>
       <h1>Hello, {user.username}</h1>
       <div>
+        <UpdateProfile userId={user._id} />
         <p>My complaint:</p>
         <ul>
           {user.complaints.map((complaint) => (
@@ -39,7 +40,6 @@ const Me = () => {
               <p>{complaint.text}</p>
               <p>{complaint.createdAt}</p>
               <RemoveComplaintButton complaintId={complaint._id} />
-              {console.log('complaintId: ', complaint._id)}
             </li>
           ))}
         </ul>

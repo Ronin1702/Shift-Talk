@@ -69,10 +69,13 @@ export const REMOVE_COMPLAINT = gql`
 `;
 
 export const UPDATE_ME = gql`
-  mutation UpdateMe($username: String!, $password: String!) {
+  mutation updateMe($username: String!, $password: String!) {
     updateMe(username: $username, password: $password) {
-      _id
-      username
+      user {
+        _id
+        username
+        password
+      }
     }
   }
 `;

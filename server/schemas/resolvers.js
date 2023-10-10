@@ -1,6 +1,7 @@
 const { User, Car, Complaint, Comment } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const bcrypt = require('bcrypt');
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
@@ -183,38 +184,40 @@ const resolvers = {
         if (!deletedComplaint) {
           throw new GraphQLError('No complaint found with this ID!');
         }
-    
+
         // Update the user's document to remove the deleted complaintId
         await User.findByIdAndUpdate(context.user._id, {
-          $pull: { complaints: complaintId }
+          $pull: { complaints: complaintId },
         });
 
         await Comment.deleteMany({ complaint: complaintId });
-    
+
         return deletedComplaint;
       }
-    
+
       throw new GraphQLError('You need to be logged in to remove a complaint!');
     },
-    
 
     updateMe: async (parent, args, context) => {
       if (context.user) {
+        // If password is provided, hash it before updating
+        if (args.password) {
+          const saltRounds = 10;
+          args.password = await bcrypt.hash(args.password, saltRounds);
+        }
+
         const updatedUser = await User.findByIdAndUpdate(
           context.user._id,
           args,
           {
             new: true,
             runValidators: true,
-            username: context.user.username,
-            password: context.user.password,
           }
         );
+
         return updatedUser;
       }
-      throw new GraphQLError(
-        'You need to be logged in to update your profile!'
-      );
+      throw new GraphQLError('Failed to updateMe!');
     },
   },
 };
