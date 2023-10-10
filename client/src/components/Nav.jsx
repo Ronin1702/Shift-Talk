@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
 
 const styles = {
   button: {
@@ -30,6 +32,21 @@ const Nav = ({ currentPage }) => {
     Auth.logout();
   };
 
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    return <div>The token did not log right in Me page</div>;
+  }
+
+  const { data, error, loading } = useQuery(GET_ME, {
+    context: {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  });
+
+  const user = data?.me || {};
+
   return (
     <nav>
       <button
@@ -51,7 +68,7 @@ const Nav = ({ currentPage }) => {
         <ul className="navbar-nav">
           {Auth.loggedIn() ? (
             <>
-              <span>Hey there, {Auth.getProfile().data.username}!</span>
+              <span>Hey there, {user.username}!</span>
               <li className="nav-item" style={styles.links}>
                 <Link
                   to="/"
