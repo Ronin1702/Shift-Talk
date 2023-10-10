@@ -43,7 +43,7 @@ const resolvers = {
       );
     },
     comment: async (parent, args) => {
-      return await Comment.findById(args._id).populate('comment');
+      return await Comment.findById(args._id);
     },
     me: async (parent, args, context, info) => {
       console.log('Context from me query:', context.user);
@@ -53,7 +53,7 @@ const resolvers = {
       // if no user object, throw authentication error
       if (context.user) {
         // initialize variables
-        return User.findOne({ _id: context.user._id }).populate(`complaints`);
+        return User.findOne({ _id: context.user._id }).populate(`complaints`).populate(`comments`);
       }
       throw new GraphQLError('Failed to Execute me Query from Resolvers.js');
     },

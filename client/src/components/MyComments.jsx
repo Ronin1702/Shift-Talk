@@ -16,7 +16,7 @@ const MyComments = () => {
         },
     });
 
-    const user = data?.me.comments || {};
+    const user = data?.me || {};
     console.log("returned my info", user);
     console.log("check what I have", data);
 
