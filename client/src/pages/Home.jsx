@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Row, Col, InputGroup, Form, FormGroup,} from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import '../styles/Home.css';
 import { GET_CAR } from '../utils/queries';
@@ -78,8 +79,8 @@ const Home = () => {
   };
 
   return (
-    <div className='container-sm container-md container-lg container-xl'>
-      <form onSubmit={handleSubmit} className='form'>
+    <Container>
+      <Form onSubmit={handleSubmit} className='form'>
         <h1 className='text-center'>
           Enter the Make, Model, and Year of Vehicle!
         </h1>
@@ -103,6 +104,7 @@ const Home = () => {
           onChange={(event) => setYear(event.target.value)}
         />
         <button type='submit'>Search</button>
+        
         <div className='error-message'>
           {/* show errorMessage if has*/}
           {errorMessage && (
@@ -113,13 +115,13 @@ const Home = () => {
             </p>
           )}
         </div>
-      </form>
+      </Form>
       <div className='results-container'>
         {refetchedData && refetchedData.car && (
           <ComplaintResults carData={refetchedData.car} key={Date.now()} />
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

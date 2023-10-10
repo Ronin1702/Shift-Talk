@@ -21,10 +21,10 @@ const Comments = ({ complaintId }) => {
     return (
         <div>
             {data.comments.map((comment) => (
-                <div key={comment._id}>
-                    <p>Comment: {comment.text}</p>
-                    <p>Author: {comment.author}</p>
-                    <p>Date: {comment.createdAt}</p>
+                <div className='comments-container' key={comment._id}>
+                    <p className='author'>{comment.author} replied</p>
+                    <p className='commText'>{comment.text} </p>
+                    <p className='dateText'>on {comment.createdAt}</p>
                 </div>
             ))}
         </div>

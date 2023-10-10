@@ -1,16 +1,44 @@
+.author {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+}
+
+.commText {
+  font-size: 16px;
+  display: flex;
+  justify-content: start;
+  margin: 5px;
+  margin-left: 25px;
+}
+
+.dateText {
+  font-size: 14px;
+  display: flex;
+  justify-content: end;
+  margin: 5px;
+  margin-left: 25px;
+}
+
 .container {
     border-radius: 10px;
     margin-bottom: 20px;
+    max-width: 100%;
+    margin: 0 auto;
   }
   
   form {
     justify-content: center;
     align-items: center;
-    max-width: 500px;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 50px;
     border-radius: 10px;
+    color: #EAEAEA;
+    background-color: #252A34;
+    padding: 5px;
   }
 
   input {
@@ -26,8 +54,14 @@
     margin: 0 auto;
   }
 
+  .comments-container {
+    background-color: #252A34;
+    color:#EAEAEA;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
   .singleComplaint {
-    max-width: 400px;
     color: #252A34;
     background-color: #EAEAEA;
     border-radius: 10px;
@@ -37,11 +71,17 @@
 
   button {
     border-radius: 5px;
+    background-color: #08D9D6;
   }
 
   h1 {
     color: #EAEAEA;
     margin: 10px;
+  }
+
+  .error {
+    color: #FF2E63;
+    margin: 20px;
   }
 
   .error-message {
@@ -56,3 +96,4 @@
     text-align: center;
     /* Add any other styles you need */
 }
+

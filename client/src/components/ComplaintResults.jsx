@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Row, Container, Col } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import Comments from '../components/Comments';
@@ -42,28 +43,29 @@ const ComplaintResults = ({ carData }) => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className='complaints-container'>
+    <Container>
       <AddComplaint refetchCarData={() => {}} />
       {carInfo &&
         carInfo.complaints.map((complaint) => (
           <div className='singleComplaint shadow' key={complaint._id}>
-            <p>
-              {complaint.author} wrote: {complaint.text}
-            </p>
-            <p>Date: {complaint.createdAt}</p>
+            <p className='author'>{complaint.author}</p>
+            <p className='commText'>{complaint.text} </p>
+            <p className='dateText'>on {complaint.createdAt}</p>
             {console.log('complaint: ', complaint.createdAt)}
             {expandedComplaintId === complaint._id && (
               <div>
                 <Comments complaintId={complaint._id} />
               </div>
             )}
-            <button onClick={() => handleToggleComments(complaint._id)}>
-              View Comments
-            </button>
-            <AddComment complaintId={complaint._id} />
+            <Row xs="2" className='justify-content-center'>
+              <button  onClick={() => handleToggleComments(complaint._id)}>
+                View Replies
+              </button>
+              <AddComment complaintId={complaint._id} />
+            </Row>
           </div>
         ))}
-    </div>
+    </Container>
   );
 };
 
