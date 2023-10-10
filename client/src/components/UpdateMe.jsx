@@ -29,11 +29,11 @@ const UpdateProfile = ({ userData }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // Check if password and confirmPassword match
-    if (formState.password !== formState.confirmPassword) {
-      setErrorMessage('Passwords do not match');
-      return;
-    }
+     // Check if password and confirmPassword match only if a password is being entered
+  if (formState.password && formState.password !== formState.confirmPassword) {
+    setErrorMessage('Passwords do not match');
+    return;
+  }
 
     let variablesToUpdate = {};
 
@@ -58,6 +58,7 @@ const UpdateProfile = ({ userData }) => {
         username: formState.username,
         password: '',
         currentPassword: '',
+        confirmPassword: '',
       });
     } catch (err) {
       console.error(err);
