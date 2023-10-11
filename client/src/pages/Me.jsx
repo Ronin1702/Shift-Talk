@@ -4,6 +4,7 @@ import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
 import UpdateProfile from '../components/UpdateMe';
+import MyComments from '../components/MyComments';
 
 const Me = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -32,7 +33,7 @@ const Me = () => {
       </h1>
       <div>
         <UpdateProfile userData={user} />
-        <p className='text-center'>My complaint:</p>
+        <p className='text-center'>My complaints:</p>
         <ul className='text-center list-group'>
           {user.complaints.map((complaint) => (
             <li key={complaint._id}>
@@ -53,6 +54,9 @@ const Me = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        <MyComments/>
       </div>
     </div>
   );

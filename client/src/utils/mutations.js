@@ -68,6 +68,16 @@ export const REMOVE_COMPLAINT = gql`
   }
 `;
 
+export const REMOVE_COMMENT = gql`
+  mutation RemoveComment($commentId: ID!) {
+    removeComment(commentId: $commentId) {
+      _id
+      text
+      author
+    }
+  }
+`;
+
 export const UPDATE_ME = gql`
   mutation UpdateMe(
     $username: String
