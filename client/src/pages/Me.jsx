@@ -1,78 +1,61 @@
-import React, { useState } from "react";
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ME } from "../utils/queries";
-import Auth from "../utils/auth";
-import MyComments from "../components/MyComments";
-
+import { GET_ME } from '../utils/queries';
+import Auth from '../utils/auth';
+import RemoveComplaintButton from '../components/removeComplaint';
+import UpdateProfile from '../components/UpdateMe';
 
 const Me = () => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-    if (!token) {
-        return false;
-    }
-    const { data, error, loading } = useQuery(GET_ME, {
-        context: {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        },
-    });
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+  if (!token) {
+    return <div>The token did not log right in Me page</div>;
+  }
+  const { data, error, loading } = useQuery(GET_ME, {
+    context: {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  });
 
-    const user = data?.me || {};
-    console.log("returned my info", user);
-    console.log("check what I have", data);
+  const user = data?.me || {};
+  console.log('returned my info', user);
+  console.log('check what I have', data);
 
-    const [showComments, setShowComments] = useState(false);
-    const [showComplaints, setShowComplaints] = useState(false);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+  return (
+    <div>
+      <h1 className='text-secondary text-center'>
+        Hello <span className='text-warning'>{user.username}</span>
+      </h1>
+      <div>
+        <UpdateProfile userData={user} />
+        <p className='text-center'>My complaint:</p>
+        <ul className='text-center list-group'>
+          {user.complaints.map((complaint) => (
+            <li key={complaint._id}>
+              <div></div>
+              <p className='text-secondary'>
+                Make: <span className='text-warning'>{complaint.car.make}</span>{' '}
+                Model:{' '}
+                <span className='text-warning'>{complaint.car.model}</span>{' '}
+                Year: <span className='text-warning'>{complaint.car.year}</span>
+              </p>
+              <div className='d-flex justify-content-center'>
+                {' '}
+                <p className='list-group-item bg-info card'>{complaint.text}</p>
+                <p>{complaint.createdAt}</p>
+              </div>
 
-    const handleCommentsClick = () => {
-        setShowComments(true);
-        setShowComplaints(false);
-    };
-
-    const handleComplaintsClick = () => {
-        setShowComplaints(true);
-        setShowComments(false);
-    };
-
-    return (
-        <div>
-            <button type='button' className='btn btn-primary' onClick={handleComplaintsClick}>
-                My Complaints
-            </button>
-
-            <button type='button' className='btn btn-secondary' onClick={handleCommentsClick}>
-                My Comments
-            </button>
-
-            {showComments && (
-                <div>
-                    <MyComments/>
-                </div>
-            )}
-
-            {showComplaints && (
-                <div>
-                    <h1>Hello, {user.username}</h1>
-                    <div>
-                        <p>My Complaints:</p>
-                        <ul>
-                            {user.complaints.map((complaint) => (
-                                <li key={complaint._id} className='card' style={{width: "80vw", padding: "20px", marginBottom:"30px"}}>
-                                    <p>{complaint.car.make},{complaint.car.model},{complaint.car.year}</p>
-                                    <p>{complaint.text}</p>
-                                    <p>{complaint.createdAt}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
+              <RemoveComplaintButton complaintId={complaint._id} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default Me;

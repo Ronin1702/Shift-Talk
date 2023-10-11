@@ -1,17 +1,11 @@
 const { User, Car, Complaint, Comment } = require('../models');
 const { GraphQLError } = require('graphql');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const bcrypt = require('bcrypt');
 
 // Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {
-    // car: async (parent, args) => {
-    //   console.log('args:', args);
-    //   const carIdentified = await Car.findById(args._id);
-    //   const complaints = await Complaint.find({ car: carIdentified._id });
-    //   return { ...carIdentified._doc, complaints };
-    // },
-
     car: async (parent, args) => {
       const { make, model, year } = args;
       console.log('args:', args);
@@ -180,6 +174,57 @@ const resolvers = {
     },
     addCar: async (parent, { make, model, year }) => {
       return await Car.create({ make, model, year });
+    },
+
+    removeComplaint: async (parent, { complaintId }, context) => {
+      // if no user object, throw authentication error
+      if (context.user) {
+        // Delete the complaint
+        const deletedComplaint = await Complaint.findByIdAndDelete(complaintId);
+        if (!deletedComplaint) {
+          throw new GraphQLError('No complaint found with this ID!');
+        }
+
+        // Update the user's document to remove the deleted complaintId
+        await User.findByIdAndUpdate(context.user._id, {
+          $pull: { complaints: complaintId },
+        });
+
+        await Comment.deleteMany({ complaint: complaintId });
+
+        return deletedComplaint;
+      }
+
+      throw new GraphQLError('You need to be logged in to remove a complaint!');
+    },
+
+    updateMe: async (parent, args, context) => {
+      if (context.user) {
+        // Check if the current password is correct before updating the password
+        if (args.currentPassword) {
+          const user = await User.findById(context.user._id);
+          const correctPw = await user.isCorrectPassword(args.currentPassword);
+
+          if (!correctPw) {
+            throw new GraphQLError('Incorrect current password.');
+          }
+        }
+        if (args.password) {
+          const saltRounds = 10;
+          args.password = await bcrypt.hash(args.password, saltRounds);
+        }
+        const updatedUser = await User.findByIdAndUpdate(
+          context.user._id,
+          args,
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+        return updatedUser;
+      }
+      throw new GraphQLError('Failed to updateMe!');
     },
   },
 };

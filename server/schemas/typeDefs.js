@@ -60,6 +60,8 @@ const typeDefs = `
     addComplaint(text: String!, carId: ID): Complaint
     addComment(complaintId: ID!, commentText: String!): Comment
     addCar(make: String!, model: String!, year: Int!): Car
+    removeComplaint(complaintId: ID): Complaint
+    updateMe(username: String, password: String, currentPassword: String): Auth
   }
 `;
 

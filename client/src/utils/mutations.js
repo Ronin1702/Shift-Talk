@@ -57,3 +57,33 @@ export const ADD_CAR = gql`
     }
   }
 `;
+
+export const REMOVE_COMPLAINT = gql`
+  mutation RemoveComplaint($complaintId: ID!) {
+    removeComplaint(complaintId: $complaintId) {
+      _id
+      text
+      author
+    }
+  }
+`;
+
+export const UPDATE_ME = gql`
+  mutation UpdateMe(
+    $username: String
+    $password: String
+    $currentPassword: String
+  ) {
+    updateMe(
+      username: $username
+      password: $password
+      currentPassword: $currentPassword
+    ) {
+      user {
+        _id
+        username
+        password
+      }
+    }
+  }
+`;
