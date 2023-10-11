@@ -198,6 +198,26 @@ const resolvers = {
       throw new GraphQLError('You need to be logged in to remove a complaint!');
     },
 
+    removeComment: async (parent, { commentId }, context) => {
+      // if no user object, throw authentication error
+      if (context.user) {
+        // Delete the complaint
+        const deletedComment = await Comment.findByIdAndDelete(commentId);
+        if (!deletedComment) {
+          throw new GraphQLError('No comment found with this ID!');
+        }
+
+        // Update the user's document to remove the deleted complaintId
+        await User.findByIdAndUpdate(context.user._id, {
+          $pull: { comment: commentId },
+        });
+
+        return deletedComment;
+      }
+
+      throw new GraphQLError('You need to be logged in to remove a comment!');
+    },
+
     updateMe: async (parent, args, context) => {
       if (context.user) {
         // Check if the current password is correct before updating the password

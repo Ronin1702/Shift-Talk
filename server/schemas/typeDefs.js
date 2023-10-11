@@ -61,6 +61,7 @@ const typeDefs = `
     addComment(complaintId: ID!, commentText: String!): Comment
     addCar(make: String!, model: String!, year: Int!): Car
     removeComplaint(complaintId: ID): Complaint
+    removeComment(commentId: ID): Comment
     updateMe(username: String, password: String, currentPassword: String): Auth
   }
 `;
