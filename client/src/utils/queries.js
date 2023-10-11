@@ -86,6 +86,12 @@ export const GET_ME = gql`
       _id
       username
       email
+      comments {
+        _id
+        text
+        author
+        createdAt
+      }
       complaints {
         _id
         text

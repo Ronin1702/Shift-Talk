@@ -7,7 +7,7 @@ import AddComplaint from '../components/addComplaint';
 import AddComment from '../components/addComment';
 import '../styles/Home.css';
 
-const ComplaintResults = ({ carData }) => {
+const ComplaintResults = ({ carData, complaintId }) => {
   console.log('carData: ', carData);
   if (!carData) {
     return (
