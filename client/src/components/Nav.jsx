@@ -34,7 +34,91 @@ const Nav = ({ currentPage }) => {
 
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   if (!token) {
-    return <div>The token did not log right in Me page</div>;
+    return (
+      <nav>
+        <button
+          className="custom-toggler navbar-toggler"
+          style={styles.button}
+          type="button"
+          data-bs-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded={!isNavCollapsed ? true : false}
+          aria-label="Toggle navigation"
+          onClick={handleNavCollapse}>
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div
+          className={`${isNavCollapsed ? 'collapse' : ''} justify-content-end navbar-collapse`}
+          id="navbarSupportedContent">
+  
+          <ul className="navbar-nav">
+            {Auth.loggedIn() ? (
+              <>
+                <span>Hey there, {user.username}!</span>
+                <li className="nav-item" style={styles.links}>
+                  <Link
+                    to="/"
+                    className={activeLink === '/' ? 'active' : ''}
+                    onClick={() => handleLinkClick('/')}
+                    style={styles.text}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item" style={styles.links}>
+                  <Link
+                    to="/me"
+                    className={activeLink === '/me' ? 'active' : ''}
+                    onClick={() => handleLinkClick('/me')}
+                    style={styles.text}
+                  >
+                    My Page
+                  </Link>
+                </li>
+                
+                <button style={styles.links} onClick={logout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <li className="nav-item" style={styles.links}>
+                  <Link
+                    to="/"
+                    className={activeLink === '/' ? 'active' : ''}
+                    onClick={() => handleLinkClick('/')}
+                    style={styles.text}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item" style={styles.links}>
+                  <Link
+                    to="/login"
+                    className={activeLink === '/login' ? 'active' : ''}
+                    onClick={() => handleLinkClick('/login')}
+                    style={styles.text}
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item" style={styles.links}>
+                  <Link
+                    to="/signup"
+                    className={activeLink === '/signup' ? 'active' : ''}
+                    onClick={() => handleLinkClick('/signup')}
+                    style={styles.text}
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </nav>
+    );
   }
 
   const { data, error, loading } = useQuery(GET_ME, {

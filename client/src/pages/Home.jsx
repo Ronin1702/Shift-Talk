@@ -83,6 +83,7 @@ const Home = () => {
         <h1 className='text-center'>
           Enter the Make, Model, and Year of Vehicle!
         </h1>
+        <Col>
         <input
           type='text'
           placeholder='Make'
@@ -96,12 +97,15 @@ const Home = () => {
           value={model}
           onChange={(event) => setModel(event.target.value)}
         />
+        </Col>
+        <Col>
         <input
           type='text'
           placeholder='Year'
           value={year}
           onChange={(event) => setYear(event.target.value)}
         />
+        </Col>
         <button type='submit'>Search</button>
         
         <div className='error-message'>
