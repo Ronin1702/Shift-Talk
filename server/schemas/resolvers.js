@@ -26,7 +26,7 @@ const resolvers = {
     },
 
     complaints: async (parent, args) => {
-      return await Complaint.find({ car: args.carId });
+      return await Complaint.find({ car: args.carId }).populate('comments');
     },
     complaint: async (parent, args) => {
       return await Complaint.findById(args._id).populate('comments');
@@ -47,7 +47,7 @@ const resolvers = {
       // if no user object, throw authentication error
       if (context.user) {
         // initialize variables
-        return User.findOne({ _id: context.user._id }).populate(`complaints`);
+        return User.findOne({ _id: context.user._id }).populate(`complaints`).populate(`comments`);
       }
       throw new GraphQLError('Failed to Execute me Query from Resolvers.js');
     },
@@ -198,6 +198,26 @@ const resolvers = {
       throw new GraphQLError('You need to be logged in to remove a complaint!');
     },
 
+    removeComment: async (parent, { commentId }, context) => {
+      // if no user object, throw authentication error
+      if (context.user) {
+        // Delete the complaint
+        const deletedComment = await Comment.findByIdAndDelete(commentId);
+        if (!deletedComment) {
+          throw new GraphQLError('No comment found with this ID!');
+        }
+
+        // Update the user's document to remove the deleted complaintId
+        await User.findByIdAndUpdate(context.user._id, {
+          $pull: { comment: commentId },
+        });
+
+        return deletedComment;
+      }
+
+      throw new GraphQLError('You need to be logged in to remove a comment!');
+    },
+
     updateMe: async (parent, args, context) => {
       if (context.user) {
         // Check if the current password is correct before updating the password
@@ -230,3 +250,6 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+
+
