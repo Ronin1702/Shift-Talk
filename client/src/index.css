@@ -197,7 +197,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #08d9d6;
+  background-color: transparent;
   border: none;
 }
 
