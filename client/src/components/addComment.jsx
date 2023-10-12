@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../utils/mutations';
 import AuthService from '../utils/auth';
 
-const AddComment = ({complaintId}) => {
+const AddComment = ({ complaintId }) => {
   const [showForm, setShowForm] = useState(false);
   const [commentText, setCommentText] = useState('');
   const [error, setError] = useState('');
@@ -20,6 +20,7 @@ const AddComment = ({complaintId}) => {
     }
 
     try {
+      setError('');
       const { data } = await AddComment({
         variables: {
           commentText: commentText,
@@ -35,6 +36,7 @@ const AddComment = ({complaintId}) => {
         // Clear the text
         setCommentText('');
         // Refetch the car data to update the list of complaints
+        window.location.href = '/';
       }
     } catch (err) {
       setError(err.message);
@@ -49,12 +51,12 @@ const AddComment = ({complaintId}) => {
       >
         Reply
       </button>
-    
+
 
       {showForm && (
         <form onSubmit={handleFormSubmit}>
           <textarea
-          className='form-control'
+            className='form-control'
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder='Write your Comment here'
@@ -64,7 +66,7 @@ const AddComment = ({complaintId}) => {
       )}
 
       {error && <p className='error'>{error}</p>}
-      </div>
+    </div>
   );
 };
 

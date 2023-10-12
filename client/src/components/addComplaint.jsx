@@ -25,6 +25,7 @@ const AddComplaint = (props) => {
     }
 
     try {
+      setError('');
       const { data } = await AddComplaint({
         variables: {
           text: complaintText,
@@ -40,6 +41,7 @@ const AddComplaint = (props) => {
         // Clear the text
         setComplaintText('');
         // Refetch the car data to update the list of complaints
+        window.location.href = '/';
       }
     } catch (err) {
       setError(err.message);
