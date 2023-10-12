@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, InputGroup, Form, FormGroup,} from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Container, Row, Col, InputGroup, Form, FormGroup, } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import ComplaintResults from '../components/ComplaintResults';
@@ -7,11 +7,15 @@ import '../styles/Home.css'
 import Search from '../assets/sounds/Search.wav';
 
 const Home = () => {
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [year, setYear] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [refetchedData, setRefetchedData] = useState(null);
+  const [make, setMake] = useState(localStorage.getItem('make') || '');
+  const [model, setModel] = useState(localStorage.getItem('model') || '');
+  const [year, setYear] = useState(localStorage.getItem('year') || '');
+  const searchButtonRef = useRef();
+  useEffect(() => {
+    searchButtonRef.current.click();
+  }, []);
 
   // Any whitespace in the make or model should be removed and the string should be converted to lowercase
   // so that we can manage the data more easily
@@ -31,14 +35,6 @@ const Home = () => {
     fetchPolicy: 'network-only',
     skip: true,
   });
-
-  // const handleToggleComments = (complaintId) => {
-  //   if (expandedComplaintId === complaintId) {
-  //     setExpandedComplaintId(null);
-  //   } else {
-  //     setExpandedComplaintId(complaintId);
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -84,36 +80,46 @@ const Home = () => {
     }
   };
 
+  const handleClear = () => {
+    setMake('');
+    setModel('');
+    setYear('');
+    localStorage.removeItem('make');
+    localStorage.removeItem('model');
+    localStorage.removeItem('year');
+  };
+
   return (
     <Container>
       <h1 className='text-center'>
-          Enter the Make, Model, and Year of Vehicle!
-        </h1>
+        Enter the Make, Model, and Year of Vehicle!
+      </h1>
       <Form onSubmit={handleSubmit}>
-        
+
         <input
           type='text'
           placeholder='Make'
           value={make}
-          onChange={(event) => setMake(event.target.value)}
+          onChange={(event) => { setMake(event.target.value); localStorage.setItem('make', event.target.value); }}
           className='input'
         />
-        
+
         <input
           type='text'
           placeholder='Model'
           value={model}
-          onChange={(event) => setModel(event.target.value)}
+          onChange={(event) => { setModel(event.target.value); localStorage.setItem('model', event.target.value); }}
         />
-        
+
         <input
           type='text'
           placeholder='Year'
           value={year}
-          onChange={(event) => setYear(event.target.value)}
+          onChange={(event) => { setYear(event.target.value); localStorage.setItem('year', event.target.value); }}
         />
-        <button type='submit' onClick={play}>Search</button>
-        
+        <button type='submit' ref={searchButtonRef} onClick={play}>Search</button>
+        <button type='button' onClick={handleClear}>Clear</button>
+
         <div className='error-message'>
           {/* show errorMessage if has*/}
           {errorMessage && (
