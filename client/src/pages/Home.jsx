@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import ComplaintResults from '../components/ComplaintResults';
 import '../styles/Home.css'
+import Search from '../assets/sounds/Search.wav';
 
 const Home = () => {
   const [make, setMake] = useState('');
@@ -18,6 +19,12 @@ const Home = () => {
   const trimmedModel = model.replace(/\s/g, '').toLowerCase();
   // convert year to a number and trim any whitespace
   const numericYear = parseInt(year.trim(), 10);
+
+  const searchSfx = new Audio(Search);
+
+  function play() {
+    new Audio(Search).play();
+  };
 
   const { loading, error, data, refetch } = useQuery(GET_CAR, {
     variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
@@ -105,7 +112,7 @@ const Home = () => {
           value={year}
           onChange={(event) => setYear(event.target.value)}
         />
-        <button type='submit'>Search</button>
+        <button type='submit' onClick={play}>Search</button>
         
         <div className='error-message'>
           {/* show errorMessage if has*/}
