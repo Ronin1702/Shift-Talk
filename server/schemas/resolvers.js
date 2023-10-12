@@ -49,10 +49,19 @@ const resolvers = {
       return { ...carIdentified._doc, complaints };
     },
 
-    user: async (parent, args) => {
-      const userIdentified = await User.findById(args._id);
-      // Get and return all documents from the classes collection
-      return userIdentified;
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.products',
+          populate: 'category',
+        });
+
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+        return user;
+      }
+
+      throw new GraphQLError('Failed to Execute user Query from Resolvers.js');
     },
 
     complaints: async (parent, args) => {
@@ -94,7 +103,7 @@ const resolvers = {
         return user.orders.id(_id);
       }
 
-      throw AuthenticationError;
+      throw new GraphQLError('Failed to Execute order Query from Resolvers.js');
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
@@ -171,16 +180,40 @@ const resolvers = {
   },
 
   Mutation: {
+    updateProduct: async (parent, { _id, quantity }) => {
+      const decrement = Math.abs(quantity) * -1;
+
+      return await Product.findByIdAndUpdate(
+        _id,
+        { $inc: { quantity: decrement } },
+        { new: true }
+      );
+    },
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
+    addOrder: async (parent, { products }, context) => {
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { orders: order },
+        });
+
+        return order;
+      }
+
+      throw new GraphQLError('Something wrong with addOrder resolver!');
+    },
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new GraphQLError(
+          'Something wrong with the login resolver !'
+        );
       }
 
       const correctPw = await user.isCorrectPassword(password);

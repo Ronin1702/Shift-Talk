@@ -7,7 +7,6 @@ import { actions } from '../../utils/reducers/cartSlice';
 import { idbPromise } from "../../utils/helpers";
 
 function ProductItem(item) {
-  // const [state, dispatch] = useStoreContext();
   const dispatch = useDispatch();
 
   const {
@@ -18,27 +17,17 @@ function ProductItem(item) {
     quantity
   } = item;
 
-  // const { cart } = state
   const cart = useSelector((state) => state.cart.cartItems);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
     if (itemInCart) {
-      // dispatch({
-      //   type: UPDATE_CART_QUANTITY,
-      //   _id: _id,
-      //   purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-      // });
       dispatch(actions.updateCartQuantity({ _id: _id, purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1 }));
       idbPromise('cart', 'put', {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
     } else {
-      // dispatch({
-      //   type: ADD_TO_CART,
-      //   product: { ...item, purchaseQuantity: 1 }
-      // });
       dispatch(actions.addToCart({ ...item, purchaseQuantity: 1 }));
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }

@@ -5,16 +5,14 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-// import { useStoreContext } from '../../utils/GlobalState';
-// import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../utils/reducers/cartSlice';
 import './style.css';
 
+//Load Publishable Key
 const stripePromise = loadStripe('pk_test_51NxE6PJNyOG8ZaW1k4p1tqfDQqNUsVNfKrWncrApS5CJFcAimdYAE4ER9GUUOOljgV1kNPjOCnkWuaIuG9KNbwiI00d6E9NJts');
 
 const Cart = () => {
-  // const [state, dispatch] = useStoreContext();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartOpen = useSelector((state) => state.cart.cartOpen);
   const dispatch = useDispatch();
@@ -31,8 +29,6 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      console.log("Cart from IDB:", cart);
-      // dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
       dispatch(actions.addMultipleToCart(cart));
     }
 
@@ -42,7 +38,6 @@ const Cart = () => {
   }, [cartItems.length, dispatch]);
 
   function toggleCart() {
-    // dispatch({ type: TOGGLE_CART });
     dispatch(actions.toggleCart());
   }
 

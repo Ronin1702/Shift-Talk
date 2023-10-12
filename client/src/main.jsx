@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <Success />,
       },
       {
-        path: '/orderHistory',
+        path: '/OrderHistory',
         element: <OrderHistory />,
       },
       {
