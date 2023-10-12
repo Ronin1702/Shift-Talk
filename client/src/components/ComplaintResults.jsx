@@ -57,12 +57,12 @@ const ComplaintResults = ({ carData, complaintId }) => {
                 <Comments complaintId={complaint._id} />
               </div>
             )}
-            <Row xs="2" className='justify-content-center'>
+            
               <button  onClick={() => handleToggleComments(complaint._id)}>
                 View Replies
               </button>
               <AddComment complaintId={complaint._id} />
-            </Row>
+            
           </div>
         ))}
     </Container>

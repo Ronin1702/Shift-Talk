@@ -42,7 +42,7 @@ const AddComment = ({complaintId}) => {
   };
 
   return (
-    <Row xs="2">
+    <div xs="2">
       <button
         type='button'
         onClick={() => setShowForm(!showForm)}
@@ -54,6 +54,7 @@ const AddComment = ({complaintId}) => {
       {showForm && (
         <form onSubmit={handleFormSubmit}>
           <textarea
+          className='form-control'
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder='Write your Comment here'
@@ -63,7 +64,7 @@ const AddComment = ({complaintId}) => {
       )}
 
       {error && <p className='error'>{error}</p>}
-      </Row>
+      </div>
   );
 };
 
