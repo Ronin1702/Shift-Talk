@@ -8,11 +8,12 @@ import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function ProductList() {
-
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  const currentCategory = useSelector((state) => state.category.currentCategory);
+  const currentCategory = useSelector(
+    (state) => state.category.currentCategory
+  );
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -40,9 +41,9 @@ function ProductList() {
   }
 
   return (
-    <div className="my-2">
+    <div className='my-2'>
       {products.length ? (
-        <div className="flex-row">
+        <div className='flex-row justify-content-center'>
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
@@ -57,7 +58,7 @@ function ProductList() {
       ) : (
         <h3> Cart 🛒 is 🈳 Empty </h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <img src={spinner} alt='loading' /> : null}
     </div>
   );
 }

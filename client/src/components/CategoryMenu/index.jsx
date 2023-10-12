@@ -9,6 +9,9 @@ function CategoryMenu() {
   const dispatch = useDispatch();
 
   const categories = useSelector((state) => state.category.categories);
+  const currentCategory = useSelector(
+    (state) => state.category.currentCategory
+  );
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
@@ -30,14 +33,19 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
+    <div className='container text-center mt-3'>
       {categories.map((item) => (
-        <button
+        <button id="category-button"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
           }}
+          className={
+            item._id === currentCategory ? 'bg-gradient text-light' : ''
+          }
+          style={
+            item._id === currentCategory ? { backgroundColor: 'orange' } : {}
+          }
         >
           {item.name}
         </button>

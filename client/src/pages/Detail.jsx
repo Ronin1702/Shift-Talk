@@ -25,8 +25,7 @@ function Detail() {
   useEffect(() => {
     if (products.length) {
       setCurrentProduct(products.find((product) => product._id === id));
-    }
-    else if (data) {
+    } else if (data) {
       dispatch(productsActions.updateProducts(data.products));
 
       data.products.forEach((product) => {
@@ -70,17 +69,28 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/pros">← Back to Products</Link>
+        <div className='container my-1'>
+          <div className='flex-row mt-2'>
+            <Link className='text-secondary' to='/pros'>
+              {' '}
+              🏁 Back to Pro Shop
+            </Link>
+          </div>
 
           <h2>{currentProduct.name}</h2>
-
+          <hr />
           <p>{currentProduct.description}</p>
 
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
+          <p className='text-end'>
+            <strong>Price: </strong>${currentProduct.price}{' '}
             <button
+              className='bg-warning bg-gradient text-white'
+              onClick={addToCart}
+            >
+              Add to Cart
+            </button>
+            <button
+              className='bg-danger bg-gradient'
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
@@ -94,7 +104,7 @@ function Detail() {
           />
         </div>
       ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <img src={spinner} alt='loading' /> : null}
       <Cart />
     </>
   );
