@@ -33,7 +33,7 @@ const Me = () => {
       </h1>
       <div>
         <UpdateProfile userData={user} />
-        <p className='text-center'>My complaints:</p>
+        <p className='text-center'>My Complaints:</p>
         <ul className='text-center list-group'>
           {user.complaints.map((complaint) => (
             <li key={complaint._id}>

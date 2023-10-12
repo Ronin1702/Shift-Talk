@@ -40,6 +40,22 @@ class AuthService {
     // this will reload the page and reset the state of the application
     window.location.assign('/');
   }
+
+  isUserAdmin() {
+    const token = this.getToken();
+    const decoded = decode(token);
+    if (decoded.data.role === 'admin') {
+      return true;
+    } else return false;
+  }
+
+  isUserPro() {
+    const token = this.getToken();
+    const decoded = decode(token);
+    if (decoded.data.role === 'pro') {
+      return true;
+    } else return false;
+  }
 }
 
 export default new AuthService();

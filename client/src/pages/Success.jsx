@@ -10,19 +10,19 @@ function Success() {
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise('cart', 'get');
-      const donations = cart.map((item) => item._id);
+      const products = cart.map((item) => item._id);
 
-      if (donations.length) {
-        const { data } = await addOrder({ variables: { donations } });
-        const donationData = data.addOrder.donations;
+      if (products.length) {
+        const { data } = await addOrder({ variables: { products } });
+        const productData = data.addOrder.products;
 
-        donationData.forEach((item) => {
+        productData.forEach((item) => {
           idbPromise('cart', 'delete', item);
         });
       }
 
       setTimeout(() => {
-        window.location.assign('/');
+        window.location.assign('/pros');
       }, 3000);
     }
 
@@ -33,8 +33,8 @@ function Success() {
     <div>
       <Jumbotron>
         <h1>Success!</h1>
-        <h2>Thank you for your most kind Donation!</h2>
-        <h2>You will now be redirected to the home page now</h2>
+        <h2>Thank you for your kind Donation and Interest!</h2>
+        <h2>You will now be redirected to the Pro Store page</h2>
       </Jumbotron>
     </div>
   );

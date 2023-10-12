@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -11,7 +11,10 @@ import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import Error from './pages/Error.jsx';
 import Me from './pages/Me.jsx';
-
+import Pros from './pages/Pros.jsx';
+import Success from './pages/Success.jsx';
+import OrderHistory from './pages/OrderHistory.jsx';
+import Detail from './pages/Detail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: '/login',
@@ -35,11 +38,26 @@ const router = createBrowserRouter([
         path: '/me',
         element: <Me />,
       },
-    ]
-  }
+      {
+        path: '/pros',
+        element: <Pros />,
+      },
+      {
+        path: '/success',
+        element: <Success />,
+      },
+      {
+        path: '/OrderHistory',
+        element: <OrderHistory />,
+      },
+      {
+        path: '/products/:id',
+        element: <Detail />,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
-
+);

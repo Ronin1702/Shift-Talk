@@ -3,70 +3,47 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Cart from '../components/Cart';
-// import { useStoreContext } from '../utils/GlobalState';
-// import {
-//   REMOVE_FROM_CART,
-//   UPDATE_CART_QUANTITY,
-//   ADD_TO_CART,
-//   UPDATE_DONATIONS,
-// } from '../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions as cartActions } from '../utils/reducers/cartSlice';
-import { actions as donationsActions } from '../utils/reducers/donationsSlice';
-import { QUERY_DONATIONS } from '../utils/queries';
+import { actions as productsActions } from '../utils/reducers/productsSlice';
+import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
 function Detail() {
-  // const [state, dispatch] = useStoreContext();
   const dispatch = useDispatch();
   const { id } = useParams();
 
-  const [currentDonation, setCurrentDonation] = useState({});
+  const [currentProduct, setCurrentProduct] = useState({});
 
-  const { loading, data } = useQuery(QUERY_DONATIONS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  // const { donations, cart } = state;
-  const donations = useSelector((state) => state.donations);
+  // const { products, cart } = state;
+  const products = useSelector((state) => state.products);
   const cart = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
-    // already in global store
-    if (donations.length) {
-      setCurrentDonation(donations.find((donation) => donation._id === id));
+    if (products.length) {
+      setCurrentProduct(products.find((product) => product._id === id));
     }
-    // retrieved from server
     else if (data) {
-      // dispatch({
-      //   type: UPDATE_DONATIONS,
-      //   donations: data.donations,
-      // });
-      dispatch(donationsActions.updateDonations(data.donations));
+      dispatch(productsActions.updateProducts(data.products));
 
-      data.donations.forEach((donation) => {
-        idbPromise('donations', 'put', donation);
+      data.products.forEach((product) => {
+        idbPromise('products', 'put', product);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('donations', 'get').then((indexedDonations) => {
-        // dispatch({
-        //   type: UPDATE_DONATIONS,
-        //   donations: indexedDonations,
-        // });
-        dispatch(donationsActions.updateDonations(indexedDonations));
+      idbPromise('products', 'get').then((indexedProducts) => {
+        dispatch(productsActions.updateProducts(indexedProducts));
       });
     }
-  }, [donations, data, loading, dispatch, id]);
+  }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
     if (itemInCart) {
-      // dispatch({
-      //   type: UPDATE_CART_QUANTITY,
-      //   _id: id,
-      //   purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-      // });
       dispatch(
         cartActions.updateCartQuantity({
           _id: id,
@@ -78,41 +55,33 @@ function Detail() {
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
-      // dispatch({
-      //   type: ADD_TO_CART,
-      //   donation: { ...currentDonation, purchaseQuantity: 1 },
-      // });
       dispatch(
-        cartActions.addToCart({ ...currentDonation, purchaseQuantity: 1 })
+        cartActions.addToCart({ ...currentProduct, purchaseQuantity: 1 })
       );
-      idbPromise('cart', 'put', { ...currentDonation, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
     }
   };
 
   const removeFromCart = () => {
-    // dispatch({
-    //   type: REMOVE_FROM_CART,
-    //   _id: currentDonation._id,
-    // });
-    dispatch(cartActions.removeFromCart(currentDonation._id));
-    idbPromise('cart', 'delete', { ...currentDonation });
+    dispatch(cartActions.removeFromCart(currentProduct._id));
+    idbPromise('cart', 'delete', { ...currentProduct });
   };
 
   return (
     <>
-      {currentDonation && cart ? (
+      {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Donations</Link>
+          <Link to="/pros">← Back to Products</Link>
 
-          <h2>{currentDonation.name}</h2>
+          <h2>{currentProduct.name}</h2>
 
-          <p>{currentDonation.description}</p>
+          <p>{currentProduct.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentDonation.price}{' '}
+            <strong>Price:</strong>${currentProduct.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
-              disabled={!cart.find((p) => p._id === currentDonation._id)}
+              disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
@@ -120,8 +89,8 @@ function Detail() {
           </p>
 
           <img
-            src={`/images/${currentDonation.image}`}
-            alt={currentDonation.name}
+            src={`/images/${currentProduct.image}`}
+            alt={currentProduct.name}
           />
         </div>
       ) : null}
