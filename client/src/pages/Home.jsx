@@ -7,9 +7,6 @@ import '../styles/Home.css'
 import Search from '../assets/sounds/Search.wav';
 
 const Home = () => {
-  // const [make, setMake] = useState('');
-  // const [model, setModel] = useState('');
-  // const [year, setYear] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [refetchedData, setRefetchedData] = useState(null);
   const [make, setMake] = useState(localStorage.getItem('make') || '');
@@ -38,14 +35,6 @@ const Home = () => {
     fetchPolicy: 'network-only',
     skip: true,
   });
-
-  // const handleToggleComments = (complaintId) => {
-  //   if (expandedComplaintId === complaintId) {
-  //     setExpandedComplaintId(null);
-  //   } else {
-  //     setExpandedComplaintId(complaintId);
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
