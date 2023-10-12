@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import donationsReducer from './reducers/donationsSlice';
+import productsReducer from './reducers/productsSlice';
 import cartReducer from './reducers/cartSlice';
 import categoryReducer from './reducers/categorySlice';
 
 const store = configureStore({
   reducer: {
-    donations: donationsReducer,
+    products: productsReducer,
     cart: cartReducer,
     category: categoryReducer
   }

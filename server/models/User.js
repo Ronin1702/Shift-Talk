@@ -24,6 +24,11 @@ const userSchema = new Schema(
     complaints: [{ type: Schema.Types.ObjectId, ref: 'Complaint' }],
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
     orders: [Order.schema],
+    // role:{
+    //   type: String,
+    //   required: true,
+    //   default: 'user'
+    // }
   },
   {
     toJSON: {

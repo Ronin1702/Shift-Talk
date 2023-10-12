@@ -84,6 +84,7 @@ const resolvers = {
       throw new GraphQLError('Failed to Execute me Query from Resolvers.js');
     },
     order: async (parent, { _id }, context) => {
+      // if if (context.user.role === 'admin') {} no user object, throw authentication error
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.products',

@@ -72,6 +72,17 @@ const Nav = ({ currentPage }) => {
                   My Page
                 </Link>
               </li>
+
+              <li className="nav-item" style={styles.links}>
+                <Link
+                  to="/pros"
+                  className={activeLink === '/pros' ? 'active' : ''}
+                  onClick={() => handleLinkClick('/pros')}
+                  style={styles.text}
+                >
+                  RENT A PRO
+                </Link>
+              </li>
               
               <button style={styles.links} onClick={logout}>
                 Logout

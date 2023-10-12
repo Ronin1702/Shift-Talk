@@ -16,9 +16,9 @@ const cartSlice = createSlice({
     },
     updateCartQuantity: (state, action) => {
       state.cartOpen = true;
-      const donation = state.cartItems.find(item => item._id === action.payload._id);
-      if (donation) {
-        donation.purchaseQuantity = action.payload.purchaseQuantity;
+      const product = state.cartItems.find(item => item._id === action.payload._id);
+      if (product) {
+        product.purchaseQuantity = action.payload.purchaseQuantity;
       }
     },
     removeFromCart: (state, action) => {

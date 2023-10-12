@@ -22,7 +22,7 @@ function Success() {
       }
 
       setTimeout(() => {
-        window.location.assign('/');
+        window.location.assign('/')
       }, 3000);
     }
 
@@ -34,7 +34,7 @@ function Success() {
       <Jumbotron>
         <h1>Success!</h1>
         <h2>Thank you for your most kind Donation!</h2>
-        <h2>You will now be redirected to the home page now</h2>
+        <h2>You will now be redirected to the homepage</h2>
       </Jumbotron>
     </div>
   );

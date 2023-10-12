@@ -5,15 +5,16 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
+// import { useStoreContext } from '../../utils/GlobalState';
+// import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../utils/reducers/cartSlice';
 import './style.css';
 
-const stripePromise = loadStripe(
-  'pk_test_51NxE6PJNyOG8ZaW1k4p1tqfDQqNUsVNfKrWncrApS5CJFcAimdYAE4ER9GUUOOljgV1kNPjOCnkWuaIuG9KNbwiI00d6E9NJts'
-);
+const stripePromise = loadStripe('pk_test_51NxE6PJNyOG8ZaW1k4p1tqfDQqNUsVNfKrWncrApS5CJFcAimdYAE4ER9GUUOOljgV1kNPjOCnkWuaIuG9KNbwiI00d6E9NJts');
 
 const Cart = () => {
+  // const [state, dispatch] = useStoreContext();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartOpen = useSelector((state) => state.cart.cartOpen);
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      console.log('Cart from IDB:', cart);
+      console.log("Cart from IDB:", cart);
       // dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
       dispatch(actions.addMultipleToCart(cart));
     }
@@ -58,7 +59,7 @@ const Cart = () => {
 
     cartItems.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        donationIds.push(item._id);
+        productIds.push(item._id);
       }
     });
 
@@ -78,11 +79,11 @@ const Cart = () => {
   }
 
   return (
-    <div className='donationCart'>
+    <div className='cart'>
       <div className='close' onClick={toggleCart}>
         [close]
       </div>
-      <h2>Donation</h2>
+      <h2>Shopping Cart</h2>
       {cartItems.length ? (
         <div>
           {cartItems.map((item) => (
@@ -93,9 +94,7 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()}</strong>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>
-                Secure Checkout With Stripe
-              </button>
+              <button onClick={submitCheckout}>Checkout</button>
             ) : (
               <span>(log in to check out)</span>
             )}
@@ -103,10 +102,10 @@ const Cart = () => {
         </div>
       ) : (
         <h3>
-          <span role='img' aria-label='sad emojis'>
-            😟😓🥲😥😢🥺🥹
+          <span role='img' aria-label='shocked'>
+            😱
           </span>
-          You haven't Selected any Donation Yet!
+          You haven't added anything to your cart yet!
         </h3>
       )}
     </div>
