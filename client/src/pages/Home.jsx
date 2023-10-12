@@ -89,7 +89,7 @@ const Home = () => {
       <h1 className='text-center'>
           Enter the Make, Model, and Year of Vehicle!
         </h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className='text-center pt-4' >
         
         <input
           type='text'
