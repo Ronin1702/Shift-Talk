@@ -1,6 +1,6 @@
 .cart {
   position: fixed;
-  top: 6%;
+  top: 10%;
   right: 0;
   min-width: 20%;
   max-width: 30%;
@@ -49,16 +49,15 @@
 }
 
 .cart-icon {
-  margin-left: 1px;
+  margin-left: 5px;
 }
 
 .cart-closed:hover {
-  transform: rotate(8deg);
+  transform: rotate(10deg);
 }
 
 .cart img {
   width: 70px;
-  margin-right: 1rem;
 }
 
 .cart input {
