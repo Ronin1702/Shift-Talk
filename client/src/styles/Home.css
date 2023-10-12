@@ -30,8 +30,6 @@
   }
   
   form {
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -39,6 +37,8 @@
     color: #EAEAEA;
     background-color: #252A34;
     padding: 5px;
+    max-width: 100%;
+    width: fit-content;
   }
 
   input {
@@ -55,8 +55,8 @@
   }
 
   .comments-container {
-    background-color: #252A34;
-    color:#EAEAEA;
+    background-color: #F4E869;
+    color:#252A34;
     border-radius: 10px;
     margin: 0 auto;
   }
@@ -75,7 +75,7 @@
   }
 
   h1 {
-    color: #EAEAEA;
+    color: #252A34;
     margin: 10px;
   }
 

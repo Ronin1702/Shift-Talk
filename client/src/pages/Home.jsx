@@ -79,11 +79,11 @@ const Home = () => {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit} className='form'>
-        <h1 className='text-center'>
+      <h1 className='text-center'>
           Enter the Make, Model, and Year of Vehicle!
         </h1>
-        <Col>
+      <Form onSubmit={handleSubmit}>
+        
         <input
           type='text'
           placeholder='Make'
@@ -91,21 +91,20 @@ const Home = () => {
           onChange={(event) => setMake(event.target.value)}
           className='input'
         />
+        
         <input
           type='text'
           placeholder='Model'
           value={model}
           onChange={(event) => setModel(event.target.value)}
         />
-        </Col>
-        <Col>
+        
         <input
           type='text'
           placeholder='Year'
           value={year}
           onChange={(event) => setYear(event.target.value)}
         />
-        </Col>
         <button type='submit'>Search</button>
         
         <div className='error-message'>
