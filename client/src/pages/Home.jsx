@@ -35,7 +35,7 @@ const Home = () => {
 
   const { loading, error, data, refetch } = useQuery(GET_CAR, {
     variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'network-only',
     skip: true,
   });
 
