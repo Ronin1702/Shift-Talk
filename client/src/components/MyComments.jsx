@@ -27,7 +27,6 @@ const MyComments = () => {
 
     return (
         <div>
-            <h1>Hello, {user.username}</h1>
             <div>
                 <p className="text-center">My Comments:</p>
                 <ul className="text-center justify-content-center">
