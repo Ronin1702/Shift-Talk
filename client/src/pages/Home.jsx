@@ -14,7 +14,9 @@ const Home = () => {
   const [year, setYear] = useState(localStorage.getItem('year') || '');
   const searchButtonRef = useRef();
   useEffect(() => {
-    searchButtonRef.current.click();
+    if (localStorage.getItem('make') && localStorage.getItem('model') && localStorage.getItem('year')) {
+      searchButtonRef.current.click();
+    }
   }, []);
 
   // Any whitespace in the make or model should be removed and the string should be converted to lowercase
