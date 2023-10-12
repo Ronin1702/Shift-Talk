@@ -16,7 +16,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await Category.find().populate('products');
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -77,27 +77,17 @@ const resolvers = {
       // if no user object, throw authentication error
       if (context.user) {
         // initialize variables
-        return User.findOne({ _id: context.user._id }).populate(`complaints`).populate(`comments`);
+        return User.findOne({ _id: context.user._id })
+          .populate(`complaints`)
+          .populate(`comments`);
       }
       throw new GraphQLError('Failed to Execute me Query from Resolvers.js');
-    },
-    
-  },
-  Car: {
-    complaints: async (car) => {
-      return await Complaint.find({ car: car._id });
-    },
-  },
-  User: {
-    //in our case a user cannot create a car, they can make a complaint about a car, or add a comment to a complaint, and only under that complaint they can see which car they were complaining about.
-    complaints: async (user) => {
-      return await Complaint.find({ user: user._id });
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.products',
-          populate: 'category'
+          populate: 'category',
         });
 
         return user.orders.id(_id);
@@ -116,7 +106,7 @@ const resolvers = {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+          images: [`${url}/images/${products[i].image}`],
         });
 
         const price = await stripe.prices.create({
@@ -127,7 +117,7 @@ const resolvers = {
 
         line_items.push({
           price: price.id,
-          quantity: 1
+          quantity: 1,
         });
       }
 
@@ -136,11 +126,22 @@ const resolvers = {
         line_items,
         mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
+        cancel_url: `${url}/`,
       });
 
       return { session: session.id };
-    }
+    },
+  },
+  Car: {
+    complaints: async (car) => {
+      return await Complaint.find({ car: car._id });
+    },
+  },
+  User: {
+    //in our case a user cannot create a car, they can make a complaint about a car, or add a comment to a complaint, and only under that complaint they can see which car they were complaining about.
+    complaints: async (user) => {
+      return await Complaint.find({ user: user._id });
+    },
   },
 
   Complaint: {
@@ -329,6 +330,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-
-
