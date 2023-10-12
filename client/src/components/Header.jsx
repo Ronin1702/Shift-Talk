@@ -4,7 +4,7 @@ import Cart from './Cart';
 
 const styles = {
     title: {
-        color:'#EAEAEA'
+        color:'#EAEAEA',
     },
     nav: {
         position: "sticky",
@@ -31,8 +31,8 @@ function Header() {
 
                 <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
             </a>
-            <Cart />
             <Nav style={styles.navbuttons}/>
+            <Cart />
         </div>
     );
 }
