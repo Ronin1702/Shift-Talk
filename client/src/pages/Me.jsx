@@ -28,8 +28,8 @@ const Me = () => {
 
   return (
     <div>
-      <h1 className='text-secondary text-center'>
-        Hello <span className='text-warning'>{user.username}</span>
+      <h1 className='text-center'>
+        Hello <span>{user.username}</span>
       </h1>
       <div>
         <UpdateProfile userData={user} />
