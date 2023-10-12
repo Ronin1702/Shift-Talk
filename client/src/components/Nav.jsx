@@ -18,6 +18,10 @@ const styles = {
     color: '#EAEAEA',
   },
 
+  danger: {
+    color: 'red',
+  },
+
   navbuttons: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -97,13 +101,13 @@ const Nav = () => {
             <li className='nav-item' style={styles.links}>
               <Link
                 to='#'
-                style={styles.text}
+                style={styles.danger}
                 onClick={(e) => {
                   e.preventDefault();
                   Auth.logout();
                 }}
               >
-                Logout
+               📴 Logout 
               </Link>
             </li>
           )}
