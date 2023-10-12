@@ -83,6 +83,17 @@ const Nav = ({ currentPage }) => {
                   RENT A PRO
                 </Link>
               </li>
+
+              <li className="nav-item" style={styles.links}>
+                <Link
+                  to="/orderHistory"
+                  className={activeLink === '/orderHistory' ? 'active' : ''}
+                  onClick={() => handleLinkClick('/orderHistory')}
+                  style={styles.text}
+                >
+                  Order History
+                </Link>
+              </li>
               
               <button style={styles.links} onClick={logout}>
                 Logout
