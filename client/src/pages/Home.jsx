@@ -134,8 +134,12 @@ const Home = () => {
         </div>
       </Form>
       <div className='results-container'>
-        {refetchedData && refetchedData.car && (
+        {refetchedData && refetchedData.car ? (
           <ComplaintResults carData={refetchedData.car} key={Date.now()} />
+        ) : (
+          <>
+            <p>More Models Coming Soon !</p>
+          </>
         )}
       </div>
     </Container>
