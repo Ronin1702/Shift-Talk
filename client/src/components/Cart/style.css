@@ -1,7 +1,8 @@
 .cart {
-  position: fixed;
+  position: relative;
+  display: flex;
   top: 10%;
-  right: 0;
+  /* right: 0; */
   min-width: 20%;
   max-width: 30%;
   max-height: 60%;
@@ -9,7 +10,7 @@
   overflow: auto;
   padding: .5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
-  border-bottom-left-radius: .5rem;
+  border-top-right-radius: .5rem;
   border-top-left-radius: .5rem;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .cart .close {
-  position: absolute;
+  /* position: absolute; */
   top: .5rem;
   right: .5rem;
   cursor: pointer;
@@ -33,9 +34,9 @@
 }
 
 .cart-closed {
-  position: fixed;
+  /* position: fixed;
   top: 0.7%;
-  right: 1%;
+  right: 1%; */
   font-size: 1.5rem;
   cursor: pointer;
   background-color: var(--secondary);
@@ -66,7 +67,7 @@
   margin: 0 .5rem 1rem 0;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .cart {
     position: relative;
     max-width: 100%;
@@ -91,4 +92,4 @@ nav {
   position: relative;
   right: 5%;
   z-index: 1;
-}
+} */

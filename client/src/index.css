@@ -80,7 +80,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 header {
@@ -210,6 +210,7 @@ input:focus {
   transition: transform 0.5s;
   box-shadow: 5px 5px 8px var(--dark);
 }
+
 .card img {
   min-width: 60%;
   height: 200px;
@@ -230,6 +231,7 @@ input:focus {
   color: var(--light);
   font-size: small;
 }
+
 .card button:hover {
   background-color: var(--secondary);
   background: linear-gradient(155deg, #232f3e, #08d9d6, var(--secondary));
@@ -241,6 +243,7 @@ input:focus {
   transform: scale(1.05);
   transition: transform 0.5s;
 }
+
 .error-text {
   color: var(--error);
 }

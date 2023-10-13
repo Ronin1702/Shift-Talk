@@ -13,11 +13,12 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-
-// import Nav from './components/Nav';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Background from './components/Background';
+import Nav from './components/Nav';
+import Cart from './components/Cart';
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -43,8 +44,18 @@ function App() {
     <ApolloProvider client={client}>
       <Provider store={store}>
         <Background>
-          <Header />
-          <Outlet />
+          <div className='container-fluid'>
+            <div className='row'>
+              <Header />
+            </div>
+            <Nav />
+            <Outlet />
+            {Auth.loggedIn() && (
+              <div className="d-flex justify-content-center align-items-center">
+                <Cart />
+              </div>
+            )}
+          </div>
           <Footer />
         </Background>
       </Provider>

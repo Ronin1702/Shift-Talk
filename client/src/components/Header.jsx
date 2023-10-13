@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
-import Nav from './Nav';
-import Cart from './Cart';
-
+import React from 'react';
 const styles = {
     title: {
-        color:'#EAEAEA',
+        color: '#EAEAEA',
     },
-    nav: {
-        position: "sticky",
-        zIndex: 1,
+    header: {
+        position: "fixed",
+        zIndex: 0,
         backgroundColor: "#252A34",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingRight: "20px"
+        width: "100%",
+        padding: 0,
     },
-    navbuttons: {
-        display: "flex",
-        justifyContent: "flex-end",
-        alignItems: "center"
-    }
 };
 
 function Header() {
+
     return (
-
-        <div className='navbar fixed-top navbar-expand-lg navbar-light' style={styles.nav}>
-            <a
-                className='navbar-brand'>
-
-                <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
+        <div style={styles.header}>
+            <a href='/'>
+                <h1 style={styles.title}>🏁 Shift Talk </h1>
             </a>
-            <Nav style={styles.navbuttons}/>
         </div>
     );
 }
