@@ -44,8 +44,16 @@ const ComplaintResults = ({ carData, complaintId }) => {
 
   return (
     <Container>
-      <AddComplaint refetchCarData={() => {}} />
-      {carInfo &&
+      {carInfo && carInfo.complaints.length === 0 ? (
+        <div className='noComplaints'>
+        <h2> 🏁 Drive the Conversation !</h2>
+        <p>It looks like no one has shared their thoughts on this car model yet. Why not be the trendsetter?</p>
+        <p><strong>Share your experience now</strong> and help others make informed decisions.</p>
+        <AddComplaint refetchCarData={() => {}} />
+        <small className='bonusNote'>Bonus: Being the first comes with its own bragging rights!</small>
+      </div>
+      
+      ) : (
         carInfo.complaints.map((complaint) => (
           <div className='singleComplaint shadow' key={complaint._id}>
             <p className='author'>{complaint.author}</p>
@@ -57,14 +65,15 @@ const ComplaintResults = ({ carData, complaintId }) => {
                 <Comments complaintId={complaint._id} />
               </div>
             )}
-            <Col classname='reply-button'>
-              <button  onClick={() => handleToggleComments(complaint._id)}>
+            <Col className='reply-button'>
+              <button onClick={() => handleToggleComments(complaint._id)}>
                 View Replies
               </button>
               <AddComment complaintId={complaint._id} />
             </Col>
           </div>
-        ))}
+        ))
+      )}
     </Container>
   );
 };

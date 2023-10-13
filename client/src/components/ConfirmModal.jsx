@@ -12,24 +12,27 @@ function ConfirmModal({ onConfirm, ...props }) {
     >
       <Modal.Header closeButton>
         <Modal.Title id='contained-modal-title-vcenter'>
-          ⚠️ Warning ⚠️
+          ⚠️ <strong className='text-danger'> WARNING </strong> ⚠️
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4> ❌ Deleting Will Be Non-reversible, Are You Sure? ❌</h4>
+        <h4 className='text-start'>
+          {' '}
+          ❌ This Action is <strong>Non-Reversible</strong>. Are You Sure? ❌
+        </h4>
       </Modal.Body>
       <Modal.Footer>
         <Button variant='secondary' onClick={props.onHide}>
-          Cancel
+          Maybe Not ⏏️
         </Button>
         <Button
-          variant='primary'
+          variant='warning'
           onClick={() => {
             onConfirm();
             props.onHide();
           }}
         >
-          Confirm
+          I'm Sure 🚮
         </Button>
       </Modal.Footer>
     </Modal>

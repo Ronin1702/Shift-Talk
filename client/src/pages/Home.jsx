@@ -113,9 +113,9 @@ const Home = () => {
 
   return (
     <Container>
-      <h1 className='text-center'>
+      {/* <h1 className='text-center'>
         Enter the Make, Model, and Year of Vehicle!
-      </h1>
+      </h1> */}
       <Form onSubmit={handleSubmit} className='pt-4 px-3'>
         <input
           type='text'
