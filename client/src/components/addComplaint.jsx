@@ -55,7 +55,7 @@ const AddComplaint = (props) => {
         className='btn btn-primary'
         onClick={() => setShowForm(!showForm)}
       >
-        Add Complaint
+        Add Comment
       </button>
 
       {showForm && (
@@ -63,7 +63,7 @@ const AddComplaint = (props) => {
           <textarea
             value={complaintText}
             onChange={(e) => setComplaintText(e.target.value)}
-            placeholder='Write your complaint here'
+            placeholder='Write your comment here'
           ></textarea>
           <button type='submit'>Submit</button>
         </form>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
+import Cart from './Cart';
+
 
 const styles = {
   button: {
@@ -12,6 +14,7 @@ const styles = {
 
   links: {
     marginRight: 10,
+    marginTop: 10,
   },
 
   text: {
@@ -29,6 +32,11 @@ const styles = {
     backgroundColor: '#252A34',
     color: '#EAEAEA',
   },
+
+  icon: {
+    backgroundColor: '#EAEAEA',
+  },
+
   activeLink: {
     fontWeight: 'bold',
     color: '#FFD700', // Gold color for active links
@@ -38,7 +46,6 @@ const styles = {
 const loggedInLinks = [
   { path: '/me', label: 'My Page' },
   { path: '/pros', label: 'RENT A PRO' },
-  { path: '/orderHistory', label: 'Order History' },
 ];
 
 const loggedOutLinks = [
@@ -49,8 +56,11 @@ const loggedOutLinks = [
 const commonLinks = [{ path: '/', label: 'Home' }];
 
 const Nav = () => {
+  const location = useLocation();
   const [activeLink, setActiveLink] = useState('/');
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
 
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   const { data } = useQuery(GET_ME, {
@@ -66,19 +76,36 @@ const Nav = () => {
   const linksToRender = Auth.loggedIn() ? loggedInLinks : loggedOutLinks;
 
   return (
-    <nav>
-      {/* ... (navbar-toggler button code remains unchanged) ... */}
-      <div
-        className={`${
-          isNavCollapsed ? 'collapse' : ''
-        } justify-content-end navbar-collapse`}
-        id='navbarSupportedContent'
-      >
+    <nav style={{
+      marginLeft: '30px',
+    }}>
+      <button
+            className="custom-toggler navbar-toggler"
+            style={{
+              ...styles.icon,
+              marginLeft: '10px',
+            }}
+            type="button"
+            data-bs-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+            onClick={handleNavCollapse}>
+            
+            <span
+                className="navbar-toggler-icon"
+                 />
+        </button>
+        
+        <div
+            className={`${isNavCollapsed ? 'collapse' : ''} justify-content-end navbar-collapse`}
+            id="navbarSupportedContent">
         <ul className='navbar-nav'>
           {Auth.loggedIn() && (
             <span>
-              Hey there,{' '}
-              <strong className='text-warning'>{user.username}</strong> ! |{' '}
+              Hey,{' '}
+              <strong className='text-warning'>{user.username}</strong>! {' '}
             </span>
           )}
           {commonLinks.concat(linksToRender).map((link) => (
@@ -112,6 +139,7 @@ const Nav = () => {
             </li>
           )}
         </ul>
+        <Cart />
       </div>
     </nav>
   );

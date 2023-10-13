@@ -32,7 +32,6 @@ function Header() {
                 <h1 className="d-inline align-middle" style={styles.title}>🏁 Shift Talk </h1>
             </a>
             <Nav style={styles.navbuttons}/>
-            <Cart />
         </div>
     );
 }
