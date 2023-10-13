@@ -14,6 +14,7 @@ import '../styles/Home.css';
 import Search from '../assets/sounds/Search.wav';
 
 const Home = () => {
+  const [resetKey, setResetKey] = useState(Date.now());
   const [isSearching, setIsSearching] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [refetchedData, setRefetchedData] = useState(null);
@@ -109,7 +110,16 @@ const Home = () => {
     localStorage.removeItem('make');
     localStorage.removeItem('model');
     localStorage.removeItem('year');
+    setRefetchedData(null); // Clear the refetchedData state
+    setResetKey(Date.now()); // Update the key if you've implemented the previous suggestion
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Error :(</p>;
+  }
 
   return (
     <Container>
@@ -174,7 +184,7 @@ const Home = () => {
         {isSearching ? (
           <p>Searching...</p>
         ) : refetchedData && refetchedData.car ? (
-          <ComplaintResults carData={refetchedData.car} key={Date.now()} />
+          <ComplaintResults carData={refetchedData.car} key={resetKey} />
         ) : (
           <p>More Models Coming Soon !</p>
         )}
