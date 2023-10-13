@@ -28,7 +28,7 @@ const MyComments = () => {
     return (
         <div>
             <div>
-                <p className="text-center">My Comments:</p>
+                <p className="text-center">My Replies:</p>
                 <ul className="text-center justify-content-center">
                     {user.comments?.map((comment) => (
                         <li key={comment._id} className='card text-center justify-content-center' style={{ width: "80vw", padding: "20px", marginBottom: "30px" }}>

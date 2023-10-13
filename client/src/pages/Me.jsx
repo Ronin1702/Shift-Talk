@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
+import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
 import UpdateProfile from '../components/UpdateMe';
@@ -33,16 +34,16 @@ const Me = () => {
       </h1>
       <div>
         <UpdateProfile userData={user} />
-        <p className='text-center'>My Complaints:</p>
+        <p className='text-center'>My Comments:</p>
         <ul className='text-center list-group'>
           {user.complaints.map((complaint) => (
             <li key={complaint._id}>
               <div></div>
-              <p className='text-secondary'>
-                Make: <span className='text-warning'>{complaint.car.make}</span>{' '}
+              <p >
+                Make: <span >{complaint.car.make}</span>{' '}
                 Model:{' '}
-                <span className='text-warning'>{complaint.car.model}</span>{' '}
-                Year: <span className='text-warning'>{complaint.car.year}</span>
+                <span>{complaint.car.model}</span>{' '}
+                Year: <span >{complaint.car.year}</span>
               </p>
               <div className='d-flex justify-content-center'>
                 {' '}
@@ -57,6 +58,9 @@ const Me = () => {
       </div>
       <div>
         <MyComments/>
+      </div>
+      <div>
+      <Link to='/orderhistory'> View Orders </Link>
       </div>
     </div>
   );

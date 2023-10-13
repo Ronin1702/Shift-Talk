@@ -1,8 +1,8 @@
 :root {
   --primary: #252A34;
   --secondary: #f3a847;
-  --tertiary: #b12704;
-  --light: #fafafa;
+  --tertiary: #252A34;
+  --light: #EAEAEA;
   --dark: #252A34;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);

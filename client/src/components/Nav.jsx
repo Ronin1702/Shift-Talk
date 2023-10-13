@@ -46,7 +46,6 @@ const styles = {
 const loggedInLinks = [
   { path: '/me', label: 'My Page' },
   { path: '/pros', label: 'RENT A PRO' },
-  { path: '/orderHistory', label: 'Order History' },
 ];
 
 const loggedOutLinks = [
