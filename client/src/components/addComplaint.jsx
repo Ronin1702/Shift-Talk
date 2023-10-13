@@ -49,7 +49,7 @@ const AddComplaint = (props) => {
   };
 
   return (
-    <div>
+    <div className='complaint-container'>
       <button
         type='button'
         className='btn btn-outline-info btn-lg'
@@ -59,17 +59,23 @@ const AddComplaint = (props) => {
       </button>
 
       {showForm && (
-        <form onSubmit={handleFormSubmit}>
-          <textarea
-            value={complaintText}
-            onChange={(e) => setComplaintText(e.target.value)}
-            placeholder='Write your comment here'
-          ></textarea>
-          <button type='submit'>Submit</button>
-        </form>
+        <div className='complaint-form-container'>
+          <form onSubmit={handleFormSubmit}>
+            <textarea
+              value={complaintText}
+              onChange={(e) => setComplaintText(e.target.value)}
+              placeholder='Write your comment here'
+              className='form-control mb-2'
+              rows='4'
+            ></textarea>
+            <button type='submit' className='btn btn-outline-primary'>
+              Submit
+            </button>
+          </form>
+        </div>
       )}
 
-      {error && <p className='error'>{error}</p>}
+      {error && <p className='error mt-2'>{error}</p>}
     </div>
   );
 };

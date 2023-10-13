@@ -122,3 +122,19 @@ h1 {
   font-style: italic;
   color: #888;
 }
+
+.complaint-container {
+  margin: 20px 0;
+}
+
+.complaint-form-container {
+  /* border: 1px solid #ddd; */
+  padding: 15px;
+  /* border-radius: 5px; */
+  background-color: transparent;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
