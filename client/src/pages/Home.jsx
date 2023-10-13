@@ -1,12 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Row, Col, InputGroup, Form, FormGroup, } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  InputGroup,
+  Form,
+  FormGroup,
+} from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { GET_CAR } from '../utils/queries';
 import ComplaintResults from '../components/ComplaintResults';
-import '../styles/Home.css'
+import '../styles/Home.css';
 import Search from '../assets/sounds/Search.wav';
 
 const Home = () => {
+  const [isSearching, setIsSearching] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [refetchedData, setRefetchedData] = useState(null);
   const [make, setMake] = useState(localStorage.getItem('make') || '');
@@ -14,7 +22,13 @@ const Home = () => {
   const [year, setYear] = useState(localStorage.getItem('year') || '');
   const searchButtonRef = useRef();
   useEffect(() => {
-    searchButtonRef.current.click();
+    if (
+      localStorage.getItem('make') &&
+      localStorage.getItem('model') &&
+      localStorage.getItem('year')
+    ) {
+      searchButtonRef.current.click();
+    }
   }, []);
 
   // Any whitespace in the make or model should be removed and the string should be converted to lowercase
@@ -28,7 +42,7 @@ const Home = () => {
 
   function play() {
     new Audio(Search).play();
-  };
+  }
 
   const { loading, error, data, refetch } = useQuery(GET_CAR, {
     variables: { make: trimmedMake, model: trimmedModel, year: numericYear },
@@ -51,13 +65,19 @@ const Home = () => {
       return;
     }
 
-    const validYear = /^[0-9]+$/.test(numericYear);
+    const validYear =
+      /^[0-9]+$/.test(numericYear) &&
+      numericYear >= 1992 &&
+      numericYear <= 2020;
     if (!validYear) {
-      setErrorMessage('You can only have numbers in Year field');
+      setErrorMessage(
+        'Our database supports cars from 1992 to 2020. More data is on the way!'
+      );
       return;
     }
 
     try {
+      setIsSearching(true);
       // make sure we clear any error messages before making the request
       setErrorMessage(null);
       // make sure we clear any data before making the request
@@ -77,6 +97,8 @@ const Home = () => {
       }
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsSearching(false);
     }
   };
 
@@ -95,12 +117,14 @@ const Home = () => {
         Enter the Make, Model, and Year of Vehicle!
       </h1>
       <Form onSubmit={handleSubmit} className='pt-4 px-3'>
-
         <input
           type='text'
           placeholder='Make'
           value={make}
-          onChange={(event) => { setMake(event.target.value); localStorage.setItem('make', event.target.value); }}
+          onChange={(event) => {
+            setMake(event.target.value);
+            localStorage.setItem('make', event.target.value);
+          }}
           className='input'
         />
 
@@ -108,17 +132,32 @@ const Home = () => {
           type='text'
           placeholder='Model'
           value={model}
-          onChange={(event) => { setModel(event.target.value); localStorage.setItem('model', event.target.value); }}
+          onChange={(event) => {
+            setModel(event.target.value);
+            localStorage.setItem('model', event.target.value);
+          }}
         />
 
         <input
           type='text'
           placeholder='Year'
           value={year}
-          onChange={(event) => { setYear(event.target.value); localStorage.setItem('year', event.target.value); }}
+          onChange={(event) => {
+            setYear(event.target.value);
+            localStorage.setItem('year', event.target.value);
+          }}
         />
-        <button className='mx-4' type='submit' ref={searchButtonRef} onClick={play}>Search</button>
-        <button className='mx-4' type='button' onClick={handleClear}>Clear</button>
+        <button
+          className='mx-4'
+          type='submit'
+          ref={searchButtonRef}
+          onClick={play}
+        >
+          Search
+        </button>
+        <button className='mx-4' type='button' onClick={handleClear}>
+          Clear
+        </button>
 
         <div className='error-message'>
           {/* show errorMessage if has*/}
@@ -132,8 +171,12 @@ const Home = () => {
         </div>
       </Form>
       <div className='results-container'>
-        {refetchedData && refetchedData.car && (
+        {isSearching ? (
+          <p>Searching...</p>
+        ) : refetchedData && refetchedData.car ? (
           <ComplaintResults carData={refetchedData.car} key={Date.now()} />
+        ) : (
+          <p>More Models Coming Soon !</p>
         )}
       </div>
     </Container>
