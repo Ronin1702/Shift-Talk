@@ -23,78 +23,118 @@
 }
 
 .container {
-    border-radius: 10px;
-    margin-bottom: 20px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  form {
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    color: #EAEAEA;
-    background-color: #252A34;
-    padding: 5px;
-    max-width: 100%;
-    width: fit-content;
-  }
-
-  input {
-    margin-right: 10px;
-    border-radius: 5px;
-  }
-
-  .complaints-container {
-    display: inline-block;
-    justify-content: center;
-    background-color: #252A34;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
-
-  .comments-container {
-    background-color: #F4E869;
-    color:#252A34;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
-
-
-  .singleComplaint {
-    color: #252A34;
-    background-color: #EAEAEA;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 5px;
-  }
-
-  button {
-    border-radius: 5px;
-    background-color: #08D9D6;
-  }
-
-  h1 {
-    color: #252A34;
-    margin: 10px;
-  }
-
-  .error {
-    color: #FF2E63;
-    margin: 20px;
-  }
-
-  .error-message {
-    color: #FF2E63;
-    margin: 20px;
-  }
-
-  .results-container {
-    /* Your centering styles here, e.g.: */
-    margin: 0 auto;
-    width: 80%;
-    text-align: center;
-    /* Add any other styles you need */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
+form {
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  color: #eaeaea;
+  background-color: #252a34;
+  padding: 5px;
+  max-width: 100%;
+  width: fit-content;
+}
+
+input {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.complaints-container {
+  display: inline-block;
+  justify-content: center;
+  background-color: #252a34;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.comments-container {
+  background-color: #f4e869;
+  color: #252a34;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.singleComplaint {
+  color: #252a34;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+}
+
+button {
+  border-radius: 5px;
+  background-color: #08d9d6;
+}
+
+h1 {
+  color: #252a34;
+  margin: 10px;
+}
+
+.error {
+  color: #ff2e63;
+  margin: 20px;
+}
+
+.error-message {
+  color: #ff2e63;
+  margin: 20px;
+}
+
+.results-container {
+  /* Your centering styles here, e.g.: */
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  /* Add any other styles you need */
+}
+
+.noComplaints {
+  border: 2px dashed #ff9800;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: #fff3e0;
+}
+
+.noComplaints h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.noComplaints p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.bonusNote {
+  display: block;
+  margin-top: 15px;
+  font-style: italic;
+  color: #888;
+}
+
+.complaint-container {
+  margin: 20px 0;
+}
+
+.complaint-form-container {
+  /* border: 1px solid #ddd; */
+  padding: 15px;
+  /* border-radius: 5px; */
+  background-color: transparent;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
