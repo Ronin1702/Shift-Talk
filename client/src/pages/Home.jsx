@@ -94,7 +94,7 @@ const Home = () => {
       <h1 className='text-center'>
         Enter the Make, Model, and Year of Vehicle!
       </h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className='pt-4 px-3'>
 
         <input
           type='text'
@@ -117,8 +117,8 @@ const Home = () => {
           value={year}
           onChange={(event) => { setYear(event.target.value); localStorage.setItem('year', event.target.value); }}
         />
-        <button type='submit' ref={searchButtonRef} onClick={play}>Search</button>
-        <button type='button' onClick={handleClear}>Clear</button>
+        <button className='mx-4' type='submit' ref={searchButtonRef} onClick={play}>Search</button>
+        <button className='mx-4' type='button' onClick={handleClear}>Clear</button>
 
         <div className='error-message'>
           {/* show errorMessage if has*/}
