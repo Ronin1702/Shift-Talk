@@ -158,14 +158,13 @@ const Home = () => {
           }}
         />
         <button
-          className='mx-4'
           type='submit'
           ref={searchButtonRef}
           onClick={play}
         >
           Search
         </button>
-        <button className='mx-4' type='button' onClick={handleClear}>
+        <button type='button' onClick={handleClear}>
           Clear
         </button>
 
