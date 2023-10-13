@@ -196,7 +196,7 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 
 ### TEAM ONE
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://t1p3-4fd94440c532.herokuapp.com/)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://ceresmarkley.github.io/ceres-react-portfolio/)
   [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://github.com/ceresmarkley/)
 
 - [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Daniel%20Chen-blue?logo=netlify)](https://portfolio-jianxiong.netlify.app/)
