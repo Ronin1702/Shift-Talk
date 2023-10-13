@@ -10,7 +10,7 @@ const Me = () => {
       <div className='row mt-2 text-start fs-6'>
         <Link className='text-secondary' to='/OrderHistory'>
           {' '}
-          📖 View Orders{' '}
+          🏁 View Orders{' '}
         </Link>
       </div>
       <div>
