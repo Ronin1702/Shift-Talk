@@ -104,8 +104,8 @@ const Nav = () => {
         <ul className='navbar-nav'>
           {Auth.loggedIn() && (
             <span>
-              Hey there,{' '}
-              <strong className='text-warning'>{user.username}</strong> ! |{' '}
+              Hey,{' '}
+              <strong className='text-warning'>{user.username}</strong>! {' '}
             </span>
           )}
           {commonLinks.concat(linksToRender).map((link) => (

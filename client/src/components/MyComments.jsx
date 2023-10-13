@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import RemoveCommentButton from "./removeComment";
+import '../styles/Home.css';
 
 const MyComments = () => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -28,17 +29,19 @@ const MyComments = () => {
     return (
         <div>
             <div>
-                <p className="text-center">My Replies:</p>
-                <ul className="text-center justify-content-center">
+                <p className='text-center'>My Replies:</p>
+                <div className="d-flex justify-content-center">
+                <ul type="none" className='card w-75'>
                     {user.comments?.map((comment) => (
-                        <li key={comment._id} className='card text-center justify-content-center' style={{ width: "80vw", padding: "20px", marginBottom: "30px" }}>
-                            <p>{comment.text}</p>
-                            <p>{comment.author}</p>
-                            <p>{comment.createdAt}</p>
+                        <li key={comment._id} className='singleComplaint shadow text-center'>
+                            <p className='author'>{comment.author}</p>
+                            <p className='commText'>{comment.text}</p>
+                            <p className='dateText'>{comment.createdAt}</p>
                             <RemoveCommentButton commentId={comment._id} />
                         </li>
                     ))}
                 </ul>
+                </div>
             </div>
         </div>
     );
