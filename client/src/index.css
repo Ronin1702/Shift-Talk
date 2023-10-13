@@ -253,3 +253,15 @@ input:focus {
     width: 100%;
   }
 }
+
+.outlet-container {
+  padding-top: 5%;
+  /* overflow: hidden; */
+  z-index: 999;
+}
+
+@media screen and (max-width: 390px) {
+  .outlet-container {
+    padding-top: 25%;
+  }
+}
