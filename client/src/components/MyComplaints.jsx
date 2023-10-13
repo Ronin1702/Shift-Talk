@@ -4,6 +4,7 @@ import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
 import UpdateProfile from '../components/UpdateMe';
+import '../styles/Home.css';
 
 const Me = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -33,9 +34,10 @@ const Me = () => {
       <div>
         <UpdateProfile userData={user} />
         <p className='text-center'>My Complaints:</p>
-        <ul className='text-center list-group'>
+        <div className='d-flex justify-content-center align-items-stretch'>
+        <ul type="none" className='card w-75'>
           {user.complaints.map((complaint) => (
-            <li key={complaint._id}>
+            <li key={complaint._id} className='singleComplaint shadow text-center'>
               <div></div>
               <p className='text-secondary'>
                 Make: <span className='text-warning'>{complaint.car.make}</span>{' '}
@@ -45,14 +47,15 @@ const Me = () => {
               </p>
               <div className='d-flex justify-content-center'>
                 {' '}
-                <p className='list-group-item bg-info card'>{complaint.text}</p>
-                <p>{complaint.createdAt}</p>
+                <p className='commText'>{complaint.text}</p>
+                <p className='dateText'>{complaint.createdAt}</p>
               </div>
 
               <RemoveComplaintButton complaintId={complaint._id} />
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </div>
   );

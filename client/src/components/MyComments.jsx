@@ -28,11 +28,12 @@ const MyComments = () => {
 
     return (
         <div>
-            <div className="results-container">
-                <p>My Comments:</p>
-                <ul className='singleComplaint shadow'>
+            <div>
+                <p className='text-center'>My Comments:</p>
+                <div className="d-flex justify-content-center">
+                <ul type="none" className='card w-75'>
                     {user.comments?.map((comment) => (
-                        <li key={comment._id} className='card text-center justify-content-center' style={{ width: "80vw", padding: "20px", marginBottom: "30px" }}>
+                        <li key={comment._id} className='singleComplaint shadow text-center'>
                             <p className='author'>{comment.author}</p>
                             <p className='commText'>{comment.text}</p>
                             <p className='dateText'>{comment.createdAt}</p>
@@ -40,6 +41,7 @@ const MyComments = () => {
                         </li>
                     ))}
                 </ul>
+                </div>
             </div>
         </div>
     );
