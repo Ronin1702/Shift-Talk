@@ -39,6 +39,7 @@ const styles = {
     width: '100%',
     justifyContent: 'flex-end',
     paddingRight: '20px',
+    zIndex: '1001',
   },
 };
 
