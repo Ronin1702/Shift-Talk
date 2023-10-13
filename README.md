@@ -172,15 +172,15 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 
 ### Stripe Test
 
- If you would like to test the stripe payment, feel free to use the following [testing credit card numbers](https://stripe.com/docs/testing?testing-method=card-numbers) provided by [Stripe Docs](https://stripe.com/docs) with any future date and any 3 digit CVC code (4 for American Express).
+If you would like to test the stripe payment, feel free to use the following [testing credit card numbers](https://stripe.com/docs/testing?testing-method=card-numbers) provided by [Stripe Docs](https://stripe.com/docs) with any future date and any 3 digit CVC code (4 for American Express).
 
-  ![Visa](https://img.shields.io/badge/Visa-4242%204242%204242%204242-blue?labelColor=blue&color=gray)
-  ![Master](https://img.shields.io/badge/Master-5555%205555%205555%204444-red?labelColor=red&color=gray)
-  ![American Express](https://img.shields.io/badge/American%20Express-3782%20822463%2010005-green?labelColor=green&color=gray)
-  ![Discover](https://img.shields.io/badge/Discover-6011%201111%201111%201117-orange?labelColor=orange&color=gray)
-  ![Diners Club](https://img.shields.io/badge/Diners%20Club-3056%209300%200902%200004-teal?labelColor=teal&color=gray)
-  ![JCB](https://img.shields.io/badge/JCB-3566%200020%202036%200505-pink?labelColor=pink&color=gray)
-  ![Union Pay](https://img.shields.io/badge/Union%20Pay-6200%200000%200000%200005-purple?labelColor=purple&color=gray)
+![Visa](https://img.shields.io/badge/Visa-4242%204242%204242%204242-blue?labelColor=blue&color=gray)
+![Master](https://img.shields.io/badge/Master-5555%205555%205555%204444-red?labelColor=red&color=gray)
+![American Express](https://img.shields.io/badge/American%20Express-3782%20822463%2010005-green?labelColor=green&color=gray)
+![Discover](https://img.shields.io/badge/Discover-6011%201111%201111%201117-orange?labelColor=orange&color=gray)
+![Diners Club](https://img.shields.io/badge/Diners%20Club-3056%209300%200902%200004-teal?labelColor=teal&color=gray)
+![JCB](https://img.shields.io/badge/JCB-3566%200020%202036%200505-pink?labelColor=pink&color=gray)
+![Union Pay](https://img.shields.io/badge/Union%20Pay-6200%200000%200000%200005-purple?labelColor=purple&color=gray)
 
 ## Screenshots
 
@@ -196,7 +196,7 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 
 ### TEAM ONE
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://t1p3-4fd94440c532.herokuapp.com/)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://ceresmarkley.github.io/ceres-react-portfolio/#/)
   [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://github.com/ceresmarkley/)
 
 - [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Daniel%20Chen-blue?logo=netlify)](https://portfolio-jianxiong.netlify.app/)
@@ -206,7 +206,7 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
   [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ian%20Vignolles--Jeong-blue?logo=Github)](https://github.com/IVignollesJeong)
 
 - [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Kai%20Chen-blue?logo=netlify)](https://kaichen.biz/)
-  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Kai%20Chen-blue?logo=Github)](https://github.com/CQlove)
+  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Kai%20Chen-blue?logo=Github)](https://github.com/ronin1702)
 
 [_back to top_](#table-of-contents)
 
