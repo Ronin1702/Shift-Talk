@@ -15,7 +15,7 @@ const AddComment = ({ complaintId }) => {
     e.preventDefault();
 
     if (!AuthService.loggedIn()) {
-      setError('You need to be logged in to add a comment.');
+      setError('You need to be logged in to reply!');
       return;
     }
 
@@ -59,7 +59,7 @@ const AddComment = ({ complaintId }) => {
             className='form-control'
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
-            placeholder='Write your Comment here'
+            placeholder='Write your Reply here'
           ></textarea>
           <button type='submit'>Submit</button>
         </form>
