@@ -16,7 +16,7 @@ function ConfirmModal({ onConfirm, ...props }) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4> ❌ None Reversible ❌</h4>
+        <h4> ❌ Deleting Will Be Non-reversible, Are You Sure? ❌</h4>
       </Modal.Body>
       <Modal.Footer>
         <Button variant='secondary' onClick={props.onHide}>
