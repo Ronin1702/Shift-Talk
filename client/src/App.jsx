@@ -19,6 +19,7 @@ import Background from './components/Background';
 import Nav from './components/Nav';
 import Cart from './components/Cart';
 import Auth from './utils/auth';
+import './index.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,12 +45,16 @@ function App() {
     <ApolloProvider client={client}>
       <Provider store={store}>
         <Background>
-          <div className='container-fluid'>
-            <div className='row'>
-              <Header />
-            </div>
-            <Nav />
+          <div className='row-fluid'>
+            <Header />
+          </div>
+
+          <Nav />
+
+          <div className='outlet-container'>
             <Outlet />
+          </div>
+          <div>
             {Auth.loggedIn() && (
               <div className="d-flex justify-content-center align-items-center">
                 <Cart />

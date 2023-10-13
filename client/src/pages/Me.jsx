@@ -6,8 +6,8 @@ import { Container } from 'react-bootstrap';
 
 const Me = () => {
   return (
-    <Container className='my-1'>
-      <div className='row mt-2 text-end fs-6'>
+    <Container className='my-2'>
+      <div className='row mt-2 text-start fs-6'>
         <Link className='text-secondary' to='/OrderHistory'>
           {' '}
           📖 View Orders{' '}
@@ -16,6 +16,7 @@ const Me = () => {
       <div>
         <MyComplaints />
       </div>
+      <br/>
       <div>
         <MyComments />
       </div>

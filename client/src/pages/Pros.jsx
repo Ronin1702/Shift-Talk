@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const RentAPro = () => {
   return (
     <div className='container'>
-      <div className='row mt-2 text-end fs-6'>
+      <div className='row mt-2 text-start fs-6'>
         <Link className='text-secondary' to='/OrderHistory'>
           {' '}
           📖 View Orders{' '}
