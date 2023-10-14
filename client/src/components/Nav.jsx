@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
-import Cart from './Cart';
 
 
 const styles = {
