@@ -72,11 +72,10 @@ input {
 button {
   border-radius: 5px;
   background-color: #219c90;
-  /* border: solid; */
   border-color: #252a34;
-  margin-left: 1%, 1%, 0%, 0%;
   opacity: 0.9;
   color: white;
+  margin-right: 1%;
 }
 
 button:hover {
@@ -85,6 +84,11 @@ button:hover {
   transition: transform 1s;
 }
 
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #888;
+}
 h1 {
   color: #252a34;
   margin: 10px;
@@ -112,7 +116,7 @@ h1 {
   text-align: center;
   margin: 15px 0;
   border-radius: 10px;
-  background-color: #fff3e0;;
+  background-color: #fff3e0;
 }
 
 .noComplaints h2 {
