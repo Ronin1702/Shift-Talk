@@ -36,15 +36,14 @@ form {
   color: #eaeaea;
   background-color: #252a34;
   padding: 1.5rem;
-  max-width: 100%;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 input {
-  margin-right: 1%;
   border-radius: 5px;
-  width: 25%;
+  width: 100%;
+  margin-bottom: 1%;
 }
 
 .complaints-container {
@@ -72,8 +71,18 @@ input {
 
 button {
   border-radius: 5px;
-  background-color: #08d9d6;
-  margin-left: 1%;
+  background-color: #219c90;
+  border: solid;
+  border-color: #252a34;
+  margin-left: 1%, 1%, 0%, 0%;
+  opacity: 0.9;
+  color: white;
+}
+
+button:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  transition: transform 1s;
 }
 
 h1 {
@@ -128,49 +137,13 @@ h1 {
 }
 
 .complaint-form-container {
-  /* border: 1px solid #ddd; */
   padding: 15px;
-  /* border-radius: 5px; */
   background-color: transparent;
 }
 
 .error {
   color: red;
   margin-top: 10px;
-}
-
-@media (min-width: 768px) {
-  form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  input {
-    width: calc(24% - 4px);
-  }
-
-  button {
-    width: auto;
-    margin-left: 0.5%;
-    margin-right: 0.5%;
-  }
-}
-
-@media (max-width: 767px) {
-  form {
-    flex-direction: column;
-  }
-
-  input {
-    width: 100%;
-    margin-bottom: 1%;
-  }
-
-  button {
-    width: 48%;
-    margin: 1% 0.5%;
-  }
 }
 
 @media (max-width: 390px) {
