@@ -29,7 +29,7 @@ const MyComments = () => {
     return (
         <div>
             <div>
-                <p className='text-center'>My Replies:</p>
+                <p className='text-center me-text'>My Replies:</p>
                 <div className="d-flex justify-content-center">
                 <ul type="none" className='card w-75'>
                     {user.comments?.map((comment) => (
