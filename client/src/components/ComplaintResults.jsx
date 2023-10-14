@@ -55,7 +55,7 @@ const ComplaintResults = ({ carData, complaintId }) => {
       
       ) : (
         carInfo.complaints.map((complaint) => (
-          <div className='singleComplaint shadow' key={complaint._id}>
+          <div className='noComplaints' key={complaint._id}>
             <p className='author'>{complaint.author}</p>
             <p className='commText'>{complaint.text} </p>
             <p className='dateText'>on {complaint.createdAt}</p>
@@ -66,10 +66,10 @@ const ComplaintResults = ({ carData, complaintId }) => {
               </div>
             )}
             <Col className='reply-button'>
-              <button onClick={() => handleToggleComments(complaint._id)}>
+              <button onClick={() => handleToggleComments(complaint._id)} className='btn btn-outline-info btn-lg'>
                 View Replies
               </button>
-              <AddComment complaintId={complaint._id} />
+              <AddComment complaintId={complaint._id}  />
             </Col>
           </div>
         ))
