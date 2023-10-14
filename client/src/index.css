@@ -276,6 +276,11 @@ input:focus {
   padding: 5%;
   /* overflow: hidden; */
   z-index: 999;
+  background-color: #219C90;
+  flex-grow: 1;
+  min-height:79vh;
+  /* background-position: center; */
+  /* background-size: cover; */
 }
 
 @media screen and (max-width: 1024px) {
