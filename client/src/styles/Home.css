@@ -72,7 +72,9 @@ input {
 
 button {
   border-radius: 5px;
-  background-color: #08d9d6;
+  background-color: #219C90;
+  border: solid;
+  border-color: #252a34;
   margin-left: 1%;
 }
 

@@ -21,7 +21,7 @@ const styles = {
   },
 
   danger: {
-    color: 'red',
+    color: '#ff2e63',
   },
 
   ul: {
@@ -40,9 +40,10 @@ const styles = {
 
   navLocation: {
     position: 'fixed',
-    width: '100%',
     justifyContent: 'flex-end',
     zIndex: '1001',
+    right: 0,
+    opacity: '0.9',
   },
 };
 
@@ -80,8 +81,7 @@ const Nav = () => {
 
   return (
     <div className='navbar navbar-expand-md navbar-light' style={styles.navLocation}>
-      <nav style={{
-      }}>
+      <nav style={{marginRight: '10px'}}>
         <button
           className="custom-toggler navbar-toggler"
           style={{
@@ -104,13 +104,13 @@ const Nav = () => {
           id="navbarSupportedContent">
           <ul className='navbar-nav' style={styles.ul}>
             {Auth.loggedIn() && (
-              <span style={styles.links}>
+              <span style={{...styles.links, marginLeft: '10px'}}>
                 Hey,{' '}
                 <strong className='text-warning'>{user.username}</strong> ! {' '}
               </span>
             )}
             {commonLinks.concat(linksToRender).map((link) => (
-              <li key={link.path} className='nav-item' style={styles.links}>
+              <li key={link.path} className='nav-item' style={{...styles.links, marginLeft: '10px'}}>
                 <Link
                   to={link.path}
                   className={activeLink === link.path ? 'active' : ''}
@@ -126,7 +126,7 @@ const Nav = () => {
               </li>
             ))}
             {Auth.loggedIn() && (
-              <li className='nav-item' style={styles.links}>
+              <li className='nav-item' style={{...styles.links, marginLeft: '5px'}}>
                 <Link
                   to='#'
                   style={styles.danger}
