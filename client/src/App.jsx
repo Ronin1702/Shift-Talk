@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Outlet,
-} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,7 +10,6 @@ import { Provider } from 'react-redux';
 import store from './utils/store';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Background from './components/Background';
 import Nav from './components/Nav';
 import Cart from './components/Cart';
 import Auth from './utils/auth';
@@ -45,29 +39,22 @@ const cart = {
   position: 'fixed',
   top: '88px',
   right: '15px',
-}
+};
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <Background>
-          <div className='row-fluid'>
-            <Header />
-          </div>
-          <Nav />
-          <div style={cart} >
-            {Auth.loggedIn() && (
-              <Cart />
-            )}
-          </div>
-          <div className='outlet-container'>
-            <Outlet />
-          </div>
-
-          <Footer />
-        </Background>
+        <div className='row-fluid'>
+          <Header />
+        </div>
+        <Nav />
+        <div style={cart}>{Auth.loggedIn() && <Cart />}</div>
+        <div className='outlet-container'>
+          <Outlet />
+        </div>
       </Provider>
+      <Footer />
     </ApolloProvider>
   );
 }
