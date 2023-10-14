@@ -40,6 +40,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const cart = {
+  zIndex: 1001,
+  position: 'fixed',
+  top: '88px',
+  right: '15px',
+}
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -48,19 +55,16 @@ function App() {
           <div className='row-fluid'>
             <Header />
           </div>
-
           <Nav />
-
+          <div style={cart} >
+            {Auth.loggedIn() && (
+              <Cart />
+            )}
+          </div>
           <div className='outlet-container'>
             <Outlet />
           </div>
-          <div>
-            {Auth.loggedIn() && (
-              <div className="d-flex justify-content-center align-items-center">
-                <Cart />
-              </div>
-            )}
-          </div>
+
           <Footer />
         </Background>
       </Provider>
