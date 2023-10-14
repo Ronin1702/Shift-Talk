@@ -274,7 +274,7 @@ input:focus {
 }
 
 .outlet-container {
-  padding-top: 5%;
+  padding: 5%;
   /* overflow: hidden; */
   z-index: 999;
 }
