@@ -25,8 +25,13 @@ const styles = {
     color: 'red',
   },
 
+  ul: {
+    backgroundColor: '#252A34',
+  },
+
   icon: {
     backgroundColor: '#EAEAEA',
+    width: '100%',
   },
 
   activeLink: {
@@ -38,7 +43,6 @@ const styles = {
     position: 'fixed',
     width: '100%',
     justifyContent: 'flex-end',
-    paddingRight: '20px',
     zIndex: '1001',
   },
 };
@@ -76,7 +80,7 @@ const Nav = () => {
   const linksToRender = Auth.loggedIn() ? loggedInLinks : loggedOutLinks;
 
   return (
-    <div className='navbar navbar-expand-lg navbar-light' style={styles.navLocation}>
+    <div className='navbar navbar-expand-md navbar-light' style={styles.navLocation}>
       <nav style={{
       }}>
         <button
@@ -96,11 +100,10 @@ const Nav = () => {
             className="navbar-toggler-icon"
           />
         </button>
-
         <div
           className={`${isNavCollapsed ? 'collapse' : ''} justify-content-end navbar-collapse`}
           id="navbarSupportedContent">
-          <ul className='navbar-nav'>
+          <ul className='navbar-nav' style={styles.ul}>
             {Auth.loggedIn() && (
               <span style={styles.links}>
                 Hey,{' '}
@@ -114,9 +117,9 @@ const Nav = () => {
                   className={activeLink === link.path ? 'active' : ''}
                   onClick={() => setActiveLink(link.path)}
                   style={
-                    activeLink === link.path
+                    (activeLink === link.path
                       ? { ...styles.text, ...styles.activeLink }
-                      : styles.text
+                      : styles.text)
                   }
                 >
                   {link.label}
