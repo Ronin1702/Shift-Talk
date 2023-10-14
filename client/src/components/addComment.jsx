@@ -61,7 +61,7 @@ const AddComment = ({ complaintId }) => {
             onChange={(e) => setCommentText(e.target.value)}
             placeholder='Write your Reply here'
           ></textarea>
-          <button type='submit'>Submit</button>
+          <button className='mt-2' type='submit'>Submit</button>
         </form>
       )}
 
