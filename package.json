@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "This is the repo for Project 3",
   "main": "index.js",
+  "engines": {
+    "node": "20.8.1",
+    "npm": "10.2.0"
+  },
   "scripts": {
     "start": "node server/server.js",
     "server": "cd server && nodemon server.js --ignore client",

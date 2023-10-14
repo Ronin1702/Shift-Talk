@@ -56,6 +56,16 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
   - [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.9.6-purple?logo=redux)](https://redux-toolkit.js.org/)
   - [![React Redux](https://img.shields.io/badge/React%20Redux-8.1.3-purple?logo=redux)](https://react-redux.js.org/)
 
+- [![webpack Package](https://img.shields.io/badge/Webpack-latest-blue?logo=webpack)](https://webpack.js.org/)
+
+  - [![workbox-core](https://img.shields.io/badge/workbox--core-7.0.0-blue?logo=webpack)](workbox-core)
+  - [![workbox-expiration](https://img.shields.io/badge/workbox--expiration-7.0.0-blue?logo=webpack)](workbox-expiration)
+  - [![workbox-precaching](https://img.shields.io/badge/workbox--precaching-7.0.0-blue?logo=webpack)](workbox-precaching)
+  - [![workbox-routing](https://img.shields.io/badge/workbox--routing-7.0.0-blue?logo=webpack)](workbox-routing)
+  - [![workbox-strategies](https://img.shields.io/badge/workbox--strategies-7.0.0-blue?logo=webpack)](workbox-strategies)
+  - [![workbox-sw](https://img.shields.io/badge/workbox--sw-7.0.0-blue?logo=webpack)](workbox-sw)
+  - [![workbox-webpack-plugin](https://img.shields.io/badge/workbox--webpack--plugin-7.0.0-blue?logo=webpack)](workbox-webpack-plugin)
+
 [_back to top_](#table-of-contents)
 
 ## Installation
@@ -68,12 +78,14 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
    > npm init -y
    > ```
 
-2. **Important**: Please @ the **EXACT** versions as shown above to ensure the functionality of this application.
+2. **Important**: Please install the **EXACT** versions as shown above to ensure the functionality of this application.
 
    - Main Project:
 
      ```powershell
      npm i concurrently@5.1.0 --save-dev
+     &&
+     npm i workbox-core@7.0.0 workbox-expiration@7.0.0 workbox-precaching@7.0.0 workbox-routing@7.0.0 workbox-strategies@7.0.0 workbox-sw@7.0.0 workbox-webpack-plugin@7.0.0
      ```
 
    - Server:
@@ -184,7 +196,7 @@ If you would like to test the stripe payment, feel free to use the following [te
 
 ## Screenshots
 
-![Screenshot](./client/public/images/projectshifttalk.png)
+![HOME page](./client/public/images/projectshifttalk.png)
 
 ## Links
 
@@ -218,4 +230,4 @@ If you would like to test the stripe payment, feel free to use the following [te
 
 ---
 
-[![Copyright](https://img.shields.io/static/v1.svg?label=Shift%20Talk%20©️%20&message=%202023%20TEAM%20ONE&labelColor=informational&color=033450)](https://github.com/orgs/Team-ONE-OSU/repositories)
+[![Copyright](https://img.shields.io/static/v1.svg?label=🏁%20Shift%20Talk%20©️%20&message=%202023%20TEAM%20ONE&labelColor=informational&color=033450)](https://github.com/orgs/Team-ONE-OSU/repositories)
