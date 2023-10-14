@@ -43,11 +43,11 @@ const ComplaintResults = ({ carData, complaintId }) => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <Container>
+    <Container fluid>
       {carInfo && carInfo.complaints.length === 0 ? (
         <div className='noComplaints'>
-        <h2> 🏁 Drive the Conversation !</h2>
-        <p>It looks like no one has shared their thoughts on this car model yet. Why not be the trendsetter?</p>
+        <h2> 🏁 Drive the Conversation!</h2>
+        <p>It looks like no one has shared their thoughts on this car model yet.</p>
         <p><strong>Share your experience now</strong> and help others make informed decisions.</p>
         <AddComplaint refetchCarData={() => {}} />
         <small className='bonusNote'>Bonus: Being the first comes with its own bragging rights!</small>

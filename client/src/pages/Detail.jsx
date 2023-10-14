@@ -70,8 +70,8 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className='container my-1'>
-          <div className='flex-row mt-2'>
-            <Link className='text-secondary' to='/pros'>
+          <div className='flex-row mt-3 fs-6'>
+            <Link className='text-white' to='/pros'>
               {' '}
               🏁 Back to Pro Shop
             </Link>

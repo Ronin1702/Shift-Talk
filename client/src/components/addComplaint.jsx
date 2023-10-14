@@ -52,7 +52,7 @@ const AddComplaint = (props) => {
     <div className='complaint-container'>
       <button
         type='button'
-        className='btn btn-outline-info btn-lg'
+        className='btn btn-outline-info btn-md'
         onClick={() => setShowForm(!showForm)}
       >
         Add Comment

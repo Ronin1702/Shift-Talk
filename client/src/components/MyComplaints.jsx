@@ -34,7 +34,7 @@ const MyComplaint = () => {
       <div>
         <UpdateProfile userData={user} />
         <br />
-        <p className='text-center'>My Complaints:</p>
+        <p className='text-center me-text'>My Complaints:</p>
         <div className='d-flex justify-content-center align-items-stretch'>
           <ul type="none" className='card w-75'>
             {user.complaints.map((complaint) => (

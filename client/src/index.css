@@ -248,6 +248,25 @@ input:focus {
   color: var(--error);
 }
 
+.me-text {
+  background: linear-gradient(
+    to right, 
+    hsl(0, 100%, 58%), 
+    hsl(44, 100%, 50%)
+  );
+  font-weight: 800;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui;
+  font-size: min(200%, 8vmin);
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

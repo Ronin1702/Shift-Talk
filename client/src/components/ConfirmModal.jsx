@@ -26,7 +26,7 @@ function ConfirmModal({ onConfirm, ...props }) {
           Maybe Not ⏏️
         </Button>
         <Button
-          variant='warning'
+          variant='danger'
           onClick={() => {
             onConfirm();
             props.onHide();
