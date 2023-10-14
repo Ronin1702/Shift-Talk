@@ -15,9 +15,7 @@ function Header() {
 
   return (
     <div style={styles.header}>
-      <a href='/'>
-        <h1 style={styles.title}>🏁 Shift Talk </h1>
-      </a>
+      <h1 style={styles.title}>🏁 Shift Talk </h1>
     </div>
   );
 }

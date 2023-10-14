@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import Cart from '../components/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions as cartActions } from '../utils/reducers/cartSlice';
 import { actions as productsActions } from '../utils/reducers/productsSlice';
@@ -105,7 +103,6 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <img src={spinner} alt='loading' /> : null}
-      <Cart />
     </>
   );
 }

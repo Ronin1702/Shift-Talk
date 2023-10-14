@@ -75,7 +75,7 @@ const Cart = () => {
 
   return (
     <div className='cart'>
-      <div className='close' onClick={toggleCart}>
+      <div className='close text-end' onClick={toggleCart}>
         ❌
       </div>
       <h2>🏁🛒📝</h2>
