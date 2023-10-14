@@ -13,9 +13,9 @@ function OrderHistory() {
 
   return (
     <>
-      <div className='container mt-2 my-1'>
+      <div className='container mt-3 my-1'>
         <div className='row fs-6'>
-          <Link className='text-secondary' to='/pros'>
+          <Link className='text-white' to='/pros'>
             {' '}
             🏁 Back to Pro Shop
           </Link>
@@ -42,8 +42,8 @@ function OrderHistory() {
                         <img alt={name} src={`/images/${image}`} />
                         <p>{name}</p>
                       </Link>
-                      <div className='mb-2'>
-                        <span className='text-secondary'>${price}</span>
+                      <div>
+                        <span className='text-white'>${price}</span>
                       </div>
                     </div>
                   ))}
