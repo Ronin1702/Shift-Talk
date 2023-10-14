@@ -85,7 +85,7 @@ const Footer = () => (
             <br />
 
             <small>
-                Copyright &copy; TEAM ONE
+                🏁 Shift Talk &copy; TEAM ONE
             </small>
 
         </div>

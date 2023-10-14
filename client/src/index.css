@@ -278,7 +278,7 @@ input:focus {
   z-index: 999;
   background-color: #219C90;
   flex-grow: 1;
-  min-height:79vh;
+  min-height:82vh;
   /* background-position: center; */
   /* background-size: cover; */
 }

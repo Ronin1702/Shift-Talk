@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -64,8 +64,30 @@ const Nav = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('/');
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const navRef = useRef(null);
 
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      // Check if clicked outside and if the nav is open
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target) &&
+        !isNavCollapsed
+      ) {
+        setIsNavCollapsed(true);
+      }
+    };
+
+    // Attach the event listener
+    document.addEventListener('mousedown', handleDocumentClick);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentClick);
+    };
+  }, [isNavCollapsed]);
 
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   const { data } = useQuery(GET_ME, {
@@ -81,7 +103,7 @@ const Nav = () => {
   const linksToRender = Auth.loggedIn() ? loggedInLinks : loggedOutLinks;
 
   return (
-    <div className='navbar navbar-expand-md navbar-light' style={styles.navLocation}>
+    <div className='navbar navbar-expand-md navbar-light' style={styles.navLocation} ref={navRef}>
       <nav style={{ marginRight: '10px' }}>
         <button
           className="custom-toggler navbar-toggler"
