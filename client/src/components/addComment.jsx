@@ -47,7 +47,7 @@ const AddComment = ({ complaintId }) => {
     <div xs="2">
       <button
         type='button'
-        onClick={() => setShowForm(!showForm)}
+        onClick={() => setShowForm(!showForm)} className='btn my-2 btn-outline-secondary btn-lg'
       >
         Reply
       </button>
