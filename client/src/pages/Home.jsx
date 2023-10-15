@@ -69,10 +69,10 @@ const Home = () => {
     const validYear =
       /^[0-9]+$/.test(numericYear) &&
       numericYear >= 1992 &&
-      numericYear <= 2020;
+      numericYear <= 2021;
     if (!validYear) {
       setErrorMessage(
-        'Our database supports cars from 1992 to 2020. More data is on the way!'
+        'Our database supports cars from 1992 to 2021. More data is on the way!'
       );
       return;
     }
