@@ -6,6 +6,7 @@ import Comments from '../components/Comments';
 import AddComplaint from '../components/addComplaint';
 import AddComment from '../components/addComment';
 import '../styles/Home.css';
+import MakeLogo from '../components/MakeLogo';
 
 const ComplaintResults = ({ carData, complaintId }) => {
   console.log('carData: ', carData);
@@ -55,23 +56,28 @@ const ComplaintResults = ({ carData, complaintId }) => {
       
       ) : (
         carInfo.complaints.map((complaint) => (
-          <div className='noComplaints' key={complaint._id}>
-            <p className='author'>{complaint.author}</p>
-            <p className='commText'>{complaint.text} </p>
-            <p className='dateText'>on {complaint.createdAt}</p>
-            {console.log('complaint: ', complaint.createdAt)}
-            {expandedComplaintId === complaint._id && (
-              <div>
-                <Comments complaintId={complaint._id} />
+          <div>
+            <div>
+              <MakeLogo carMake={carInfo.make} />
               </div>
-            )}
-            <Col className='reply-button'>
-              <button onClick={() => handleToggleComments(complaint._id)} className='btn btn-outline-info btn-lg'>
-                View Replies
-              </button>
-              <AddComment complaintId={complaint._id}  />
-            </Col>
-          </div>
+              <div className='noComplaints' key={complaint._id}>
+          <p className='author'>{complaint.author}</p>
+          <p className='commText'>{complaint.text} </p>
+          <p className='dateText'>on {complaint.createdAt}</p>
+          {console.log('complaint: ', complaint.createdAt)}
+          {expandedComplaintId === complaint._id && (
+            <div>
+              <Comments complaintId={complaint._id} />
+            </div>
+          )}
+          <Col className='reply-button'>
+            <button onClick={() => handleToggleComments(complaint._id)} className='btn btn-outline-info btn-lg'>
+              View Replies
+            </button>
+            <AddComment complaintId={complaint._id}  />
+          </Col>
+        </div></div>
+          
         ))
       )}
     </Container>
