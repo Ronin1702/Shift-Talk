@@ -1,15 +1,17 @@
-# 🏁 SHIFT 🗣️ TALK [![MIT](https://img.shields.io/static/v1.svg?label=📃%20License&message=MIT&color=important)](./LICENSE)
+# 🏁 SHIFT 🗣️ TALK [![MIT](https://img.shields.io/static/v1.svg?label=📃%20License&message=MIT&color=important&&style=plastic)](./LICENSE)
 
 **Shift Talk** is a automobile enthusiasts social website where a user can create an account, login, and post about about their favorite or _least_ favorite cars. The user can also view other users posts and comment on them. The user can also delete their own posts and comments.
 
 **Shift Talk** also offers a _Pro Shop_ where a registered user can purchase merchandise, donate, or hire a Pro. The user can also view their order history.
 
-This app is also deployed on [Heroku](https://https://t1p3-4fd94440c532.herokuapp.com//) as [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-©️%20TEAM%20🏁%20ONE-yellow?logo=heroku)](https://t1p3-4fd94440c532.herokuapp.com/)
+This app is also deployed on _[Heroku](https://https://t1p3-4fd94440c532.herokuapp.com//)_ as [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-©️%20TEAM%20🏁%20ONE-yellow?logo=heroku&logoColor=430098&style=plastic)](https://t1p3-4fd94440c532.herokuapp.com/)
 
 ## Table of Contents
 
 - [Description](#description)
 - [Tech Stack](#tech-stack)
+  - [Backend](#backend-server-side)
+  - [Frontend](#frontend-client-side)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Stripe](#stripe-test)
@@ -30,41 +32,30 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 
 ## Tech Stack
 
-- [![CSS3](https://img.shields.io/badge/CSS3-gray?logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [![HTML5](https://img.shields.io/badge/HTML5-gray?logo=html5)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-- [![Javascript](https://img.shields.io/badge/JavaScript-ES6+-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [![Node.js](https://img.shields.io/badge/Node.js®-latest-blue?logo=node.js)](https://nodejs.org/en/)
-  - [![Concurrently](https://img.shields.io/badge/Concurrently-5.1.0-blue?logo=npm)](https://www.npmjs.com/package/concurrently)
-  - [![Nodemon](https://img.shields.io/badge/Nodemon-3.0.1-blue?logo=nodemon)](https://www.npmjs.com/package/nodemon)
-- [![Express.js](https://img.shields.io/badge/Express.js-4.18.2-green?logo=express)](https://expressjs.com/)
-- [![MongoDB](https://img.shields.io/badge/MongoDB-latest-green?logo=mongodb)](https://www.mongodb.com/)
-  - [![Mongoose](https://img.shields.io/badge/Mongoose-7.5.3-green?logo=mongoose)](https://mongoosejs.com/)
-- [![GraphQL](https://img.shields.io/badge/GraphQL-gray?logo=graphql)](https://graphql.org/)
-  - [![Apollo Server](https://img.shields.io/badge/Apollo%20Server-4.9.3-blue?logo=apollo-graphql)](https://www.apollographql.com/docs/apollo-server/)
-- [![Bcrypt](https://img.shields.io/badge/Bcrypt-5.1.1-orange?logo=npm)](https://www.npmjs.com/package/bcrypt)
-- [![jsonwebtoken](https://img.shields.io/badge/jsonwebtoken-9.0.2-green?logo=npm)](https://www.npmjs.com/package/jsonwebtoken)
-  - [![JWT Decode](https://img.shields.io/badge/JWT%20Decode-3.1.2-green?logo=npm)](https://www.npmjs.com/package/jwt-decode)
-- [![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)](https://reactjs.org/)
-  - [![React-DOM](https://img.shields.io/badge/React--DOM-18.2.0-lightblue?logo=react)](https://reactjs.org/)
-  - [![React Router DOM](https://img.shields.io/badge/React%20Router%20DOM-6.16.0-purple?logo=react-router)](https://reactrouter.com/)
-  - [![Apollo Client](https://img.shields.io/badge/Apollo%20Client-3.8.4-blue?logo=apollo-graphql)](https://www.apollographql.com/docs/react/)
-- [![Vite](https://img.shields.io/badge/Vite-4.4.9-blue?logo=vite)](https://vitejs.dev/)
-  - [![Vite React Plugin](https://img.shields.io/badge/Vite%20React%20Plugin-4.1.0-lightblue?logo=vite)](https://vitejs.dev/)
-- [![Stripe](https://img.shields.io/badge/Stripe-13.8.0-blue?logo=stripe)](https://stripe.com/)
-  - [![Stripe.js](https://img.shields.io/badge/Stripe.js-2.1.7-blue?logo=stripe)](https://stripe.com/docs/js)
-- [![Redux](https://img.shields.io/badge/Redux-4.2.1-purple?logo=redux)](https://redux.js.org/)
-  - [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.9.6-purple?logo=redux)](https://redux-toolkit.js.org/)
-  - [![React Redux](https://img.shields.io/badge/React%20Redux-8.1.3-purple?logo=redux)](https://react-redux.js.org/)
+### Backend (Server-Side)
 
-- [![webpack Package](https://img.shields.io/badge/Webpack-latest-blue?logo=webpack)](https://webpack.js.org/)
+| Main Tech| Related Technologies |
+| - | - |
+| [![MongoDB](https://img.shields.io/badge/MongoDB-6.1.0-47A248?logo=mongodb&style=plastic)](https://www.mongodb.com/) | [![Mongoose](https://img.shields.io/badge/Mongoose-7.5.3-880000?logo=mongoose&logoColor=880000&style=plastic)](https://mongoosejs.com/)|
+|[![Express.js](https://img.shields.io/badge/Express.js-4.18.2-black?logo=express&style=plastic)](https://expressjs.com/)||
+| [![Node.js](https://img.shields.io/badge/Node.js-20.8.1-339933?logo=node.js&style=plastic)](https://nodejs.org/en/)|[![Concurrently](https://img.shields.io/badge/Concurrently-5.1.0-CB3837?logo=npm&style=plastic)](https://www.npmjs.com/package/concurrently) <br> [![Nodemon](https://img.shields.io/badge/Nodemon-3.0.1-76D04B?logo=nodemon&style=plastic)](https://www.npmjs.com/package/nodemon) |
+| [![GraphQL](https://img.shields.io/badge/GraphQL-16.8.1-E10098?logo=graphql&logoColor=E10098&style=plastic)](https://graphql.org/)| [![Apollo Server](https://img.shields.io/badge/Apollo%20Server-4.9.3-311C87?logo=apollo-graphql&logoColor=311C87&style=plastic)](https://www.apollographql.com/docs/apollo-server/)|
+| [![Bcrypt](https://img.shields.io/badge/Bcrypt-5.1.1-CB3837?logo=npm&style=plastic)](https://www.npmjs.com/package/bcrypt)||
+| [![jsonwebtoken](https://img.shields.io/badge/jsonwebtoken-9.0.2-000000?logo=jsonwebtokens&logoColor=000000&style=plastic)](https://www.npmjs.com/package/jsonwebtoken) | [![JWT Decode](https://img.shields.io/badge/JWT%20Decode-3.1.2-000000?logo=jsonwebtokens&logoColor=000000&style=plastic)](https://www.npmjs.com/package/jwt-decode)|
 
-  - [![workbox-core](https://img.shields.io/badge/workbox--core-7.0.0-blue?logo=webpack)](workbox-core)
-  - [![workbox-expiration](https://img.shields.io/badge/workbox--expiration-7.0.0-blue?logo=webpack)](workbox-expiration)
-  - [![workbox-precaching](https://img.shields.io/badge/workbox--precaching-7.0.0-blue?logo=webpack)](workbox-precaching)
-  - [![workbox-routing](https://img.shields.io/badge/workbox--routing-7.0.0-blue?logo=webpack)](workbox-routing)
-  - [![workbox-strategies](https://img.shields.io/badge/workbox--strategies-7.0.0-blue?logo=webpack)](workbox-strategies)
-  - [![workbox-sw](https://img.shields.io/badge/workbox--sw-7.0.0-blue?logo=webpack)](workbox-sw)
-  - [![workbox-webpack-plugin](https://img.shields.io/badge/workbox--webpack--plugin-7.0.0-blue?logo=webpack)](workbox-webpack-plugin)
+### Frontend (Client-Side)
+
+| Main Tech | Related Technologies|
+| - | - |
+| [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=plastic)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) ||
+| [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&style=plastic)](https://developer.mozilla.org/en-US/docs/Web/CSS)||
+| [![Javascript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&style=plastic)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)||
+| [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&style=plastic)](https://reactjs.org/)| [![React-DOM](https://img.shields.io/badge/React--DOM-18.2.0-61DAFB?logo=react&style=plastic)](https://reactjs.org/) <br> [![React Router DOM](https://img.shields.io/badge/React%20Router%20DOM-6.16.0-CA4245?logo=react-router&style=plastic)](https://reactrouter.com/) <br> [![Apollo Client](https://img.shields.io/badge/Apollo%20Client-3.8.4-311C87?logo=apollo-graphql&logoColor=311C87&style=plastic)](https://www.apollographql.com/docs/)|
+| [![Vite](https://img.shields.io/badge/Vite-4.4.9-646CFF?logo=vite&style=plastic)](https://vitejs.dev/)| [![Vite React Plugin](https://img.shields.io/badge/Vite%20React%20Plugin-4.1.0-646CFF?logo=vite&style=plastic)](https://vitejs.dev/)|
+| [![Stripe](https://img.shields.io/badge/Stripe-13.8.0-008CDD?logo=stripe&style=plastic)](https://stripe.com/)| [![Stripe.js](https://img.shields.io/badge/Stripe.js-2.1.7-008CDD?logo=stripe&style=plastic)](https://stripe.com/docs/js)|
+| [![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://redux.js.org/)| [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.9.6-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://redux-toolkit.js.org/) <br> [![React Redux](https://img.shields.io/badge/React%20Redux-8.1.3-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://react-redux.js.org/)|
+| [![webpack Package](https://img.shields.io/badge/Webpack-5.89.0-8DD6F9?logo=webpack&style=plastic)](https://webpack.js.org/)|[![workbox-core](https://img.shields.io/badge/workbox--core-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-core) <br> [![workbox-expiration](https://img.shields.io/badge/workbox--expiration-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-expiration) <br> [![workbox-precaching](https://img.shields.io/badge/workbox--precaching-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-precaching) <br> [![workbox-routing](https://img.shields.io/badge/workbox--routing-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-routing) <br> [![workbox-strategies](https://img.shields.io/badge/workbox--strategies-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-strategies) |
+| [![Babel Core](https://img.shields.io/badge/Babel%20Core-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-core)|[![Babel Preset React](https://img.shields.io/badge/Babel%20Preset%20React-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-preset-react) <br> [![Babel Preset Typescript](https://img.shields.io/badge/Babel%20Preset%20Typescript-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-preset-typescript)|
 
 [_back to top_](#table-of-contents)
 
@@ -186,13 +177,13 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 
 If you would like to test the stripe payment, feel free to use the following [testing credit card numbers](https://stripe.com/docs/testing?testing-method=card-numbers) provided by [Stripe Docs](https://stripe.com/docs) with any future date and any 3 digit CVC code (4 for American Express).
 
-![Visa](https://img.shields.io/badge/Visa-4242%204242%204242%204242-blue?labelColor=blue&color=gray)
-![Master](https://img.shields.io/badge/Master-5555%205555%205555%204444-red?labelColor=red&color=gray)
-![American Express](https://img.shields.io/badge/American%20Express-3782%20822463%2010005-green?labelColor=green&color=gray)
-![Discover](https://img.shields.io/badge/Discover-6011%201111%201111%201117-orange?labelColor=orange&color=gray)
-![Diners Club](https://img.shields.io/badge/Diners%20Club-3056%209300%200902%200004-teal?labelColor=teal&color=gray)
-![JCB](https://img.shields.io/badge/JCB-3566%200020%202036%200505-pink?labelColor=pink&color=gray)
-![Union Pay](https://img.shields.io/badge/Union%20Pay-6200%200000%200000%200005-purple?labelColor=purple&color=gray)
+![Visa](https://img.shields.io/badge/4242%204242%204242%204242-gray?labelColor=1A1F71&color=gray&logo=visa&style=plastic)
+![Master](https://img.shields.io/badge/5555%205555%205555%204444-gray?labelColor=EB001B&color=gray&logo=mastercard&style=plastic)
+![American Express](https://img.shields.io/badge/3782%20822463%2010005-gray?labelColor=2E77BC&color=gray&logo=americanexpress&logoColor=white&style=plastic)
+![Discover](https://img.shields.io/badge/6011%201111%201111%201117-orange?labelColor=FF6000&color=gray&logo=discover&logoColor=white&style=plastic)
+![Diners Club](https://img.shields.io/badge/Diners%20Club-3056%209300%200902%200004-teal?labelColor=teal&color=gray&style=plastic)
+![JCB](https://img.shields.io/badge/3566%200020%202036%200505-pink?labelColor=0B4EA2&color=gray&logo=jcb&style=plastic)
+![Union Pay](https://img.shields.io/badge/Union%20Pay-6200%200000%200000%200005-gray?labelColor=darkblue&color=gray&style=plastic)
 
 ## Screenshots
 
@@ -202,32 +193,32 @@ If you would like to test the stripe payment, feel free to use the following [te
 
 [![Tweet about this](https://img.shields.io/static/v1.svg?label=Tweet%20about%20this&message=🎵&color=blue&logo=twitter&style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20Shift%20Talk%20App%20on%20Heroku:%20https://t1p3-4fd94440c532.herokuapp.com/)
 
-- GitHub Repo : [![GitHub Repo](https://img.shields.io/static/v1.svg?label=Shift%20Talk&message=TEAM%20🏁%20ONE&color=informational&logo=github)](https://github.com/Ronin1702/project3)
+- GitHub Repo : [![GitHub Repo](https://img.shields.io/static/v1.svg?label=Shift%20Talk&message=TEAM%20🏁%20ONE&color=informational&logo=github&logoColor=181717&style=plastic)](https://github.com/Ronin1702/project3)
 
-- Heroku Deployed Link : [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-TEAM%20🏁%20ONE-yellow?logo=heroku)](https://t1p3-4fd94440c532.herokuapp.com/)
+- Heroku Deployed Link : [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-TEAM%20🏁%20ONE-yellow?logo=heroku&logoColor=430098&style=plastic)](https://t1p3-4fd94440c532.herokuapp.com/)
 
 ### TEAM ONE
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://ceresmarkley.github.io/ceres-react-portfolio/#/)
-  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ceres%20Markley%20Cook-blue?logo=github)](https://github.com/ceresmarkley/)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ceres%20Markley%20Cook-222222?logo=github&style=plastic)](https://ceresmarkley.github.io/ceres-react-portfolio/#/)
+  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ceres%20Markley%20Cook-181717?logo=github&style=plastic)](https://github.com/ceresmarkley/)
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Daniel%20Chen-blue?logo=netlify)](https://portfolio-jianxiong.netlify.app/)
-  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Daniel%20Chen-blue?logo=Github)](https://github.com/CQlove)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Daniel%20Chen-00C7B7?logo=netlify&style=plastic)](https://portfolio-jianxiong.netlify.app/)
+  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Daniel%20Chen-181717?logo=Github&style=plastic)](https://github.com/CQlove)
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ian%20Vignolles--Jeong-blue?logo=netlify)](https://ornate-faloodeh-6a725d.netlify.app/)
-  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ian%20Vignolles--Jeong-blue?logo=Github)](https://github.com/IVignollesJeong)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Ian%20Vignolles--Jeong-00C7B7?logo=netlify&style=plastic)](https://ornate-faloodeh-6a725d.netlify.app/)
+  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Ian%20Vignolles--Jeong-181717?logo=Github&style=plastic)](https://github.com/IVignollesJeong)
 
-- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Kai%20Chen-blue?logo=netlify)](https://kaichen.biz/)
-  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Kai%20Chen-blue?logo=Github)](https://github.com/ronin1702)
+- [![Portfolio](https://img.shields.io/badge/Portfolio%20-©️%20Kai%20Chen-1BDBDB?logo=godaddy&style=plastic)](https://kaichen.biz/)
+  [![GitHub](https://img.shields.io/badge/GitHub%20-©️%20Kai%20Chen-181717?logo=Github&style=plastic)](https://github.com/ronin1702)
 
 [_back to top_](#table-of-contents)
 
 ## License
 
-- This application is licensed by [![MIT](https://img.shields.io/static/v1.svg?label=📃%20License&message=MIT&color=important)](./LICENSE).
+- This application is licensed by [![MIT](https://img.shields.io/static/v1.svg?label=📃%20License&message=MIT&color=important&style=plastic)](./LICENSE).
 
 [_back to top_](#table-of-contents)
 
 ---
 
-[![Copyright](https://img.shields.io/static/v1.svg?label=🏁%20Shift%20Talk%20©️%20&message=%202023%20TEAM%20ONE&labelColor=informational&color=033450)](https://github.com/orgs/Team-ONE-OSU/repositories)
+[![Copyright](https://img.shields.io/static/v1.svg?label=🏁%20Shift%20Talk%20©️%20&message=%202023%20TEAM%20ONE&labelColor=informational&color=033450&style=plastic)](https://github.com/orgs/Team-ONE-OSU/repositories)
