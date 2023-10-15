@@ -4,7 +4,6 @@ import astonmartin from '../assets/logos/astonmartin.svg';
 import audi from '../assets/logos/audi.svg';
 import bentley from '../assets/logos/bentley.svg';
 import bmw from '../assets/logos/bmw.svg';
-// import bugatti from '../assets/logos/bugatti.svg';
 import buick from '../assets/logos/buick.svg';
 import cadillac from '../assets/logos/cadillac.svg';
 import chevrolet from '../assets/logos/chevrolet.svg';
@@ -99,15 +98,7 @@ const MakeLogo = ({ carMake }) => {
                 <img src={bmw} alt='BMW Logo' style={{ width: "40%", height: "40%" }}></img>
             </div>
         );
-    }
-    //  else if (carMake === 'bugatti') {
-    //     return (
-    //         <div>
-    //             <img src={bugatti} alt='Bugatti Logo' style={{ width: "40%", height: "40%"}}></img>
-    //         </div>
-    //     );
-    // }
-    else if (carMake === 'buick') {
+    } else if (carMake === 'buick') {
         return (
             <div>
                 <img src={buick} alt='Buick Logo' style={{ width: "40%", height: "40%" }}></img>
