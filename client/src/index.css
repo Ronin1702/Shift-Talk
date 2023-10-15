@@ -218,10 +218,8 @@ input:focus {
 }
 
 .card p {
-  max-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--secondary);
 }
 
 .card button {
@@ -250,8 +248,8 @@ input:focus {
 .me-text {
   background: linear-gradient(
     to right, 
-    hsl(0, 100%, 58%), 
-    hsl(44, 100%, 50%)
+    hsl(345, 100%, 59%), 
+    hsl(55, 86%, 68%)
   );
   font-weight: 800;
   -webkit-background-clip: text;

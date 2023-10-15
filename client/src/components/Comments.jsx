@@ -15,13 +15,13 @@ const Comments = ({ complaintId }) => {
     }
 
     if (data.comments.length === 0) {
-        return <p>No comment under this complaint</p>;
+        return <p>No replies attached to this comment</p>;
     }
 
     return (
         <div>
             {data.comments.map((comment) => (
-                <div className='noComplaints bg-warning' key={comment._id}>
+                <div className='noReplies' key={comment._id}>
                     <p className='author'>{comment.author} replied</p>
                     <p className='commText'>{comment.text} </p>
                     <p className='dateText'>on {comment.createdAt}</p>
