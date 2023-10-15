@@ -3,13 +3,12 @@ import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
-import UpdateProfile from '../components/UpdateMe';
 import '../styles/Home.css';
 
 const MyComplaint = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
   if (!token) {
-    return <div>The token did not log right in Me page</div>;
+    return <div>The token did not log right in MyComplaints</div>;
   }
   const { data, error, loading } = useQuery(GET_ME, {
     context: {
@@ -28,18 +27,12 @@ const MyComplaint = () => {
 
   return (
     <div>
-      <h1 className='text-center'>
-        Hello <span>{user.username}</span>
-      </h1>
-      <div>
-        <UpdateProfile userData={user} />
-        <br />
-        <p className='text-center me-text'>My Complaints:</p>
-        <div className='d-flex justify-content-center align-items-stretch'>
-          <ul type="none" className='card w-75'>
+      <p className='text-center me-text'>My Comments:</p>
+      <div className='d-flex justify-content-center align-items-stretch'>
+        <div className='scrollable-content'>
+          <ul type="none" className='card list-group'>
             {user.complaints.map((complaint) => (
               <li key={complaint._id} className='singleComplaint shadow text-center'>
-                <div></div>
                 <p className='text-secondary'>
                   Make:{' '}
                   <span className='text-warning'>{complaint.car.make}</span>{' '}

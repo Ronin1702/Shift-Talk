@@ -264,7 +264,7 @@ input:focus {
   place-content: center;
   font-family: system-ui;
   font-size: min(200%, 8vmin);
-}
+  }
 
 @media screen and (max-width: 768px) {
   .card {
@@ -292,6 +292,9 @@ input:focus {
 @media screen and (max-width: 767px) {
   .outlet-container {
     padding-top: 15%;
+  }
+  .me-text{
+    margin-top: 5%;
   }
 }
 
