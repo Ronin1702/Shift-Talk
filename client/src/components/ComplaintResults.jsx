@@ -45,39 +45,49 @@ const ComplaintResults = ({ carData, complaintId }) => {
 
   return (
     <Container fluid>
+      <MakeLogo carMake={carInfo.make} />
+
       {carInfo && carInfo.complaints.length === 0 ? (
         <div className='noComplaints'>
-        <h2> 🏁 Drive the Conversation!</h2>
-        <p>It looks like no one has shared their thoughts on this car model yet.</p>
-        <p><strong>Share your experience now</strong> and help others make informed decisions.</p>
-        <AddComplaint refetchCarData={() => {}} />
-        <small className='bonusNote'>Bonus: Being the first comes with its own bragging rights!</small>
-      </div>
-      
+          <h2> 🏁 Drive the Conversation!</h2>
+          <p>
+            It looks like no one has shared their thoughts on this car model
+            yet.
+          </p>
+          <p>
+            <strong>Share your experience now</strong> and help others make
+            informed decisions.
+          </p>
+          <AddComplaint refetchCarData={() => {}} />
+          <small className='bonusNote'>
+            Bonus: Being the first comes with its own bragging rights!
+          </small>
+        </div>
       ) : (
         carInfo.complaints.map((complaint) => (
-          <div>
-            <div>
-              <MakeLogo carMake={carInfo.make} />
-              </div>
-              <div className='noComplaints' key={complaint._id}>
-          <p className='author'>{complaint.author}</p>
-          <p className='commText'>{complaint.text} </p>
-          <p className='dateText'>on {complaint.createdAt}</p>
-          {console.log('complaint: ', complaint.createdAt)}
-          {expandedComplaintId === complaint._id && (
-            <div>
-              <Comments complaintId={complaint._id} />
+          <div className='complaintContainer' key={complaint._id}>
+            <div className='noComplaints'>
+              <p className='author'>{complaint.author}</p>
+              <p className='commText'>{complaint.text}</p>
+              <p className='dateText'>on {complaint.createdAt}</p>
+
+              {expandedComplaintId === complaint._id && (
+                <div>
+                  <Comments complaintId={complaint._id} />
+                </div>
+              )}
+
+              <Col className='reply-button'>
+                <button
+                  onClick={() => handleToggleComments(complaint._id)}
+                  className='btn btn-outline-info btn-lg'
+                >
+                  View Replies
+                </button>
+                <AddComment complaintId={complaint._id} />
+              </Col>
             </div>
-          )}
-          <Col className='reply-button'>
-            <button onClick={() => handleToggleComments(complaint._id)} className='btn btn-outline-info btn-lg'>
-              View Replies
-            </button>
-            <AddComment complaintId={complaint._id}  />
-          </Col>
-        </div></div>
-          
+          </div>
         ))
       )}
     </Container>
