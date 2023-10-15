@@ -33,13 +33,13 @@ const MyComplaint = () => {
           <ul type="none" className='card list-group'>
             {user.complaints.map((complaint) => (
               <li key={complaint._id} className='singleComplaint shadow text-center'>
-                <p className='text-secondary'>
+                <p className='mePage'>
                   Make:{' '}
-                  <span className='text-warning'>{complaint.car.make}</span>{' '}
+                  <span className='mePage'>{complaint.car.make}</span>{' '}
                   Model:{' '}
-                  <span className='text-warning'>{complaint.car.model}</span>{' '}
+                  <span className='mePage'>{complaint.car.model}</span>{' '}
                   Year:{' '}
-                  <span className='text-warning'>{complaint.car.year}</span>
+                  <span className='mePage mb-1'>{complaint.car.year}</span>
                 </p>
                 <div className='d-flex justify-content-center'>
                   {' '}
