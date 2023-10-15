@@ -6,7 +6,7 @@ import Comments from '../components/Comments';
 import AddComplaint from '../components/addComplaint';
 import AddComment from '../components/addComment';
 import '../styles/Home.css';
-import RenderMake from '../components/renderMake';
+import MakeLogo from '../components/MakeLogo';
 
 const ComplaintResults = ({ carData, complaintId }) => {
   console.log('carData: ', carData);
@@ -58,7 +58,7 @@ const ComplaintResults = ({ carData, complaintId }) => {
         carInfo.complaints.map((complaint) => (
           <div>
             <div>
-              <RenderMake carMake={carInfo.make} />
+              <MakeLogo carMake={carInfo.make} />
               </div>
               <div className='noComplaints' key={complaint._id}>
           <p className='author'>{complaint.author}</p>

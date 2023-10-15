@@ -41,265 +41,258 @@ import toyota from '../assets/logos/toyota.svg';
 import volkswagen from '../assets/logos/volkswagen.svg';
 import volvo from '../assets/logos/volvo.svg';
 
-// import React, { useState } from 'react';
-
-
-
-// const carMake = useState(localStorage.getItem('make') || '');
-
-
 
 const MakeLogo = ({ carMake }) => {
     if (carMake === 'acura') {
         return (
             <div>
-                <img src={acura} alt='Acura Logo'></img>
+                <img src={acura} alt='Acura Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'alfaromeo') {
         return (
             <div>
-                <img src={alfaromeo} alt='Alfa Romeo Logo'></img>
+                <img src={alfaromeo} alt='Alfa Romeo Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'astonmartin') {
         return (
             <div>
-                <img src={astonmartin} alt='Aston Martin Logo'></img>
+                <img src={astonmartin} alt='Aston Martin Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'audi') {
         return (
             <div>
-                <img src={audi} alt='Audi Logo'></img>
+                <img src={audi} alt='Audi Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'bentley') {
         return (
             <div>
-                <img src={bentley} alt='Bentley Logo'></img>
+                <img src={bentley} alt='Bentley Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'bmw') {
         return (
             <div>
-                <img src={bmw} alt='BMW Logo'></img>
+                <img src={bmw} alt='BMW Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'bugatti') {
         return (
             <div>
-                <img src={bugatti} alt='Bugatti Logo'></img>
+                <img src={bugatti} alt='Bugatti Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'buick') {
         return (
             <div>
-                <img src={buick} alt='Buick Logo'></img>
+                <img src={buick} alt='Buick Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'cadillac') {
         return (
             <div>
-                <img src={cadillac} alt='Cadillac Logo'></img>
+                <img src={cadillac} alt='Cadillac Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'chevrolet') {
         return (
             <div>
-                <img src={chevrolet} alt='Chevrolet Logo'></img>
+                <img src={chevrolet} alt='Chevrolet Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'chrysler') {
         return (
             <div>
-                <img src={chrysler} alt='Chrysler Logo'></img>
+                <img src={chrysler} alt='Chrysler Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'dodge') {
         return (
             <div>
-                <img src={dodge} alt='Dodge Logo'></img>
+                <img src={dodge} alt='Dodge Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'ferrari') {
         return (
             <div>
-                <img src={ferrari} alt='Ferrari Logo'></img>
+                <img src={ferrari} alt='Ferrari Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'fiat') {
         return (
             <div>
-                <img src={fiat} alt='Fiat Logo'></img>
+                <img src={fiat} alt='Fiat Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'ford') {
         return (
             <div>
-                <img src={ford} alt='Ford Logo'></img>
+                <img src={ford} alt='Ford Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'gmc') {
         return (
             <div>
-                <img src={gmc} alt='GMC Logo'></img>
+                <img src={gmc} alt='GMC Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'honda') {
         return (
             <div>
-                <img src={honda} alt='Honda Logo'></img>
+                <img src={honda} alt='Honda Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'hummer') {
         return (
             <div>
-                <img src={hummer} alt='Hummer Logo'></img>
+                <img src={hummer} alt='Hummer Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'hyundai') {
         return (
             <div>
-                <img src={hyundai} alt='Hyundai Logo'></img>
+                <img src={hyundai} alt='Hyundai Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'infiniti') {
         return (
             <div>
-                <img src={infiniti} alt='Infiniti Logo'></img>
+                <img src={infiniti} alt='Infiniti Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'jaguar') {
         return (
             <div>
-                <img src={jaguar} alt='Jaguar Logo'></img>
+                <img src={jaguar} alt='Jaguar Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'jeep') {
         return (
             <div>
-                <img src={jeep} alt='Jeep Logo'></img>
+                <img src={jeep} alt='Jeep Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'kia') {
         return (
             <div>
-                <img src={kia} alt='Kia Logo'></img>
+                <img src={kia} alt='Kia Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'lamborghini') {
         return (
             <div>
-                <img src={lamborghini} alt='Lamborghini Logo'></img>
+                <img src={lamborghini} alt='Lamborghini Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'landrover') {
         return (
             <div>
-                <img src={landrover} alt='Land Rover Logo'></img>
+                <img src={landrover} alt='Land Rover Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'lexus') {
         return (
             <div>
-                <img src={lexus} alt='Lexus Logo'></img>
+                <img src={lexus} alt='Lexus Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'lincoln') {
         return (
             <div>
-                <img src={lincoln} alt='Lincoln Logo'></img>
+                <img src={lincoln} alt='Lincoln Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'lotus') {
         return (
             <div>
-                <img src={lotus} alt='Lotus Logo'></img>
+                <img src={lotus} alt='Lotus Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         )
     } else if (carMake === 'maserati') {
         return (
             <div>
-                <img src={maserati} alt='Maserati Logo'></img>
+                <img src={maserati} alt='Maserati Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         )
     } else if (carMake === 'mazda') {
         return (
             <div>
-                <img src={mazda} alt='Mazda Logo'></img>
+                <img src={mazda} alt='Mazda Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'mercedesbenz') {
         return (
             <div>
-                <img src={mercedesbenz} alt='Mercedes-Benz Logo'></img>
+                <img src={mercedesbenz} alt='Mercedes-Benz Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'mercury') {
         return (
             <div>
-                <img src={mercury} alt='Mercury Logo'></img>
+                <img src={mercury} alt='Mercury Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'mitsubishi') {
         return (
             <div>
-                <img src={mitsubishi} alt='Mitsubishi Logo'></img>
+                <img src={mitsubishi} alt='Mitsubishi Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'nissan') {
         return (
             <div>
-                <img src={nissan} alt='Nissan Logo'></img>
+                <img src={nissan} alt='Nissan Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'pontiac') {
         return (
             <div>
-                <img src={pontiac} alt='Pontiac Logo'></img>
+                <img src={pontiac} alt='Pontiac Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'porsche') {
         return (
             <div>
-                <img src={porsche} alt='Porsche Logo'></img>
+                <img src={porsche} alt='Porsche Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'rollsroyce') {
         return (
             <div>
-                <img src={rollsroyce} alt='Rolls Royce Logo'></img>
+                <img src={rollsroyce} alt='Rolls Royce Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'subaru') {
         return (
             <div>
-                <img src={subaru} alt='Subaru Logo'></img>
+                <img src={subaru} alt='Subaru Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'tesla') {
         return (
             <div>
-                <img src={tesla} alt='Tesla Logo'></img>
+                <img src={tesla} alt='Tesla Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'toyota') {
         return (
             <div>
-                <img src={toyota} alt='Toyota Logo'></img>
+                <img src={toyota} alt='Toyota Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'volkswagen') {
         return (
             <div>
-                <img src={volkswagen} alt='Volkswagen Logo'></img>
+                <img src={volkswagen} alt='Volkswagen Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         );
     } else if (carMake === 'volvo') {
         return (
             <div>
-                <img src={volvo} alt='Volvo Logo'></img>
+                <img src={volvo} alt='Volvo Logo' style={{ width: "40%", height: "40%"}}></img>
             </div>
         )
     };
