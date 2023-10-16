@@ -38,7 +38,7 @@ const cart = {
   zIndex: 1001,
   position: 'fixed',
   top: '88px',
-  right: '15px',
+  right: '2.65%',
 };
 
 function App() {

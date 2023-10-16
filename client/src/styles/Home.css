@@ -94,6 +94,12 @@ button[disabled] {
   cursor: not-allowed;
   color: #888;
 }
+
+.btn {
+  background-color: #252A34;
+  color: #EAEAEA;
+}
+
 h1 {
   color: #252a34;
   margin: 10px;
@@ -117,7 +123,7 @@ h1 {
 
 .noComplaints {
   border: 2px dashed #ff9800;
-  padding: 20px;
+  padding: 2%;
   text-align: center;
   margin: 15px 0;
   border-radius: 10px;
@@ -132,6 +138,7 @@ h1 {
   border-radius: 10px;
   background-color: #f4e869;
 }
+
 
 .noComplaints h2 {
   font-size: 24px;
