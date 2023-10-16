@@ -55,7 +55,6 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
 | [![Stripe](https://img.shields.io/badge/Stripe-13.8.0-008CDD?logo=stripe&style=plastic)](https://stripe.com/)| [![Stripe.js](https://img.shields.io/badge/Stripe.js-2.1.7-008CDD?logo=stripe&style=plastic)](https://stripe.com/docs/js)|
 | [![Redux](https://img.shields.io/badge/Redux-4.2.1-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://redux.js.org/)| [![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.9.6-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://redux-toolkit.js.org/) <br> [![React Redux](https://img.shields.io/badge/React%20Redux-8.1.3-764ABC?logo=redux&logoColor=764ABC&style=plastic)](https://react-redux.js.org/)|
 | [![webpack Package](https://img.shields.io/badge/Webpack-5.89.0-8DD6F9?logo=webpack&style=plastic)](https://webpack.js.org/)|[![workbox-core](https://img.shields.io/badge/workbox--core-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-core) <br> [![workbox-expiration](https://img.shields.io/badge/workbox--expiration-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-expiration) <br> [![workbox-precaching](https://img.shields.io/badge/workbox--precaching-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-precaching) <br> [![workbox-routing](https://img.shields.io/badge/workbox--routing-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-routing) <br> [![workbox-strategies](https://img.shields.io/badge/workbox--strategies-7.0.0-8DD6F9?logo=webpack&style=plastic)](https://www.npmjs.com/package/workbox-strategies) |
-| [![Babel Core](https://img.shields.io/badge/Babel%20Core-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-core)|[![Babel Preset React](https://img.shields.io/badge/Babel%20Preset%20React-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-preset-react) <br> [![Babel Preset Typescript](https://img.shields.io/badge/Babel%20Preset%20Typescript-7.17.0-F9DC3E?logo=babel&style=plastic)](https://babeljs.io/docs/en/babel-preset-typescript)|
 
 [_back to top_](#table-of-contents)
 
@@ -111,10 +110,10 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
    const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
    ```
 
-4. **`npm run build && npm run preview`**: Please run the following command in the `ROOT` directory to build and preview the application for production.
+4. **BUILD, SEED, PREVIEW**: Please run the following command in the `ROOT` directory to build, seed, preview the application for a production preview.
 
    ```powershell
-   npm run build && npm run preview
+   npm run build && npm run seed && npm run preview
    ```
 
 [_back to top_](#table-of-contents)
