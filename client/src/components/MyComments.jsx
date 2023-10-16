@@ -32,11 +32,13 @@ const MyComments = () => {
         <p className='text-center me-text'>My Replies:</p>
         <div className="d-flex justify-content-center">
           <div className='scrollable-content'>
-          <ul type="none" className='card list-group'>
+            <ul type="none" className='card list-group'>
               {user.comments?.map((comment) => (
                 <li key={comment._id} className='singleComplaint shadow text-center'>
-                  <p className='author'>{comment.author}</p>
-                  <p className='commText'>{comment.text}</p>
+
+                  <p className="complaintText">You replied to "{comment.complaint.text}" :</p>
+                  <p className='commText'>"{comment.text}"</p>
+                  <p className='carInfo'>on {comment.complaint.car.year} {comment.complaint.car.make} {comment.complaint.car.model}</p>
                   <p className='dateText'>{comment.createdAt}</p>
                   <RemoveCommentButton commentId={comment._id} />
                 </li>

@@ -91,6 +91,16 @@ export const GET_ME = gql`
         text
         author
         createdAt
+        complaint{
+          _id
+          text
+          car {
+            _id
+            make
+            model
+            year
+          }
+        }
       }
       complaints {
         _id
