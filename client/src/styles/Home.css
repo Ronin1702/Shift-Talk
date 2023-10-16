@@ -11,6 +11,8 @@
   display: flex;
   justify-content: start;
   margin-left: 25px;
+  
+
 }
 
 .dateText {
@@ -72,6 +74,9 @@ input {
 
 .mePage {
   color: #252a34;
+  background-color: #E0E0E0;
+  border-radius: 25px;
+  
 }
 
 button {
