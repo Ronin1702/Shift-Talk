@@ -217,6 +217,13 @@ input:focus {
   border-radius: 15px;
 }
 
+.logo {
+  width: 30%;
+  margin-left: 80px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .card p {
   overflow: hidden;
   text-overflow: ellipsis;
