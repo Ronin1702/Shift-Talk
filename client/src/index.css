@@ -7,6 +7,7 @@
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
+  background-color: #252A34;
 }
 
 * {
@@ -217,11 +218,16 @@ input:focus {
   border-radius: 15px;
 }
 
+.logo {
+  width: 30%;
+  margin-left: 80px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .card p {
-  max-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--secondary);
 }
 
 .card button {
@@ -250,8 +256,8 @@ input:focus {
 .me-text {
   background: linear-gradient(
     to right, 
-    hsl(0, 100%, 58%), 
-    hsl(44, 100%, 50%)
+    hsl(345, 100%, 59%), 
+    hsl(55, 86%, 68%)
   );
   font-weight: 800;
   -webkit-background-clip: text;

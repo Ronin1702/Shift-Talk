@@ -10,8 +10,9 @@
   font-size: 16px;
   display: flex;
   justify-content: start;
-  margin: 5px;
   margin-left: 25px;
+  
+
 }
 
 .dateText {
@@ -62,12 +63,20 @@ input {
 }
 
 .singleComplaint {
+  border: 2px dashed #ff9800;
   color: #252a34;
-  background-color: #eaeaea;
+  background-color: #fff3e0;
   border-radius: 10px;
   margin: 10px;
   padding: 5px;
   width: 250px;
+}
+
+.mePage {
+  color: #252a34;
+  background-color: #E0E0E0;
+  border-radius: 25px;
+  
 }
 
 button {
@@ -90,6 +99,12 @@ button[disabled] {
   cursor: not-allowed;
   color: #888;
 }
+
+.btn {
+  background-color: #252A34;
+  color: #EAEAEA;
+}
+
 h1 {
   color: #252a34;
   margin: 10px;
@@ -113,12 +128,22 @@ h1 {
 
 .noComplaints {
   border: 2px dashed #ff9800;
-  padding: 20px;
+  padding: 2%;
   text-align: center;
   margin: 15px 0;
   border-radius: 10px;
   background-color: #fff3e0;
 }
+
+.noReplies {
+  border: 2px dashed #ff9800;
+  padding: 20px;
+  text-align: center;
+  margin: 15px 0;
+  border-radius: 10px;
+  background-color: #f4e869;
+}
+
 
 .noComplaints h2 {
   font-size: 24px;

@@ -77,10 +77,10 @@ const ComplaintResults = ({ carData, complaintId }) => {
                 </div>
               )}
 
-              <Col className='reply-button'>
+              <Col>
                 <button
                   onClick={() => handleToggleComments(complaint._id)}
-                  className='btn btn-outline-info btn-lg'
+                  className='btn btn-outline-secondary btn-lg'
                 >
                   View Replies
                 </button>

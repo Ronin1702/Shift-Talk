@@ -4,6 +4,7 @@ import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import RemoveComplaintButton from '../components/removeComplaint';
 import '../styles/Home.css';
+import MakeLogo from './MakeLogo';
 
 const MyComplaint = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -33,17 +34,23 @@ const MyComplaint = () => {
           <ul type="none" className='card list-group'>
             {user.complaints.map((complaint) => (
               <li key={complaint._id} className='singleComplaint shadow text-center'>
-                <p className='text-secondary'>
+                <div className="logo">
+                  <MakeLogo  carMake={complaint.car.make} />
+                </div>
+                <br/>
+                <p className='mePage'>
                   Make:{' '}
-                  <span className='text-warning'>{complaint.car.make}</span>{' '}
+                  <span className='mePage'>{complaint.car.make}</span>{' '}
+                  <br/>
                   Model:{' '}
-                  <span className='text-warning'>{complaint.car.model}</span>{' '}
+                  <span className='mePage'>{complaint.car.model}</span>{' '}
+                  <br/>
                   Year:{' '}
-                  <span className='text-warning'>{complaint.car.year}</span>
+                  <span className='mePage mb-1'>{complaint.car.year}</span>
                 </p>
                 <div className='d-flex justify-content-center'>
                   {' '}
-                  <p className='commText'>{complaint.text}</p>
+                  <p className='commText fs-2'>{complaint.text}</p>
                   <p className='dateText'>{complaint.createdAt}</p>
                 </div>
 
