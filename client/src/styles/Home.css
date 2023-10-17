@@ -15,6 +15,15 @@
 
 }
 
+.repText {
+  font-size: 16px;
+  display: flex;
+  justify-content: start;
+  margin-left: 25px;
+  padding-top: 15px;
+  font-style: italic;
+}
+
 .dateText {
   font-size: 14px;
   display: flex;
@@ -71,6 +80,7 @@ input {
   padding: 5px;
   width: 250px;
 }
+
 
 .mePage {
   color: #252a34;
@@ -136,12 +146,12 @@ h1 {
 }
 
 .noReplies {
-  border: 2px dashed #ff9800;
+  border: 2px dashed #000000;
   padding: 20px;
   text-align: center;
   margin: 15px 0;
   border-radius: 10px;
-  background-color: #f4e869;
+  background-color: #cfcfcf;
 }
 
 
@@ -149,6 +159,8 @@ h1 {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+
 
 .noComplaints p {
   font-size: 18px;
@@ -185,6 +197,12 @@ h1 {
 @media screen and (max-width: 1441px) {
   form {
     padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 1276px) {
+  .singleComplaint {
+    width: 450px;
   }
 }
 

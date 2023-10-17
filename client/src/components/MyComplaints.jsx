@@ -38,6 +38,7 @@ const MyComplaint = () => {
                   <MakeLogo  carMake={complaint.car.make} />
                 </div>
                 <br/>
+                <hr></hr>
                 <p className='mePage'>
                   Make:{' '}
                   <span className='mePage'>{complaint.car.make}</span>{' '}
@@ -48,6 +49,7 @@ const MyComplaint = () => {
                   Year:{' '}
                   <span className='mePage mb-1'>{complaint.car.year}</span>
                 </p>
+                <hr></hr>
                 <div className='d-flex justify-content-center'>
                   {' '}
                   <p className='commText fs-2'>{complaint.text}</p>

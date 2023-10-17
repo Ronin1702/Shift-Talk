@@ -221,8 +221,22 @@ input:focus {
 .logo {
   width: 30%;
   margin-left: 80px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  margin-bottom: -30px;
+  padding-top: 5px;
+}
+
+.commLogo  {
+  width: 20%;
+  margin-left: 175px;
+  margin-top: -20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+
+.replybg {
+  background-color: #E0E0E0;
+  border-radius: 25px;
 }
 
 .card p {
@@ -308,5 +322,22 @@ input:focus {
 @media screen and (max-width: 389px) {
   .outlet-container {
     padding-top: 25%;
+  }
+}
+
+@media screen and (min-width: 1276px) {
+  .logo {
+    margin-left: 150px;
+    margin-bottom: -30px;
+  }
+}
+
+@media screen and (max-width: 1275px) {
+  .commLogo {
+    width: 20%;
+    margin-left: 90px;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    padding-top: 5px;
   }
 }
