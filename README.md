@@ -1,10 +1,10 @@
 # 🏁 SHIFT 🗣️ TALK [![MIT](https://img.shields.io/static/v1.svg?label=📃%20License&message=MIT&color=important&&style=plastic)](./LICENSE)
 
-**Shift Talk** is a automobile enthusiasts social website where a user can create an account, login, and post about about their favorite or _least_ favorite cars. The user can also view other users posts and comment on them. The user can also delete their own posts and comments.
+**Shift Talk** is an automobile enthusiasts social website where a user can create an account, login, and post about about their favorite or _least_ favorite cars. The user can also view other users posts and comment on them. The user can also delete their own posts and comments.
 
 **Shift Talk** also offers a _Pro Shop_ where a registered user can purchase merchandise, donate, or hire a Pro. The user can also view their order history.
 
-This app is also deployed on _[Heroku](https://https://t1p3-4fd94440c532.herokuapp.com//)_ as [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-©️%20TEAM%20🏁%20ONE-yellow?logo=heroku&logoColor=430098&style=plastic)](https://t1p3-4fd94440c532.herokuapp.com/)
+This app is also deployed to _[Heroku](https://https://t1p3-4fd94440c532.herokuapp.com//)_ on [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-©️%20TEAM%20🏁%20ONE-yellow?logo=heroku&logoColor=430098&style=plastic)](https://t1p3-4fd94440c532.herokuapp.com/)
 
 ## Table of Contents
 
@@ -99,7 +99,7 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
    > Deploying to Heroku you will need to add these environmental variables to the Heroku Config Vars as well.
 
    ```javascript
-   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<collection-name>;
+   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.<projectCode>.mongodb.net/<collection-name>;
    SECRET=<SECRET-TO-JWT>;
    STRIPE_SECRET_KEY=<Your_own_test_key_or_use_this_one:sk_test_4eC39HqLyjWDarjtT1zdp7dc>;
    ```
@@ -131,7 +131,7 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
   ```javascript
   GIVEN the Shift Talk platform for automobile enthusiasts
   WHEN I first visit the site
-  THEN I see HOME, Login, Signup on the navbar and a search bar for cars.
+  THEN I see HOME, Login, Signup on the navbar and a search bar for cars. As well as a PWA download option next to the URL input bar in your browser.
 
   WHEN I search for a car using make, model, and year and hit Search
   THEN I see an Add Comment button, the ability to view existing comments, or a message incentivizing to be the first to comment.
@@ -168,13 +168,16 @@ SO THAT I can engage with like-minded individuals and have the option to hire pr
   AFTER a successful transaction on Stripe
   THEN I am redirected back to Success page and subsequently to my View Orders.
 
-  WHEN I am done with the platform
+  WHEN I am want to keep working on the platform offline
+  THEN I can download/open the app by clicking on the PWA download/open button in the URL input box.
+
+  WHEN I am done with the platform and decide to log out
   THEN I can securely log out.
   ```
 
 ### Stripe Test
 
-If you would like to test the stripe payment, feel free to use the following [testing credit card numbers](https://stripe.com/docs/testing?testing-method=card-numbers) provided by [Stripe Docs](https://stripe.com/docs) with any future date and any 3 digit CVC code (4 for American Express).
+If you would like to test the Stripe payment, feel free to use the following [testing credit card numbers](https://stripe.com/docs/testing?testing-method=card-numbers) provided by [Stripe Docs](https://stripe.com/docs) with any future date and any 3 digit CVC code (4 for American Express).
 
 ![Visa](https://img.shields.io/badge/4242%204242%204242%204242-gray?labelColor=1A1F71&color=gray&logo=visa&style=plastic)
 ![Master](https://img.shields.io/badge/5555%205555%205555%204444-gray?labelColor=EB001B&color=gray&logo=mastercard&style=plastic)

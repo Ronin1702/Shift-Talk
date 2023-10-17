@@ -7,10 +7,11 @@ import UpdateProfile from '../components/UpdateMe';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+import spinner from '../assets/spinner.gif';
 
 const Me = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
-  const { data } = useQuery(GET_ME, {
+  const { loading, data } = useQuery(GET_ME, {
     context: {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -18,6 +19,13 @@ const Me = () => {
     },
   });
   const user = data?.me || {};
+
+  if (loading)
+    return (
+      <Container fluid className='pt-4 text-center'>
+        <img src={spinner}></img>
+      </Container>
+    );
 
   return (
     <Container className='my-2'>
