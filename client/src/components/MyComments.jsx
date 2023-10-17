@@ -4,6 +4,7 @@ import { GET_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import RemoveCommentButton from "./removeComment";
 import '../styles/Home.css';
+import MakeLogo from "./MakeLogo";
 
 const MyComments = () => {
   const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -36,10 +37,18 @@ const MyComments = () => {
               {user.comments?.map((comment) => (
                 <li key={comment._id} className='singleComplaint shadow text-center'>
 
-                  <p className="complaintText">You replied to "{comment.complaint.text}" :</p>
-                  <p className='commText'>"{comment.text}"</p>
-                  <p className='carInfo'>on {comment.complaint.car.year} {comment.complaint.car.make} {comment.complaint.car.model}</p>
+
+                  <p className='repText'>- "{comment.text}"</p>
                   <p className='dateText'>{comment.createdAt}</p>
+
+                  <hr></hr>
+                  <div className="replybg">
+                  <p className="complaintText"> replied to: 
+                  <br/>"{comment.complaint.text}" 
+                  <br/>from:</p>
+                  <p className='carInfo'>{comment.complaint.car.year} </p>
+                  <p className="commLogo"><MakeLogo carMake={comment.complaint.car.make} /> {comment.complaint.car.model}</p>
+                  </div>
                   <RemoveCommentButton commentId={comment._id} />
                 </li>
               ))}
