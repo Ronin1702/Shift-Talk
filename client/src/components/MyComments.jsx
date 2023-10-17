@@ -43,11 +43,12 @@ const MyComments = () => {
 
                   <hr></hr>
                   <div className="replybg">
-                  <p className="complaintText"> replied to: 
-                  <br/>"{comment.complaint.text}" 
-                  <br/>from:</p>
-                  <p className='carInfo'>{comment.complaint.car.year} </p>
-                  <p className="commLogo"><MakeLogo carMake={comment.complaint.car.make} /> {comment.complaint.car.model}</p>
+                    <p className="complaintText"> replied to:
+                      <br />"{comment.complaint.text}"
+                      <br />from:</p>
+                    <p className='carInfo'>{comment.complaint.car.year} </p>
+                    <p className="commLogo"><MakeLogo carMake={comment.complaint.car.make} /></p>
+                    <p className="commMake"> {comment.complaint.car.model}</p>
                   </div>
                   <RemoveCommentButton commentId={comment._id} />
                 </li>
