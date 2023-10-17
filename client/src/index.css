@@ -225,13 +225,16 @@ input:focus {
   padding-top: 5px;
 }
 
-.commLogo  {
+.commLogo {
   width: 20%;
   margin-left: 175px;
-  margin-top: -20px;
+  margin-top: -10px;
   padding-top: 5px;
-  padding-bottom: 5px;
 
+}
+
+.commMake {
+  padding-bottom: 5px;
 }
 
 .replybg {
@@ -268,11 +271,9 @@ input:focus {
 }
 
 .me-text {
-  background: linear-gradient(
-    to right, 
-    hsl(345, 100%, 59%), 
-    hsl(55, 86%, 68%)
-  );
+  background: linear-gradient(to right,
+      hsl(345, 100%, 59%),
+      hsl(55, 86%, 68%));
   font-weight: 800;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -284,7 +285,7 @@ input:focus {
   place-content: center;
   font-family: system-ui;
   font-size: min(200%, 8vmin);
-  }
+}
 
 @media screen and (max-width: 768px) {
   .card {
@@ -298,7 +299,7 @@ input:focus {
   z-index: 999;
   background-color: #219C90;
   flex-grow: 1;
-  min-height:82vh;
+  min-height: 82vh;
   /* background-position: center; */
   /* background-size: cover; */
 }
@@ -313,7 +314,8 @@ input:focus {
   .outlet-container {
     padding-top: 15%;
   }
-  .me-text{
+
+  .me-text {
     margin-top: 5%;
   }
 }
