@@ -195,7 +195,7 @@ If you would like to test the Stripe payment, feel free to use the following [te
 
 [![Tweet about this](https://img.shields.io/static/v1.svg?label=Tweet%20about%20this&message=🎵&color=blue&logo=twitter&style=social)](https://twitter.com/intent/tweet?text=Check%20out%20this%20Shift%20Talk%20App%20on%20Heroku:%20https://t1p3-4fd94440c532.herokuapp.com/)
 
-- GitHub Repo : [![GitHub Repo](https://img.shields.io/static/v1.svg?label=Shift%20Talk&message=TEAM%20🏁%20ONE&color=informational&logo=github&logoColor=181717&style=plastic)](https://github.com/Ronin1702/project3)
+- GitHub Repo : [![GitHub Repo](https://img.shields.io/static/v1.svg?label=Shift%20Talk&message=TEAM%20🏁%20ONE&color=informational&logo=github&logoColor=181717&style=plastic)](https://github.com/Ronin1702/Shift-Talk)
 
 - Heroku Deployed Link : [![Shift Talk](https://img.shields.io/badge/Shift%20Talk%20-TEAM%20🏁%20ONE-yellow?logo=heroku&logoColor=430098&style=plastic)](https://t1p3-4fd94440c532.herokuapp.com/)
 
