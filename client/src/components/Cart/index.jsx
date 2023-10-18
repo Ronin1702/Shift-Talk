@@ -78,9 +78,10 @@ const Cart = () => {
       <div className='close text-end' onClick={toggleCart}>
         ❌
       </div>
-      <h2>🏁🛒📝</h2>
+      <h2>Cart</h2>
+      <h3>🏁🛒📝</h3>
       {cartItems.length ? (
-        <div>
+        <div className="cart-items-container">
           {cartItems.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
