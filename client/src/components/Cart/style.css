@@ -61,6 +61,6 @@
 }
 
 .cart-items-container {
-  max-height: 350px;
+  max-height: 50vh;
   overflow-y: auto;
 }
