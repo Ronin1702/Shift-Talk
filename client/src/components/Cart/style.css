@@ -11,7 +11,7 @@
   font-size: 1.5rem;
   border-bottom: 1px solid var(--dark);
   padding-bottom: .5rem;
-  margin: 1rem 0;
+  margin: 0;
   text-align: center;
 }
 
@@ -61,6 +61,6 @@
 }
 
 .cart-items-container {
-  max-height: 60vh;
-  overflow-y: scroll;
+  max-height: 350px;
+  overflow-y: auto;
 }
